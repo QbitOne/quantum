@@ -278,7 +278,7 @@ if (!function_exists('quantum_custom_login_css')) {
             'quantum-login-style',
             get_stylesheet_uri() . '/assets/css/login.css',
             array(),
-            QUANTUM_THEME_VERSION,
+            QUANTUM_VERSION,
         );
     }
     add_action('login_enqueue_scripts', 'quantum_custom_login_css');
