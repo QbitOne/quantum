@@ -12,7 +12,7 @@
 if (!defined('ABSPATH')) exit;
 
 if (!defined('QUANTUM_VERSION')) {
-    define('QUANTUM_VERSION', '2.0.0');
+    define('QUANTUM_VERSION', '2.0.1');
 }
 
 if (!function_exists('quantum_setup')) :
