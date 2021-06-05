@@ -97,7 +97,7 @@ if (!function_exists('the_quantum_abbr')) {
 
     function the_quantum_abbr($abbr = ''): void
     {
-        echo get_abbr($abbr);
+        echo get_quantum_abbr($abbr);
     }
 }
 

@@ -12,8 +12,7 @@
 if (!defined('ABSPATH')) exit;
 
 if (!defined('QUANTUM_VERSION')) {
-    // Replace the version number of the theme on each release.
-    define('QUANTUM_VERSION', '2.0.0');
+    define('QUANTUM_VERSION', '2.0.1');
 }
 
 if (!function_exists('quantum_setup')) :
@@ -278,7 +277,7 @@ if (!function_exists('quantum_custom_login_css')) {
             'quantum-login-style',
             get_stylesheet_uri() . '/assets/css/login.css',
             array(),
-            QUANTUM_THEME_VERSION,
+            QUANTUM_VERSION,
         );
     }
     add_action('login_enqueue_scripts', 'quantum_custom_login_css');
