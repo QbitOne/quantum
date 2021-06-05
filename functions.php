@@ -12,7 +12,6 @@
 if (!defined('ABSPATH')) exit;
 
 if (!defined('QUANTUM_VERSION')) {
-    // Replace the version number of the theme on each release.
     define('QUANTUM_VERSION', '2.0.0');
 }
 
