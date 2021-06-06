@@ -21,7 +21,7 @@ if (!function_exists('quantum_action_wp_enqueue_scripts')) {
         wp_enqueue_style(
             'quantum-style',
             // TODO find the right path
-            get_template_directory_uri() . 'assets/css/minified/style.min.css',
+            get_template_directory_uri() . '/assets/css/minified/style.min.css',
             array(),
             QUANTUM_THEME_VERSION
         );
@@ -30,7 +30,7 @@ if (!function_exists('quantum_action_wp_enqueue_scripts')) {
         wp_enqueue_script(
             'quantum-navigation',
             // TODO find the right path
-            get_template_directory_uri() . 'assets//js/navigation.js',
+            get_template_directory_uri() . '/assets/js/navigation.js',
             array(),
             QUANTUM_THEME_VERSION,
             false
