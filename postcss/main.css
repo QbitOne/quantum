@@ -3,7 +3,9 @@ This is the main style file for the Quantum Theme.
 Using gulp with postcss to create the theme style.
 */
 
-@import 'generic/_normalize';
+@import 'base/_normalize';
+@import 'base/_reset';
+@import 'base/_typography';
 
 body {
 	background: #eee;
