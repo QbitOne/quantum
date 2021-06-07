@@ -98,6 +98,6 @@ function runServer() {
 	});
 }
 
-exports.compilecss = compileCSS;
+exports.compilecss = series(style, compileCSS);
 exports.compilejs = compileJS;
 exports.serve = runServer;
