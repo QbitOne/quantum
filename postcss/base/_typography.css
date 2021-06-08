@@ -1,27 +1,39 @@
 html {
-	font-size: clamp(18px, 100%, 21px);
+	/*
+	Asuming a default root font-size of 16px by browsers 
+	the Quantum Theme using 1rem as 10px 
+	*/
+	font-size: 62.5%;
+	font-family: sans-serif;
 }
 
 p {
-	font-size: 1rem;
+	/* 18px */
+	font-size: 1.8rem;
 	line-height: 1.5;
 }
 
 h1 {
-	font-size: 2.22rem;
+	/* 40px */
+	font-size: 4rem;
 }
 h2 {
-	font-size: 2rem;
+	/* 32px */
+	font-size: 3.2rem;
 }
 h3 {
-	font-size: 1.44rem;
+	/* 26px */
+	font-size: 2.6rem;
 }
 h4 {
-	font-size: 1.22rem;
+	/* 22px */
+	font-size: 2.2rem;
 }
 h5 {
-	font-size: 1.11rem;
+	/* 20px */
+	font-size: 2rem;
 }
 h6 {
-	font-size: 1rem;
+	/* 20px */
+	font-size: 2rem;
 }
