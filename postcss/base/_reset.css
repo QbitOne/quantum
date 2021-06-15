@@ -1,4 +1,7 @@
-/* Source: https://elad.medium.com/normalize-css-or-css-reset-9d75175c5d1e */
+/* Source: https://elad.medium.com/normalize-css-or-css-reset-9d75175c5d1e 
+ *
+ * Customized by Michael Geyer for Quantum Theme
+ */
 
 *,
 *::before,
@@ -30,7 +33,8 @@ ol,
 dd {
 	margin: 0;
 	padding: 0;
-	list-style: none;
+	/* items properly aligned with parent element */
+	list-style-position: inside;
 }
 h1,
 h2,
@@ -52,4 +56,9 @@ fieldset {
 	border-width: 0;
 	padding: 0;
 	margin: 0;
+}
+
+nav li {
+	/* no list-style for list-items inside a nav */
+	list-style: none;
 }
