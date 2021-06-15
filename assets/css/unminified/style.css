@@ -216,7 +216,7 @@ ol,
 dd{
 	margin:0;
 	padding:0;
-	list-style:none;
+	list-style-position:inside;
 }
 
 h1,
@@ -244,12 +244,16 @@ fieldset{
 	margin:0;
 }
 
+nav li{
+	list-style:none;
+}
+
 html{
 	font-size:62.5%;
 	font-family:sans-serif;
 }
 
-p{
+*{
 	font-size:1.8rem;
 	line-height:1.5;
 }
