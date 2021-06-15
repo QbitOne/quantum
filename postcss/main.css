@@ -6,6 +6,7 @@ Using gulp with postcss to create the theme style.
 @import 'base/_normalize';
 @import 'base/_reset';
 @import 'base/_typography';
+@import 'base/_general';
 
 body {
 	background: #eee;

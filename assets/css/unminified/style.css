@@ -213,10 +213,10 @@ input::-moz-focus-inner{
 
 ul,
 ol,
-dd{
+dl{
 	margin:0;
 	padding:0;
-	list-style-position:inside;
+	list-style:none;
 }
 
 h1,
@@ -242,10 +242,6 @@ fieldset{
 	border-width:0;
 	padding:0;
 	margin:0;
-}
-
-nav li{
-	list-style:none;
 }
 
 html{
@@ -281,6 +277,36 @@ h5{
 h6{
 	font-size:2rem;
 }
+
+ul,
+ol{
+	list-style:disc inside;
+}
+
+nav li{
+	list-style:none;
+}
+
+dt{
+	font-weight:bold;
+}
+
+dd{
+	margin:0;
+	padding:0 0 0.5em 1em;
+}
+
+address{
+	font-style:normal;
+}
+
+a{
+	text-decoration:underline;
+}
+
+a:hover{
+		fcursor:pointer;
+	}
 
 body{
 	background:#eee;
