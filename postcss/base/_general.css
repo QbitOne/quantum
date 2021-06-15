@@ -29,6 +29,7 @@ address {
 	font-style: normal;
 }
 
+/* set default link style  */
 a {
 	text-decoration: underline;
 
