@@ -11,9 +11,12 @@
 // Exit if accessed directly.
 if (!defined('ABSPATH')) exit;
 
-if (!defined('QUANTUM_VERSION')) {
-    define('QUANTUM_VERSION', '2.0.1');
-}
+
+define('QUANTUM_THEME_VERSION', '2.0.1');
+define('QUANTUM_THEME_SETTINGS', 'quantum-settings');
+define('QUANTUM_THEME_DIR', trailingslashit(get_template_directory()));
+define('QUANTUM_THEME_URI', trailingslashit(esc_url(get_template_directory_uri())));
+
 
 if (!function_exists('quantum_setup')) :
     /**
@@ -193,52 +196,10 @@ function quantum_widgets_init()
 }
 add_action('widgets_init', 'quantum_widgets_init');
 
-/**
- * Enqueue scripts and styles.
- */
-function quantum_scripts()
-{
-    wp_enqueue_style(
-        'quantum-style',
-        get_stylesheet_uri(),
-        array(),
-        QUANTUM_VERSION
-    );
-    wp_style_add_data('quantum-style', 'rtl', 'replace');
-
-    wp_enqueue_script(
-        'quantum-navigation',
-        get_template_directory_uri() . '/js/navigation.js',
-        array(),
-        QUANTUM_VERSION,
-        false
-    );
-    wp_script_add_data('quantum-navigation', 'defer', true);
-
-    if (is_singular() && comments_open() && get_option('thread_comments')) {
-        wp_enqueue_script('comment-reply');
-    }
-}
-add_action('wp_enqueue_scripts', 'quantum_scripts');
 
 
 
-add_filter('script_loader_tag', 'quantum_modify_script_tag', 10, 3);
-/**
- * Filters the HTML script tag of an enqueued script.
- *
- * @param   string $tag     The script tag for the enqueued script.
- * @param   string $handle  The script's registered handle.
- * @param   string $src     The script's source URL.
- * @return  string          The script tag for the enqueued script.
- */
-function quantum_modify_script_tag(string $tag, string $handle, string $src): string
-{
-    if ('quantum-navigation' === $handle) {
-        $tag = '<script src="' . esc_url($src) . '" id="' . $handle . '" defer></script>';
-    }
-    return $tag;
-}
+
 
 /**
  * Change the URL for the Login Page Logo
@@ -265,40 +226,7 @@ if (!function_exists('quantum_login_logo_url')) {
 // }
 
 
-/**
- * Include custom CSS file into WP login page
- * @link    https://codex.wordpress.org/Customizing_the_Login_Form
- */
-if (!function_exists('quantum_custom_login_css')) {
 
-    function quantum_custom_login_css()
-    {
-        wp_enqueue_style(
-            'quantum-login-style',
-            get_stylesheet_uri() . '/assets/css/login.css',
-            array(),
-            QUANTUM_VERSION,
-        );
-    }
-    add_action('login_enqueue_scripts', 'quantum_custom_login_css');
-}
-
-
-/**
- * Include custom css file into WP admin page
- */
-// if ( ! function_exists( 'quantum_custom_admin_css' ) ) {
-
-// 	function quantum_custom_admin_css() {
-
-// 		wp_enqueue_style( 'quantum-admin-style',
-// 			get_template_directory_uri() . '/assets/css/admin.css',
-// 			array(),
-// 			QUANTUM_THEME_VERSION,
-// 		);
-// 	}
-//     add_action( 'admin_enqueue_scripts', 'quantum_custom_admin_css' );
-// }
 
 
 
@@ -482,4 +410,9 @@ require get_template_directory() . '/inc/template-functions.php';
 /**
  * Core Function of this theme
  */
-require get_template_directory() . '/inc/core/functions.php';
+require get_template_directory() . '/inc/core/core-functions.php';
+
+/**
+ * Enqueue Theme Scripts
+ */
+require get_template_directory() . '/inc/core/enqueue-scripts.php';

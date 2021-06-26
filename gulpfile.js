@@ -24,7 +24,7 @@ const concat = require('gulp-concat');
 
 function style() {
 	return gulp
-		.src('./style/main.css')
+		.src('./postcss/main.css')
 		.pipe(
 			postcss([
 				postcssPreEnv,
@@ -91,13 +91,13 @@ function compileJS() {
 }
 
 function runServer() {
-	watch('./style/*.css', series(style, compileCSS));
+	watch('./postcss/**/*.css', series(style, compileCSS));
 	browserSync.init({
 		proxy: 'http://localhost:8888/wp-local-quantum/',
 		browser: 'google chrome',
 	});
 }
 
-exports.compilecss = compileCSS;
+exports.compilecss = series(style, compileCSS);
 exports.compilejs = compileJS;
 exports.serve = runServer;
