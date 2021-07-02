@@ -1,0 +1,33 @@
+# Name of the Action
+name: SFTP DEPLOY
+
+# Controls when the action will run.
+on:
+  # Triggers the workflow on push only for the master branch
+  push:
+    branches: [master]
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+# The workflow
+# we are using FTP DEPLOY v3.1.1
+# see https://github.com/marketplace/actions/ftp-deploy?version=3.1.1
+# use the .git-ftp-ignore file to exlude files from deployment (eg. .git, .github/* and .git-ftp-ignore itself)
+jobs:
+  FTP-Deploy-Action:
+    name: FTP-Deploy-Action
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2.1.0
+        with:
+          fetch-depth: 2
+
+      - name: FTP-Deploy-Action
+        uses: SamKirkland/FTP-Deploy-Action@3.1.1
+        with: # use github secrets for the params SERVER, USERNAME and PASSWORD
+          ftp-server: ${{ secrets.SERVER }} # for Mittwald using sftp://pXXXXXX.mittwaldserver.info:22
+          ftp-username: ${{ secrets.USERNAME }} # create custom sftp account
+          ftp-password: ${{ secrets.PASSWORD }} # set special password for custom sftp account
+          local-dir: ./ # set local directory for deployment
+          git-ftp-args: --insecure # if your certificate is setup correctly this can be removed (see known-hosts argument)
