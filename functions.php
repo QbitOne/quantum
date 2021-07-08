@@ -416,3 +416,9 @@ require get_template_directory() . '/inc/core/core-functions.php';
  * Enqueue Theme Scripts
  */
 require get_template_directory() . '/inc/core/enqueue-scripts.php';
+
+
+/**
+ * Enqueue the Button Template
+ */
+require get_template_directory() . '/template-parts/button.php';
