@@ -30,7 +30,8 @@ if (!function_exists('quantum_action_wp_enqueue_scripts')) {
         wp_enqueue_script(
             'quantum-navigation',
             // TODO find the right path
-            get_template_directory_uri() . '/assets/js/navigation.js',
+            // TODO @Andreas - enqueue the js bundle here. So rename 'quantum-navigation', please.
+            get_template_directory_uri() . '/assets/js/bundle.min.js',
             array(),
             QUANTUM_THEME_VERSION,
             false
