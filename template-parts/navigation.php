@@ -5,21 +5,6 @@
  */
 ?>
 
-<!-- <nav id="site-navigation" class="main-navigation">
-    <button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php // esc_html_e('Primary Menu', 'quantum');
-                                                                                    ?></button>
-    <?php
-    // wp_nav_menu(
-    //     array(
-    //         'theme_location' => 'primary-menu',
-    //         'menu_id'        => 'primary-menu',
-    //     )
-    // );
-    ?>
-</nav> -->
-<!-- #site-navigation -->
-
-
 <!-- Navigation -->
 <div class="site-header__inner__nav">
     <nav id="site-navigation">
@@ -30,7 +15,7 @@
             array(
                 'theme_location'    => 'primary_menu',
                 'menu_id'           => 'primary_menu',
-                'fallback_cb'       => 'quantum_no_webpage_selected',
+                'fallback_cb'       => 'quantum_no_webpage_selected', // Fallback if now webapge is selected in this menu
             )
         );
         ?>
