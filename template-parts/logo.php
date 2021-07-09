@@ -34,11 +34,8 @@
 <!-- .site-branding -->
 
 
-<!-- linking logo to the homepage -->
 <div class="site-header__inner__branding">
     <a href="<?php echo esc_url(home_url('/')) ?>" rel="home">
-        <?php //the_custom_logo();
-        ?>
         <img class="site-header__inner__branding__logo" src="<?php echo esc_url(get_template_directory_uri()) ?>/assets/img/logo-sgdettingen.png" alt="Logo der SG Dettingen">
     </a>
 </div>
