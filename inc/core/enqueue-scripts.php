@@ -33,7 +33,8 @@ if (!function_exists('quantum_action_wp_enqueue_scripts')) {
             get_template_directory_uri() . '/assets/js/bundle.min.js',
             array(),
             QUANTUM_THEME_VERSION,
-            false
+            // script has to be in footer, so $in_footer = true
+            true
         );
         // wp_script_add_data('quantum-navigation', 'defer', true);
 
