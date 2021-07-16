@@ -20,6 +20,8 @@
         );
         ?>
 
+        <?php do_action('quantum_header_navigation_extension'); ?>
+
     </nav>
 </div>
 
