@@ -24,6 +24,8 @@
 
 <body <?php body_class(); ?>>
     <?php wp_body_open(); ?>
+
+
     <div id="page" class="site">
 
         <?php
@@ -34,3 +36,5 @@
         <a class="skip-link screen-reader-text" href="#primary"><?php esc_html_e('Springe zum Inhalt', 'quantum'); ?></a>
 
         <?php get_template_part('template-parts/header'); ?>
+
+        <?php do_action('quantum_before_main'); ?>
