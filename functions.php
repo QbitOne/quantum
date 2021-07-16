@@ -422,3 +422,9 @@ require get_template_directory() . '/inc/core/enqueue-scripts.php';
  * Enqueue the Button Template
  */
 require get_template_directory() . '/template-parts/button.php';
+
+
+/**
+ * Enqueue utlility functions
+ */
+require get_template_directory() . '/inc/core/utility-functions.php';
