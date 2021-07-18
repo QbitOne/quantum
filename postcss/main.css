@@ -4,13 +4,15 @@ Using gulp with postcss to create the theme style.
 */
 
 /* BASE */
+@import 'base/_breakpoints';
+@import 'base/_colors';
 @import 'base/_normalize';
 @import 'base/_reset';
 @import 'base/_typography';
 @import 'base/_general';
 
 /* COMPONENTS */
-@import 'components/header/_site-header.css';
-@import 'components/main-nav/_site-nav.css';
-@import 'components/main-nav/_mobile-site-nav.css';
-@import 'components/main-nav/_mobile-site-nav-toggle.css';
+@import 'components/header/_site-header';
+@import 'components/main-nav/_site-nav';
+@import 'components/main-nav/_mobile-site-nav';
+@import 'components/main-nav/_mobile-site-nav-toggle';
