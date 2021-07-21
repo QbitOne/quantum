@@ -420,7 +420,7 @@ require QUANTUM_THEME_DIR . 'vendor/yahnis-elsts/plugin-update-checker/plugin-up
 $myUpdateChecker = Puc_v4_Factory::buildUpdateChecker(
     'http://qbitone.de/quantum.json',
     __FILE__, //Full path to the main plugin file or functions.php.
-    'unique-plugin-or-theme-slug'
+    'quantum'
 );
 
 
