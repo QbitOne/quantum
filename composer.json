@@ -31,14 +31,14 @@
       "name": "quantum",
       "exclude": [
           ".*",
+          "!vendor/",
           "node_modules/",
           "*.yml",
           "*.dist",
           "postcss/",
           "gulpfile.js",
           "*.json",
-          "*.lock",
-          "!vendor/"
+          "*.lock"
       ]
   }
 }
