@@ -25,7 +25,7 @@
     "require-dev": {
     },
     "scripts": {
-      "bundle": "composer archive --format=zip --dir=. --file=../quantum "
+      "bundle": "composer archive --format=zip --dir=. --file=../quantum"
     },
     "archive": {
       "name": "quantum",
