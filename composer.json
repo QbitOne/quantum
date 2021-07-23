@@ -38,7 +38,8 @@
           "postcss/",
           "gulpfile.js",
           "*.json",
-          "*.lock"
+          "*.lock",
+          "dist/"
       ]
   }
 }
