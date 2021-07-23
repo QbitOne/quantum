@@ -25,5 +25,20 @@
     "require-dev": {
     },
     "scripts": {
-    }
+      "bundle": "composer archive --format=zip --dir=. --file=../quantum "
+    },
+    "archive": {
+      "name": "quantum",
+      "exclude": [
+          ".*",
+          "node_modules/",
+          "*.yml",
+          "*.dist",
+          "postcss/",
+          "gulpfile.js",
+          "*.json",
+          "*.lock",
+          "!vendor/"
+      ]
+  }
 }
