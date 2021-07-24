@@ -12,7 +12,7 @@
 if (!defined('ABSPATH')) exit;
 
 
-define('QUANTUM_THEME_VERSION', '2.1.0');
+define('QUANTUM_THEME_VERSION', '2.2.0');
 define('QUANTUM_THEME_SETTINGS', 'quantum-settings');
 define('QUANTUM_THEME_DIR', trailingslashit(get_template_directory()));
 define('QUANTUM_THEME_URI', trailingslashit(esc_url(get_template_directory_uri())));
@@ -407,16 +407,6 @@ require get_template_directory() . '/inc/template-tags.php';
 require get_template_directory() . '/inc/template-functions.php';
 
 
-/**
- * Core Function of this theme
- */
-require get_template_directory() . '/inc/core/core-functions.php';
-
-/**
- * Enqueue Theme Scripts
- */
-require get_template_directory() . '/inc/core/enqueue-scripts.php';
-
 
 /**
  * Enqueue the Button Template
@@ -424,7 +414,18 @@ require get_template_directory() . '/inc/core/enqueue-scripts.php';
 require get_template_directory() . '/template-parts/button.php';
 
 
+
+require QUANTUM_THEME_DIR . 'vendor/yahnis-elsts/plugin-update-checker/plugin-update-checker.php';
+
+$myUpdateChecker = Puc_v4_Factory::buildUpdateChecker(
+    'http://qbitone.de/quantum.json',
+    __FILE__, //Full path to the main plugin file or functions.php.
+    'quantum'
+);
+
+
+
 /**
- * Enqueue utlility functions
+ * load all included files
  */
-require get_template_directory() . '/inc/core/utility-functions.php';
+require_once QUANTUM_THEME_DIR . 'inc/loader.php';

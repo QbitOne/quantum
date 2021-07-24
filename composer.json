@@ -23,14 +23,23 @@
         "yahnis-elsts/plugin-update-checker": "^4.11"
     },
     "require-dev": {
-        "dealerdirect/phpcodesniffer-composer-installer": "^0.7.0",
-        "wptrt/wpthemereview": "^0.2.1",
-        "php-parallel-lint/php-parallel-lint": "^1.2.0",
-        "wp-cli/i18n-command": "^2.2.5"
     },
     "scripts": {
-        "lint:wpcs": "@php ./vendor/squizlabs/php_codesniffer/bin/phpcs",
-        "lint:php": "@php ./vendor/bin/parallel-lint --exclude .git --exclude vendor .",
-        "make-pot": "wp i18n make-pot . languages/quantum.pot"
-    }
+      "bundle": "composer archive --format=zip --dir=. --file=../quantum"
+    },
+    "archive": {
+      "name": "quantum",
+      "exclude": [
+          ".*",
+          "!vendor/",
+          "node_modules/",
+          "*.yml",
+          "*.dist",
+          "postcss/",
+          "gulpfile.js",
+          "*.json",
+          "*.lock",
+          "dist/"
+      ]
+  }
 }

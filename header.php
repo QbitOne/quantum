@@ -38,3 +38,5 @@
         <?php get_template_part('template-parts/header'); ?>
 
         <?php do_action('quantum_before_main'); ?>
+
+        <main id="primary" class="site-main">

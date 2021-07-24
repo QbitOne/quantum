@@ -21,7 +21,7 @@
 		"compile:js": "gulp compilejs",
 		"lint:css": "wp-scripts lint-style './postcss/*.css'",
 		"lint:js": "wp-scripts lint-js './assets/js/*.js'",
-		"bundle": "dir-archiver --src . --dest ../quantum.zip --exclude .DS_Store .stylelintrc.json .eslintrc .git .gitattributes .github .gitignore README.md composer.json composer.lock node_modules vendor package-lock.json package.json .travis.yml phpcs.xml.dist gulpfile.js style"
+		"bundle": "dir-archiver --src . --dest ../quantum.zip --exclude .DS_Store .stylelintrc.json .eslintrc .git .gitattributes .github .gitignore README.md node_modules vendor package-lock.json package.json .travis.yml phpcs.xml.dist gulpfile.js postcss"
 	},
 	"devDependencies": {
 		"@wordpress/scripts": "^16.1.0",

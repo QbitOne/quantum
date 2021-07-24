@@ -1,4 +1,5 @@
 <?php
+
 /**
  * The template for displaying the footer
  *
@@ -10,6 +11,8 @@
  */
 
 ?>
+
+</main><!-- #main -->
 
 <footer id="footer" class="">
 
