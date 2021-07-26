@@ -34,12 +34,10 @@
         quantum_header_before();
 
         quantum_header();
-        get_template_part('template-parts/header');
 
         quantum_header_after();
 
         quantum_main_before();
-
         ?>
 
         <main id="primary" class="site-main">
