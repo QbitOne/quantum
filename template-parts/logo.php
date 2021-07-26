@@ -11,7 +11,7 @@ $logo_filename = apply_filters('quantum_logo_filename', '');
 $logo_alt = apply_filters('quantum_logo_alt', 'Logo');
 
 if ($logo_filename) {
-    $logo_path = esc_url(get_template_directory_uri()) . '/assets/img/ ' . $logo_filename;
+    $logo_path = esc_url(get_stylesheet_directory_uri() . '/assets/img/ ' . $logo_filename);
 } else {
     // use dummy image if no logo file is given
     $logo_path = 'https://via.placeholder.com/240x60.png?text=Logo';

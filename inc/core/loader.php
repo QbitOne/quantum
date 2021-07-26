@@ -37,3 +37,8 @@ require_once $path . 'utility-functions.php';
  */
 // TODO @Andreas hier erst einbinden wenn es über functions.php läuft (code muss dann noch etwas angepasst werden)
 // require_once $path . 'update-checker.php';
+
+/**
+ * All theme hooks
+ */
+require_once $path . 'theme-hooks.php';

@@ -5,3 +5,5 @@
  */
 
 require_once QUANTUM_THEME_DIR . 'inc/core/loader.php';
+
+require_once QUANTUM_THEME_DIR . 'inc/header/header.php';

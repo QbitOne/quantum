@@ -12,7 +12,7 @@
 
 ?>
 
-</main><!-- #main -->
+</main><!-- #primary -->
 
 <footer id="footer" class="">
 
