@@ -3,9 +3,9 @@
 /**
  * Main navigation for the Quantum Theme
  */
+
 ?>
 
-<!-- Navigation -->
 <div class="site-header__inner__nav">
     <nav id="site-navigation">
 
@@ -15,7 +15,7 @@
             array(
                 'theme_location'    => 'primary_menu',
                 'menu_id'           => 'primary_menu',
-                'fallback_cb'       => 'quantum_no_webpage_selected', // Fallback if now webapge is selected in this menu
+                'fallback_cb'       => 'quantum_no_webpage_selected', // Fallback if now webpage is selected in this menu
             )
         );
         ?>
@@ -25,7 +25,6 @@
     </nav>
 </div>
 
-<!-- Burger Button -->
 <div class="site-header__inner__mobile-btn">
     <button id="menu-toggle" class="mobile-menu-toggle" aria-controls="primary-menu" aria-expanded="false">
         <span id="burger-btn" class="mobile-menu-burger-btn"></span>
