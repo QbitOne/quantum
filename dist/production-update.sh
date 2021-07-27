@@ -25,7 +25,10 @@ then
     composer archive --format=zip --dir=. --file="$file"
     unzip "${file}.zip" -d "$file"
     rm -v "${file}.zip"
-    zip -r "${file}.zip" "$file"
+    (
+        cd "$path" || { echo "Failure - Wrong Directory Or Does Not Exist"; exit 1; }
+        zip -r "quantum.zip" "quantum"
+    )
     rm -r "$file"
     rsync -avhczP --stats "${file}.zip" "${file}.json" $user@$server:/html/wordpress/
     rm "${file}.zip"
