@@ -11,7 +11,7 @@
 # Uses rsync to update a .zip and .json file wich is required
 # for properly update the quantum theme in WP projects
 
-__VERSION__="0.1.0"
+__VERSION__="0.1.1"
 __FILENAME__="production-update.sh"
 
 user=p562944
