@@ -33,6 +33,8 @@
                 )
             );
             ?>
+
+            <?php do_action('quantum_header_navigation_mobile_extension'); ?>
         </nav>
     </div>
 
