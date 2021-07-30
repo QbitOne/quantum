@@ -11,7 +11,7 @@
 # Uses rsync to update a .zip and .json file wich is required
 # for properly update the quantum theme in WP projects
 
-__VERSION__="0.1.0"
+__VERSION__="0.1.1"
 __FILENAME__="production-update.sh"
 
 user=p562944
@@ -25,7 +25,10 @@ then
     composer archive --format=zip --dir=. --file="$file"
     unzip "${file}.zip" -d "$file"
     rm -v "${file}.zip"
-    zip -r "${file}.zip" "$file"
+    (
+        cd "$path" || { echo "Failure - Wrong Directory Or Does Not Exist"; exit 1; }
+        zip -r "quantum.zip" "quantum"
+    )
     rm -r "$file"
     rsync -avhczP --stats "${file}.zip" "${file}.json" $user@$server:/html/wordpress/
     rm "${file}.zip"
