@@ -414,14 +414,31 @@ require get_template_directory() . '/inc/template-functions.php';
 require get_template_directory() . '/template-parts/button.php';
 
 
+// TODO Ship the below vendor code in a separate directory
+$vendor_file = QUANTUM_THEME_DIR . 'vendor/yahnis-elsts/plugin-update-checker/plugin-update-checker.php';
 
-require QUANTUM_THEME_DIR . 'vendor/yahnis-elsts/plugin-update-checker/plugin-update-checker.php';
+if (file_exists($vendor_file)) {
 
-$myUpdateChecker = Puc_v4_Factory::buildUpdateChecker(
-    'http://qbitone.de/quantum.json',
-    __FILE__, //Full path to the main plugin file or functions.php.
-    'quantum'
-);
+    require $vendor_file;
+
+    $myUpdateChecker = Puc_v4_Factory::buildUpdateChecker(
+        'http://qbitone.de/quantum.json',
+        __FILE__, //Full path to the main plugin file or functions.php.
+        'quantum'
+    );
+} else {
+    add_action('admin_notices', 'sample_admin_notice__success');
+}
+
+function sample_admin_notice__success()
+{
+?>
+    <div class="notice notice-info is-dismissible">
+        <p>Composer ist nicht installiert!</p>
+    </div>
+<?php
+}
+
 
 
 
