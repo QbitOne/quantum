@@ -12,7 +12,7 @@
 if (!defined('ABSPATH')) exit;
 
 
-define('QUANTUM_THEME_VERSION', '2.2.3');
+define('QUANTUM_THEME_VERSION', '2.2.4');
 define('QUANTUM_THEME_SETTINGS', 'quantum-settings');
 define('QUANTUM_THEME_DIR', trailingslashit(get_template_directory()));
 define('QUANTUM_THEME_URI', trailingslashit(esc_url(get_template_directory_uri())));
@@ -386,13 +386,6 @@ function quantum_count_active_footer_sidebars(): int
         endif;
     }
     return $count;
-}
-
-
-function quantum_footer(): void
-{
-
-    get_template_part('template-parts/footer');
 }
 
 

@@ -5,11 +5,11 @@
  */
 
 
-if (!function_exists('header_html')) {
+if (!function_exists('quantum_header_html')) {
 
-    function header_html()
+    function quantum_header_html()
     {
         get_template_part('template-parts/header');
     }
-    add_action('quantum_header', 'header_html');
+    add_action('quantum_header', 'quantum_header_html');
 }

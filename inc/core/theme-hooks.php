@@ -31,3 +31,18 @@ function quantum_main_before()
 {
     do_action('quantum_main_before');
 }
+
+function quantum_footer_before()
+{
+    do_action('quantum_footer_before');
+}
+
+function quantum_footer()
+{
+    do_action('quantum_footer');
+}
+
+function quantum_footer_after()
+{
+    do_action('quantum_footer_after');
+}
