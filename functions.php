@@ -389,13 +389,6 @@ function quantum_count_active_footer_sidebars(): int
 }
 
 
-function quantum_footer(): void
-{
-
-    get_template_part('template-parts/footer');
-}
-
-
 /**
  * Custom template tags for this theme.
  */
