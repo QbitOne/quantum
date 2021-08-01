@@ -14,29 +14,15 @@
 
 </main><!-- #primary -->
 
-<footer id="footer" class="">
+<?php
 
-    <?php do_action('quantum_footer'); ?>
+quantum_footer_before();
 
-    <div class="footerbar">
+quantum_footer();
 
-        <div>
-            <?php quantum_footerbar_copyright(); ?>
-        </div>
+quantum_footer_after();
+?>
 
-        <div>
-            <?php quantum_footerbar_meta(); ?>
-        </div>
-
-        <div>
-            <?php quantum_footerbar_menu(); ?>
-        </div>
-
-    </div><!-- .footerbar -->
-
-
-
-</footer><!-- #footer -->
 </div><!-- #page -->
 
 <?php wp_footer(); ?>
