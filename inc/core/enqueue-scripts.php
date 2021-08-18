@@ -48,20 +48,41 @@ if (!function_exists('quantum_action_wp_enqueue_scripts')) {
 
 
 /**
- * Include custom CSS file into WP login page
+ * Include custom CSS file into WP login page.
+ * If a Child-Theme is used, the CSS file should be
+ * located there instead of the parent theme.
+ * Can use both a unminified and minified CSS file.
+ * Minified CSS file is prefered.
+ *
  * @link    https://codex.wordpress.org/Customizing_the_Login_Form
  */
 if (!function_exists('quantum_custom_login_css')) {
 
     function quantum_custom_login_css()
     {
-        $file = get_template_directory_uri() . '/assets/css/login.css';
+        $minified = 'minified';
+        $unminified = 'un' . $minified;
+        $src = '';
 
-        if (file_exists($file)) {
+        // Get path to CSS file. Use Child-Theme path if in use.
+        $path_unminified = get_stylesheet_directory() . '/assets/css/' . $unminified . '/login.css';
+        $src_unminified = get_stylesheet_directory_uri() . '/assets/css/' . $unminified . '/login.css';
+        $path_minified = get_stylesheet_directory() . '/assets/css/' . $minified . '/login.css';
+        $src_minified = get_stylesheet_directory_uri() . '/assets/css/' . $minified . '/login.css';
 
+
+        // Check whether files exist
+        if (file_exists($src_unminified) or file_exists($path_unminified)) {
+            $src = $src_unminified;
+        }
+        if (file_exists($src_minified) or file_exists($path_minified)) {
+            $src = $src_minified;
+        }
+
+        if ($src) {
             wp_enqueue_style(
-                'quantum-login-style',
-                $file,
+                'quantum-login',
+                $src,
                 array(),
                 QUANTUM_THEME_VERSION,
             );
