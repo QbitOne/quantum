@@ -24,7 +24,7 @@
 
         if ($logo_filename === false) :
 
-            the_title('<h1>', '</h1>', true);
+            echo '<h1>' . get_bloginfo('title') . '</h1>';
 
         else :
 
