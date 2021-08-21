@@ -20,11 +20,11 @@
 
         <?php
 
-        $logo_filename = apply_filters('quantum_logo_filename', null);
+        $logo_filename = apply_filters('quantum_logo_filename', false);
 
         if ($logo_filename === false) :
 
-            the_title('<h1>', '</h1>', true);
+            echo '<h1>' . get_bloginfo('title') . '</h1>';
 
         else :
 
