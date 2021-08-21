@@ -329,6 +329,8 @@ if (!function_exists('quantum_footerbar_menu')) :
                 )
             );
         endif;
+
+        do_action('quantum_footer_navigation_extension');
     }
 endif;
 
