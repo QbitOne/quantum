@@ -12,10 +12,11 @@
 if (!defined('ABSPATH')) exit;
 
 
-define('QUANTUM_THEME_VERSION', '2.2.4');
+define('QUANTUM_THEME_VERSION', '2.4.0');
 define('QUANTUM_THEME_SETTINGS', 'quantum-settings');
 define('QUANTUM_THEME_DIR', trailingslashit(get_template_directory()));
 define('QUANTUM_THEME_URI', trailingslashit(esc_url(get_template_directory_uri())));
+define('QUANTUM_UPLOADS_URI', trailingslashit(esc_url(wp_get_upload_dir()['baseurl'])));
 
 
 if (!function_exists('quantum_setup')) :

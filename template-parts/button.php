@@ -50,3 +50,41 @@ if (!function_exists('quantum_button')) :
         printf($format, $class, $href, $button_text);
     }
 endif;
+
+
+if (!function_exists('quantum_button2')) :
+    /**
+     * Button Template
+     *
+     * Output a html button with given attributes.
+     * Given attributes in the array are checks against hardcoded valid attributes
+     *
+     * Example
+     *      quantum_button2('MyButton', ['href' => 'https://mydomain.de', 'class' => 'class1 class2']);
+     *
+     */
+    function quantum_button2(string $innerHTML = 'Button', array $attrs = array()): void
+    {
+        $innerHTML = esc_html($innerHTML);
+        $given_attrs = $attrs;
+        $valid_attrs = ['href', 'class', 'target'];
+
+        foreach ($given_attrs as $attr => $value) {
+
+            if (!in_array($attr, $valid_attrs)) {
+
+                unset($attrs[$attr]);
+            } else {
+                $attrs[$attr] = $attr . '="' . esc_attr($value) . '"';
+            }
+        }
+
+        $attrs = implode(' ', $attrs);
+
+        $output = '<a ' . $attrs . '>';
+        $output .= $innerHTML;
+        $output .= '</a>';
+
+        echo $output;
+    }
+endif;
