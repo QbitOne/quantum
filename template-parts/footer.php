@@ -7,6 +7,10 @@
 
 <footer id="footer" class="">
 
+    <?php
+    // Content for actual footer
+    ?>
+
     <div class="footerbar">
 
         <div>
