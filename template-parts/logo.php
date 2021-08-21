@@ -20,7 +20,7 @@
 
         <?php
 
-        $logo_filename = apply_filters('quantum_logo_filename', false);
+        $logo_filename = apply_filters('quantum_logo_filename', null);
 
         if ($logo_filename === false) :
 
