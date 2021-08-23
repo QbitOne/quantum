@@ -1,6 +1,6 @@
 #!/bin/bash
 # Author: Andreas Geyer
-# Version: 0.1.0
+# Version: 0.1.1
 # Description:
 # easy bash script to uplood
 # new production bundle on qbitone server
