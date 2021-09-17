@@ -1,0 +1,219 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Quantum Theme Styleguide</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="primer.css" rel="stylesheet"><link href="style.css" rel="stylesheet"><link href="octicons/octicons.css" rel="stylesheet">
+    <script>examples={"base":"","target":"_self","css":["style.css"],"js":[],"bodyjs":[],"htmlcss":"background:none;border:0;clip:auto;display:block;height:auto;margin:0;padding:0;position:static;width:auto","bodycss":"background:none;border:0;clip:auto;display:block;height:auto;margin:0;padding:16px;position:static;width:auto"};</script>
+    
+  </head>
+  <body>
+    <header class="masthead" style="background-color: #212121;">
+      <div class="container">
+        <a href="/" class="masthead-logo">
+          <img src="mdcss-logo.png" alt="Quantum Theme Styleguide" height="32"> Quantum Theme Styleguide
+        </a>
+        <nav class="masthead-nav">
+            
+        </nav>
+      </div>
+    </header>
+
+    <div class="container">
+      <div class="columns docs-layout">
+        <div class="one-fourth column">
+          <nav class="menu docs-menu">
+            
+    
+        <a class="menu-heading" href="#einleitung"><span>Einleitung</span></a>
+        
+    
+        <a class="menu-item" href="#quantum-theme-styleguide"><span>Quantum Theme Styleguide</span></a>
+        
+        
+  
+        
+        <a class="menu-heading" href="#nucleus"><span>Nucleus</span></a>
+        
+    
+        <a class="menu-item" href="#breakpoints"><span>Breakpoints</span></a>
+        
+        
+        <a class="menu-item" href="#farben"><span>Farben</span></a>
+        
+        
+        <a class="menu-item" href="#typography"><span>Typography</span></a>
+        
+        
+  
+        
+  
+          </nav>
+        </div>
+
+        <main class="three-fourths column markdown-body">
+          
+    <section id="einleitung">
+      <h1 class="page-title">Einleitung</h1>
+
+      <div class="markdown-body">
+        
+        
+    <section id="quantum-theme-styleguide">
+      <h2 class="page-title">Quantum Theme Styleguide</h2>
+
+      <div class="markdown-body">
+        <p><h3 id="heading3">heading3</h3></p>
+<p>das ist ein paragraph</p>
+
+        
+      </div>
+    </section>
+    
+      </div>
+    </section>
+    
+    <section id="nucleus">
+      <h1 class="page-title">Nucleus</h1>
+
+      <div class="markdown-body">
+        
+        
+    <section id="breakpoints">
+      <h2 class="page-title">Breakpoints</h2>
+
+      <div class="markdown-body">
+        <p><p>Es sind zwei Breakpoints definiert.</p></p>
+<p><ul></p>
+<p><li>800px</li></p>
+<p><li>1200px</li>
+</ul></p>
+<p><p><strong>Zu beachten:</strong><br>
+<strong>Diese Breakpoints sind momentan nur für das Quantum Theme nutzbar.</strong><br>
+Da sie als <code>mixin</code> innerhalb <code>postcss</code> verwendet werden, sind sie nicht für das Projekttheme anwendbar.<br>
+Dafür muss momentan innerhalb des Projekttheme ebenfalls die <code>_breakpoints.css</code> angelegt werden.<br></p></p>
+<pre><code>@define-mixin atSmall {
+    @media (min-width: 800px) {
+        @mixin-content;
+    }
+}
+
+@define-mixin atMedium {
+    @media (min-width: 1200px) {
+        @mixin-content;
+    }
+}
+</code></pre>
+        
+      </div>
+    </section>
+    
+    <section id="farben">
+      <h2 class="page-title">Farben</h2>
+
+      <div class="markdown-body">
+        <p><p>Quantum nutzt Grautöne als Standardfarben.
+Das ist eine zweite Zeile.</p></p>
+<pre><code class="lang-example:color">@color: hsl(0, 0%, 50%) @name: Primary
+@color: hsl(0, 0%, 75%) @name: Secondary
+@color: hsl(0, 0%, 75%) @name: Accent
+@color: hsl(0, 0%, 20%) @name: Text
+</code></pre>
+
+        
+      </div>
+    </section>
+    
+    <section id="typography">
+      <h2 class="page-title">Typography</h2>
+
+      <div class="markdown-body">
+        <p><p>Ausgehend von einer Basis Schriftgröße der Browser von <code>16px</code> nutzt Quantum eine einfache Umrechnung von <code>px</code> in die Einheit <code>rem</code>.<br></p></p>
+<p><p><strong><code>1rem</code> = <code>10px</code></strong></p></p>
+<p><p>Als Fallback Schriftart wird standardmäßig <code>sans-serif</code> genutzt.</p></p>
+<pre><code>html {
+    font-size: 62.5%;
+    font-family: sans-serif;
+}
+</code></pre><p>Die Standard Schriftgröße des Quantum Themes ist auf <code>18px</code> festgelegt.</p>
+<pre><code>body {
+    font-size: 1.8rem;
+    line-height: 1.5;
+}
+</code></pre>
+        
+      </div>
+    </section>
+    
+      </div>
+    </section>
+    
+        </main>
+      </div>
+      <footer class="footer">
+        Last modified Friday, 17 September 2021 18:21
+      </footer>
+    </div>
+    <script src="prism.js?871234"></script>
+    <script src="examples.js?873428"></script>
+    <script src="script.js?02359872"></script>
+    <script src="anchor.min.js?225234"></script>
+    <script src="interact.min.js?8552934"></script>
+    <script>
+     anchors.options = {
+         placement: 'left',
+         visible: 'hover',
+         class: 'anchor-link'
+     };
+     anchors.add('h2, h3');
+
+     /* interact('.docs-resize')
+      *   .resizable({
+      *     edges: {
+      *       left: '.c-resize--left',
+      *       right: '.c-resize--right',
+      *       bottom: false,
+      *       top: false
+      *     },
+      *     onmove: function (e) {
+      *       var width = e.rect.width,
+      *         windowWidth = $(window).width();
+
+      *       if (width < 160) {
+      *         width = 160;
+      *       } else if ((width * 2) + 100 > windowWidth) {
+      *         width = (windowWidth - 100) / 2;
+      *       }
+
+      *       $('.docs-example').find('docs-resize').addClass('resize-overlay');
+      *       $('.docs-resize').style.width = (width * 2) + 'px';
+      *     },
+      *     onend: function () {
+      *       $('.docs-example').find('docs-resize').removeClass('resize-overlay');
+      *     }
+      *   })
+      *   .on('resizemove', function (event) {
+      *     var target = event.target,
+      *         x = (parseFloat(target.getAttribute('data-x')) || 0);
+
+      *     // update the element's style
+      *     target.style.width  = event.rect.width + 'px';
+
+      *     // translate when resizing from top or left edges
+      *     x += event.deltaRect.left;
+
+      *     target.style.webkitTransform = target.style.transform =
+      *       'translateX(' + x + 'px)';
+
+      *     target.setAttribute('data-x', x);
+      *     target.textContent = Math.round(event.rect.width);
+      *   });*/
+    </script>
+    
+  
+  </body>
+</html>
+
+
