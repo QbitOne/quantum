@@ -65,8 +65,48 @@
       <h2 class="page-title">Quantum Theme Styleguide</h2>
 
       <div class="markdown-body">
-        <p><h3 id="heading3">heading3</h3></p>
-<p>das ist ein paragraph</p>
+        <p><p><code>Dieser Stylguide ist in Überarbeitung</code></p></p>
+<p><h3 id="how-to-use">How-To-Use</h3></p>
+<p><p>Der Styleguide soll eine Übersicht liefern, wie das CSS des Quantum Themes aufgebaut ist.<br></p></p>
+<p><p>Zusätzlich soll er als Unterstützung im Development dienen, da alle genutzen CSS-Styles aufgeführt werden.</p></p>
+<p><h3 id="atomic-design">Atomic Design</h3></p>
+<p><p>Das Quantum Theme nutzen den Atomic Design Ansatz.<br>
+<em>Siehe <a href="https://bradfrost.com/blog/post/atomic-web-design/">Brad Frost - Atomic Design</a></em>&lt;br</p></p>
+<p><p>Hierbei wird von den kleinstmöglichen Elemente ausgehend, ein System aufgebaut.<br></p></p>
+<p><ul></p>
+<p><li><code>atoms</code><ul></p>
+<p><li>buttons, paragraphs, headings</li>
+</ul>
+</li></p>
+<p><li><code>molecules</code><ul></p>
+<p><li>input and label, searchbar and button</li>
+</ul>
+</li></p>
+<p><li><code>organisms</code><ul></p>
+<p><li>header or footer</li>
+</ul>
+</li>
+</ul></p>
+<p><p>Zudem werden im Quantum unter <code>generic</code> und <code>nucleus</code> weitere Styles beschrieben.</p></p>
+<p><h3 id="development-ornderstruktur">Development Ornderstruktur</h3></p>
+<p><p>Es ergibt sich folgende Struktur:<br></p></p>
+<p><pre><code>postcss
+│   main.md
+│   main.txt
+|
+└───0-generic
+|
+└───1-nucleus
+|
+└───2-atoms
+|
+└───3-molecules
+|
+└───4-organisms</p>
+<p></code></pre><p><br><br><br></p></p>
+<blockquote>
+<p><strong>Autor:</strong> Michael Geyer<br><strong> Version: </strong>v0.1.0<br></p>
+</blockquote>
 
         
       </div>
@@ -153,7 +193,7 @@ Das ist eine zweite Zeile.</p></p>
         </main>
       </div>
       <footer class="footer">
-        Last modified Friday, 17 September 2021 18:21
+        Last modified Friday, 17 September 2021 19:02
       </footer>
     </div>
     <script src="prism.js?871234"></script>
