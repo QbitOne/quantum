@@ -1,3 +1,9 @@
+/*---
+title: Typography
+section: Nucleus
+order: 2
+*/
+
 html {
 	/*
 	Asuming a default root font-size of 16px by browsers 
@@ -10,33 +16,8 @@ html {
 /*
 Set every element to 18px as a proper base
 */
-* {
+body {
 	/* 18px */
 	font-size: 1.8rem;
 	line-height: 1.5;
-}
-
-h1 {
-	/* 40px */
-	font-size: 4rem;
-}
-h2 {
-	/* 32px */
-	font-size: 3.2rem;
-}
-h3 {
-	/* 26px */
-	font-size: 2.6rem;
-}
-h4 {
-	/* 22px */
-	font-size: 2.2rem;
-}
-h5 {
-	/* 20px */
-	font-size: 2rem;
-}
-h6 {
-	/* 20px */
-	font-size: 2rem;
 }

@@ -1,0 +1,30 @@
+.site-header {
+	&__inner {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		padding-top: 1rem;
+		padding-bottom: 1rem;
+
+		&__branding {
+			&__logo {
+				max-height: 6rem;
+				min-width: 100%;
+			}
+		}
+
+		&__nav {
+			display: none;
+
+			@mixin atSmall {
+				display: block;
+			}
+		}
+
+		&__mobile-btn {
+			@mixin atSmall {
+				display: none;
+			}
+		}
+	}
+}
