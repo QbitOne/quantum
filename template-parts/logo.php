@@ -24,7 +24,7 @@
 
         if ($logo_filename === false) :
 
-            echo '<h1>' . get_bloginfo('title') . '</h1>';
+            echo '<h1>' . apply_filters('quantum_logo_h1_name', get_bloginfo('title')) . '</h1>';
 
         else :
 
