@@ -6,6 +6,7 @@
 .*
 
 postcss
+styleguide
 
 *.json
 *.lock
