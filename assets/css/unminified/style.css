@@ -386,35 +386,35 @@ p a{
       }
 
 .site-header__inner{
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    padding-top:1rem;
-    padding-bottom:1rem;
-  }
+		display:flex;
+		align-items:center;
+		justify-content:space-between;
+		padding-top:1rem;
+		padding-bottom:1rem;
+	}
 
 .site-header__inner__branding__logo{
-        max-height:6rem;
-        min-width:100%;
-      }
+				max-height:6rem;
+				min-width:100%;
+			}
 
 .site-header__inner__nav{
-      display:none;
-    }
+			display:none;
+		}
 
 @media (min-width: 800px){
 
 .site-header__inner__nav{
-        display:block
-    }
-  }
+				display:block
+		}
+	}
 
 @media (min-width: 800px){
 
 .site-header__inner__mobile-btn{
-        display:none
-    }
-  }
+				display:none
+		}
+	}
 
 #site-navigation .menu{
 	display:flex;
