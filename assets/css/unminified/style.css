@@ -187,12 +187,6 @@ template{
 	box-sizing:border-box;
 }
 
-a{
-	text-decoration:none;
-	color:inherit;
-	cursor:pointer;
-}
-
 button{
 	background-color:transparent;
 	color:inherit;
@@ -244,12 +238,34 @@ fieldset{
 	margin:0;
 }
 
+ul,
+ol{
+	list-style:disc inside;
+}
+
+nav li{
+	list-style:none;
+}
+
+dt{
+	font-weight:bold;
+}
+
+dd{
+	margin:0;
+	padding:0 0 0.5em 1em;
+}
+
+address{
+	font-style:normal;
+}
+
 html{
 	font-size:62.5%;
 	font-family:sans-serif;
 }
 
-*{
+body{
 	font-size:1.8rem;
 	line-height:1.5;
 }
@@ -278,35 +294,96 @@ h6{
 	font-size:2rem;
 }
 
-ul,
-ol{
-	list-style:disc inside;
-}
-
-nav li{
-	list-style:none;
-}
-
-dt{
-	font-weight:bold;
-}
-
-dd{
-	margin:0;
-	padding:0 0 0.5em 1em;
-}
-
-address{
-	font-style:normal;
+p{
+	margin-bottom:2.4rem;
+	max-width:75ch;
 }
 
 a{
+	color:inherit;
+	text-decoration:none;
+	cursor:pointer;
+}
+
+p a{
 	text-decoration:underline;
 }
 
-a:hover{
-		fcursor:pointer;
-	}
+.mobile-menu-toggle{
+  background-color:transparent;
+  width:32px;
+  height:32px;
+  border:none;
+}
+
+.mobile-menu-toggle:hover{
+    cursor:pointer;
+  }
+
+.mobile-menu-toggle .mobile-menu-burger-btn{
+    display:block;
+    background-color:black;
+    height:3px;
+    width:100%;
+    border-radius:3px;
+    position:relative;
+    transition:background-color 200ms 400ms;
+  }
+
+.mobile-menu-toggle .mobile-menu-burger-btn::before{
+      content:"";
+      display:block;
+      background-color:black;
+      height:3px;
+      border-radius:3px;
+      position:relative;
+      top:-6px;
+      transition:top 400ms 400ms, transform 400ms;
+    }
+
+.mobile-menu-toggle .mobile-menu-burger-btn::after{
+      content:"";
+      display:block;
+      background-color:black;
+      height:3px;
+      border-radius:3px;
+      position:relative;
+      top:3px;
+      transition:top 400ms 400ms, transform 400ms;
+    }
+
+.mobile-menu-toggle .mobile-menu-burger-btn--is-active{
+      display:block;
+      background-color:transparent;
+      height:3px;
+      border-radius:3px;
+      position:relative;
+      transition:background-color 200ms;
+    }
+
+.mobile-menu-toggle .mobile-menu-burger-btn--is-active::before{
+        content:"";
+        display:block;
+        background-color:black;
+        height:3px;
+        border-radius:3px;
+        position:relative;
+        top:0px;
+        transform:rotate(45deg);
+        transition:top 200ms, transform 200ms 200ms;
+      }
+
+.mobile-menu-toggle .mobile-menu-burger-btn--is-active::after{
+        content:"";
+        display:block;
+        background-color:black;
+        height:3px;
+        border-radius:3px;
+        position:relative;
+        top:-3px;
+        transform:rotate(-45deg);
+        transition:top 200ms, transform 200ms 200ms;
+      }
 
 .site-header__inner{
     display:flex;
@@ -409,84 +486,3 @@ a:hover{
 			border:1px solid;
 			cursor:help;
 		}
-
-.mobile-menu-toggle{
-  background-color:transparent;
-  width:32px;
-  height:32px;
-  border:none;
-}
-
-.mobile-menu-toggle:hover{
-    cursor:pointer;
-  }
-
-.mobile-menu-toggle .mobile-menu-burger-btn{
-    display:block;
-    background-color:black;
-    height:3px;
-    width:100%;
-    border-radius:3px;
-    position:relative;
-    transition:background-color 200ms 400ms;
-  }
-
-.mobile-menu-toggle .mobile-menu-burger-btn::before{
-      content:"";
-      display:block;
-      background-color:black;
-      height:3px;
-      border-radius:3px;
-      position:relative;
-      top:-6px;
-      transition:top 400ms 400ms, transform 400ms;
-    }
-
-.mobile-menu-toggle .mobile-menu-burger-btn::after{
-      content:"";
-      display:block;
-      background-color:black;
-      height:3px;
-      border-radius:3px;
-      position:relative;
-      top:3px;
-      transition:top 400ms 400ms, transform 400ms;
-    }
-
-.mobile-menu-toggle .mobile-menu-burger-btn--is-active{
-      display:block;
-      background-color:transparent;
-      height:3px;
-      border-radius:3px;
-      position:relative;
-      transition:background-color 200ms;
-    }
-
-.mobile-menu-toggle .mobile-menu-burger-btn--is-active::before{
-        content:"";
-        display:block;
-        background-color:black;
-        height:3px;
-        border-radius:3px;
-        position:relative;
-        top:0px;
-        transform:rotate(45deg);
-        transition:top 200ms, transform 200ms 200ms;
-      }
-
-.mobile-menu-toggle .mobile-menu-burger-btn--is-active::after{
-        content:"";
-        display:block;
-        background-color:black;
-        height:3px;
-        border-radius:3px;
-        position:relative;
-        top:-3px;
-        transform:rotate(-45deg);
-        transition:top 200ms, transform 200ms 200ms;
-      }
-
-.site{
-	max-width:1920px;
-	margin:auto;
-}

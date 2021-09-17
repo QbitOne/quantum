@@ -3,22 +3,24 @@ This is the main style file for the Quantum Theme.
 Using gulp with postcss to create the theme style.
 */
 
-/* BASE */
-@import 'base/_breakpoints';
-@import 'base/_colors';
-@import 'base/_normalize';
-@import 'base/_reset';
-@import 'base/_typography';
-@import 'base/_general';
+/* GENERIC */
+@import '0-generic/_normalize';
+@import '0-generic/_custom-reset';
 
-/* COMPONENTS */
-@import 'components/header/_site-header';
-@import 'components/main-nav/_site-nav';
-@import 'components/main-nav/_mobile-site-nav';
-@import 'components/main-nav/_mobile-site-nav-toggle';
+/* NUCLEUS */
+@import '1-nucleus/_colors';
+@import '1-nucleus/_typography';
+@import '1-nucleus/_breakpoints';
 
-/* set max-width for site TODO @Michael move this part into a seperate file later */
-.site {
-	max-width: 1920px;
-	margin: auto;
-}
+/* ATOMS */
+@import '2-atoms/_headings/_headings.css';
+@import '2-atoms/_paragraphs/_paragraphs.css';
+@import '2-atoms/_links/_links.css';
+@import '2-atoms/_buttons/_mobile-site-nav-burger-btn.css';
+
+/* MOLECULES */
+
+/* ORGANISMS */
+@import '4-organisms/_site-headers/_site-header.css';
+@import '4-organisms/_site-navs/_site-nav.css';
+@import '4-organisms/_site-navs/_mobile-site-nav.css';
