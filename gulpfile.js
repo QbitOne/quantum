@@ -19,6 +19,9 @@ const autoprefixer = require('autoprefixer');
 const minifyCSS = require('gulp-clean-css');
 const rename = require('gulp-rename');
 
+const mdcss = require('mdcss');
+const mdcssTheme = require('mdcss-theme-github');
+
 const terser = require('gulp-terser');
 const concat = require('gulp-concat');
 
@@ -33,8 +36,14 @@ function style() {
 				postcssVars,
 				postcssMixins,
 				postcssHex,
-				postcssComments,
 				autoprefixer,
+				mdcss({
+					theme: mdcssTheme({
+						title: 'Quantum Theme Styleguide',
+						color: '#212121',
+					}),
+				}),
+				postcssComments,
 			])
 		)
 		.pipe(rename('style.css'))

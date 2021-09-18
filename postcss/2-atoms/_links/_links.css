@@ -1,0 +1,10 @@
+a {
+	color: inherit;
+	text-decoration: none;
+	cursor: pointer;
+}
+
+/* all links inside paragraphs */
+p a {
+	text-decoration: underline;
+}
