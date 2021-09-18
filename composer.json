@@ -39,7 +39,8 @@
           "gulpfile.js",
           "*.json",
           "*.lock",
-          "dist/"
+          "dist/",
+          "styleguide/"
       ]
   }
 }
