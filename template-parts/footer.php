@@ -5,7 +5,7 @@
  */
 ?>
 
-<footer id="footer" class="">
+<footer id="footer" class="site-footer">
 
     <?php
     // Content for actual footer
