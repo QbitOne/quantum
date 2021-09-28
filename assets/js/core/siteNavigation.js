@@ -91,14 +91,14 @@ window.addEventListener('resize', function () {
 });
 
 // TODO: do not execute menu height is > window height
-// window.addEventListener("scroll", function () {
-//   // First see if mobile Menu is visibile by checking the aria-expanded on menuToggle
-//   if (menuToggle.getAttribute("aria-expanded") === "true") {
-//     hideMobileMenuOnEvent();
-//   } else {
-//     return;
-//   }
-// });
+window.addEventListener('scroll', function () {
+	// First see if mobile Menu is visibile by checking the aria-expanded on menuToggle
+	if (menuToggle.getAttribute('aria-expanded') === 'true') {
+		hideMobileMenuOnEvent();
+	} else {
+		return;
+	}
+});
 
 /**
  *
