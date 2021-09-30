@@ -60,9 +60,7 @@ document.addEventListener('click', function (event) {
 	// First see if mobile Menu is visibile by checking the aria-expanded on menuToggle
 	if (menuToggle.getAttribute('aria-expanded') === 'true') {
 		const isClickOnMobileToggle = menuToggle.contains(event.target);
-		const isClickInsideMobileNav = mobileSiteNavigation.contains(
-			event.target
-		);
+		const isClickInsideMobileNav = mobileSiteNavigation.contains(event.target);
 
 		// If not a click of mobileToggle and not inside mobileNav
 		if (!isClickOnMobileToggle && !isClickInsideMobileNav) {
