@@ -16,11 +16,11 @@
 	},
 	"homepage": "https://github.com/QbitOne/quantum#readme",
 	"scripts": {
-		"serve": "gulp serve ",
+		"dev": "gulp serve ",
 		"compile:css": "gulp compilecss",
 		"compile:js": "gulp compilejs",
 		"lint:css": "wp-scripts lint-style './postcss/*.css'",
-		"lint:js": "wp-scripts lint-js './assets/js/*.js'"
+		"lint:js": "wp-scripts lint-js './assets/js/core/*.js'"
 	},
 	"devDependencies": {
 		"@wordpress/scripts": "^16.1.0",
