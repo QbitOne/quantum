@@ -67,8 +67,8 @@ if (!function_exists('quantum_custom_login_css')) {
         // Get path to CSS file. Use Child-Theme path if in use.
         $path_unminified = get_stylesheet_directory() . '/assets/css/' . $unminified . '/login.css';
         $src_unminified = get_stylesheet_directory_uri() . '/assets/css/' . $unminified . '/login.css';
-        $path_minified = get_stylesheet_directory() . '/assets/css/' . $minified . '/login.css';
-        $src_minified = get_stylesheet_directory_uri() . '/assets/css/' . $minified . '/login.css';
+        $path_minified = get_stylesheet_directory() . '/assets/css/' . $minified . '/login.min.css';
+        $src_minified = get_stylesheet_directory_uri() . '/assets/css/' . $minified . '/login.min.css';
 
 
         // Check whether files exist

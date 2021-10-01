@@ -1,48 +1,43 @@
 {
-	"name": "qbo-quantum-theme",
-	"version": "1.0.0",
-	"repository": {
-		"type": "git",
-		"url": "git+https://github.com/QbitOne/quantum.git"
-	},
-	"keywords": [
-		"QbitOne",
-		"WordPress",
-		"Theme"
-	],
-	"author": "Andreas Geyer, Michael Geyer",
-	"bugs": {
-		"url": "https://github.com/QbitOne/quantum/issues"
-	},
-	"homepage": "https://github.com/QbitOne/quantum#readme",
-	"scripts": {
-		"serve": "gulp serve ",
-		"compile:css": "gulp compilecss",
-		"compile:js": "gulp compilejs",
-		"lint:css": "wp-scripts lint-style './postcss/*.css'",
-		"lint:js": "wp-scripts lint-js './assets/js/*.js'",
-		"bundle": "dir-archiver --src . --dest ../quantum.zip --exclude .DS_Store .stylelintrc.json .eslintrc .git .gitattributes .github .gitignore README.md node_modules vendor package-lock.json package.json .travis.yml phpcs.xml.dist gulpfile.js postcss styleguide"
-	},
-	"devDependencies": {
-		"@wordpress/scripts": "^16.1.0",
-		"autoprefixer": "^10.2.6",
-		"browser-sync": "^2.26.14",
-		"dir-archiver": "^1.2.0",
-		"gulp": "^4.0.2",
-		"gulp-clean-css": "^4.3.0",
-		"gulp-concat": "^2.6.1",
-		"gulp-postcss": "^9.0.0",
-		"gulp-rename": "^2.0.0",
-		"gulp-terser": "^2.0.1",
-		"mdcss": "^1.5.2",
-		"mdcss-theme-github": "^2.4.2",
-		"postcss": "^8.2.2",
-		"postcss-discard-comments": "^4.0.2",
-		"postcss-hexrgba": "^2.0.1",
-		"postcss-import": "^14.0.0",
-		"postcss-mixins": "^7.0.2",
-		"postcss-nested": "^5.0.3",
-		"postcss-preset-env": "^6.7.0",
-		"postcss-simple-vars": "^6.0.2"
-	}
+  "name": "qbo-quantum-theme",
+  "version": "1.0.0",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/QbitOne/quantum.git"
+  },
+  "keywords": [
+    "QbitOne",
+    "WordPress",
+    "Theme"
+  ],
+  "author": "Andreas Geyer, Michael Geyer",
+  "bugs": {
+    "url": "https://github.com/QbitOne/quantum/issues"
+  },
+  "homepage": "https://github.com/QbitOne/quantum#readme",
+  "scripts": {
+    "dev": "gulp serve ",
+    "compile:css": "gulp compilecss",
+    "compile:js": "gulp compilejs"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.2.6",
+    "browser-sync": "^2.26.14",
+    "gulp": "^4.0.2",
+    "gulp-clean-css": "^4.3.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-postcss": "^9.0.0",
+    "gulp-rename": "^2.0.0",
+    "gulp-terser": "^2.0.1",
+    "mdcss": "^1.5.2",
+    "mdcss-theme-github": "^2.4.2",
+    "postcss": "^8.2.2",
+    "postcss-discard-comments": "^4.0.2",
+    "postcss-hexrgba": "^2.0.1",
+    "postcss-import": "^14.0.0",
+    "postcss-mixins": "^7.0.2",
+    "postcss-nested": "^5.0.3",
+    "postcss-preset-env": "^6.7.0",
+    "postcss-simple-vars": "^6.0.2"
+  }
 }
