@@ -1,0 +1,13 @@
+/*---
+title: Global Variables
+section: Generic
+order: 0
+*/
+
+@charset "UTF-8";
+
+:root {
+  --max-site-width: 1440px;
+  --site-spacing-left: 5%;
+  --site-spacing-right: 5%;
+}
