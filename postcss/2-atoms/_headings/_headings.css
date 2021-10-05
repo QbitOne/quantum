@@ -1,24 +1,35 @@
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  font-size: inherit;
+  font-weight: inherit;
+}
+
 h1 {
-	/* 40px */
-	font-size: 4rem;
+  /* 40px */
+  font-size: 4rem;
 }
 h2 {
-	/* 32px */
-	font-size: 3.2rem;
+  /* 32px */
+  font-size: 3.2rem;
 }
 h3 {
-	/* 26px */
-	font-size: 2.6rem;
+  /* 26px */
+  font-size: 2.6rem;
 }
 h4 {
-	/* 22px */
-	font-size: 2.2rem;
+  /* 22px */
+  font-size: 2.2rem;
 }
 h5 {
-	/* 20px */
-	font-size: 2rem;
+  /* 20px */
+  font-size: 2rem;
 }
 h6 {
-	/* 20px */
-	font-size: 2rem;
+  /* 20px */
+  font-size: 2rem;
 }
