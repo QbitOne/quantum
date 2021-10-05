@@ -1,0 +1,104 @@
+/*---
+title: Flexbox Class
+section: Nucleus
+
+*/
+
+.qu-flex {
+  display: flex;
+  flex-wrap: wrap;
+
+  @mixin atMedium {
+    flex-wrap: nowrap;
+  }
+
+  &.flex--column {
+    flex-direction: column;
+  }
+  &.flex--row {
+    flex-direction: row;
+  }
+
+  /* justify-content */
+  &.justify--center {
+    justify-content: center;
+  }
+  &.justify--center {
+    justify-content: flex-start;
+  }
+  &.justify--center {
+    justify-content: flex-end;
+  }
+  &.justify--between {
+    justify-content: space-between;
+  }
+  &.justify--around {
+    justify-content: space-around;
+  }
+  &.justify--center {
+    justify-content: space-evenly;
+  }
+
+  /* align-items */
+  &.align--center {
+    align-items: center;
+  }
+  &.align--start {
+    align-items: flex-start;
+  }
+  &.align--start {
+    align-items: flex-end;
+  }
+  &.align--start {
+    align-items: strech;
+  }
+  &.align--start {
+    align-items: baseline;
+  }
+
+  /**
+  * Create a flexbox based grid layout
+  *
+  */
+  &-grid {
+    @mixin atMedium {
+      flex-wrap: wrap;
+    }
+
+    &.cols-2 {
+      .qu-flex-grid__item {
+        @mixin atMedium {
+          width: calc((100% / 2));
+        }
+      }
+    }
+    &.cols-3 {
+      .qu-flex-grid__item {
+        @mixin atMedium {
+          width: calc((100% / 3));
+        }
+      }
+    }
+    &.cols-4 {
+      .qu-flex-grid__item {
+        @mixin atMedium {
+          width: calc((100% / 4));
+        }
+      }
+    }
+    &.cols-5 {
+      .qu-flex-grid__item {
+        @mixin atMedium {
+          width: calc((100% / 5));
+        }
+      }
+    }
+    &.cols-6 {
+      .qu-flex-grid__item {
+        @mixin atMedium {
+          width: calc((100% / 6));
+        }
+      }
+    }
+  }
+}
