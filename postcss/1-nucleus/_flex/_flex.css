@@ -8,7 +8,7 @@ section: Nucleus
   display: flex;
   flex-wrap: wrap;
 
-  @mixin atMedium {
+  @mixin atLarge {
     flex-wrap: nowrap;
   }
 
@@ -61,41 +61,41 @@ section: Nucleus
   *
   */
   &-grid {
-    @mixin atMedium {
+    @mixin atLarge {
       flex-wrap: wrap;
     }
 
     &.cols-2 {
       .qu-flex-grid__item {
-        @mixin atMedium {
+        @mixin atLarge {
           width: calc((100% / 2));
         }
       }
     }
     &.cols-3 {
       .qu-flex-grid__item {
-        @mixin atMedium {
+        @mixin atLarge {
           width: calc((100% / 3));
         }
       }
     }
     &.cols-4 {
       .qu-flex-grid__item {
-        @mixin atMedium {
+        @mixin atLarge {
           width: calc((100% / 4));
         }
       }
     }
     &.cols-5 {
       .qu-flex-grid__item {
-        @mixin atMedium {
+        @mixin atLarge {
           width: calc((100% / 5));
         }
       }
     }
     &.cols-6 {
       .qu-flex-grid__item {
-        @mixin atMedium {
+        @mixin atLarge {
           width: calc((100% / 6));
         }
       }
