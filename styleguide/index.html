@@ -35,10 +35,24 @@
         
   
         
+        <a class="menu-heading" href="#generic"><span>Generic</span></a>
+        
+    
+        <a class="menu-item" href="#global-variables"><span>Global Variables</span></a>
+        
+        
+        <a class="menu-item" href="#breakpoints"><span>Breakpoints</span></a>
+        
+        
+        <a class="menu-item" href="#container-class"><span>Container Class</span></a>
+        
+        
+  
+        
         <a class="menu-heading" href="#nucleus"><span>Nucleus</span></a>
         
     
-        <a class="menu-item" href="#breakpoints"><span>Breakpoints</span></a>
+        <a class="menu-item" href="#flexbox-class"><span>Flexbox Class</span></a>
         
         
         <a class="menu-item" href="#farben"><span>Farben</span></a>
@@ -71,7 +85,7 @@
 <p><p>Zusätzlich soll er als Unterstützung im Development dienen, da alle genutzen CSS-Styles aufgeführt werden.</p></p>
 <p><h3 id="atomic-design">Atomic Design</h3></p>
 <p><p>Das Quantum Theme nutzen den Atomic Design Ansatz.<br>
-<em>Siehe <a href="https://bradfrost.com/blog/post/atomic-web-design/">Brad Frost - Atomic Design</a></em>&lt;br</p></p>
+_Siehe <a href="https://bradfrost.com/blog/post/atomic-web-design/">Brad Frost - Atomic Design</a><br></p></p>
 <p><p>Hierbei wird von den kleinstmöglichen Elemente ausgehend, ein System aufgebaut.<br></p></p>
 <p><ul></p>
 <p><li><code>atoms</code><ul></p>
@@ -115,37 +129,91 @@
       </div>
     </section>
     
+    <section id="generic">
+      <h1 class="page-title">Generic</h1>
+
+      <div class="markdown-body">
+        
+        
+    <section id="global-variables">
+      <h2 class="page-title">Global Variables</h2>
+
+      <div class="markdown-body">
+        <p><p>Quantum nutzt globale CSS Variablen, welche widerum im Child Theme überschrieben werden können.</p></p>
+<pre><code>:root {
+  --max-site-width: 1440px;
+  --site-spacing-left: 5%;
+  --site-spacing-right: 5%;
+}
+</code></pre>
+        
+      </div>
+    </section>
+    
+    <section id="breakpoints">
+      <h2 class="page-title">Breakpoints</h2>
+
+      <div class="markdown-body">
+        <p><p>Quantum nutzt 4 vordefinierte Breakpoints, welche als Mixin innerhalb PostCSS eingesetzt werden können.<br>
+Inspiriert von <a href="https://tailwindcss.com/docs/breakpoints">TailwindCSS Breakpoints</a></p></p>
+<p><p><strong>Zu beachten:</strong><br>
+<strong>Diese Breakpoints sind nur für das Quantum Theme nutzbar.</strong><br>
+Da sie als <code>mixin</code> innerhalb <code>postcss</code> verwendet werden, sind sie nicht für das Projekttheme anwendbar.<br>
+Es muss innerhalb des Projekttheme ebenfalls die <code>_breakpoints.css</code> angelegt werden.<br></p></p>
+<pre><code>@define-mixin atSmall {
+  @media (min-width: 640px) {
+    @mixin-content;
+  }
+}
+
+@define-mixin atMedium {
+  @media (min-width: 768px) {
+    @mixin-content;
+  }
+}
+
+@define-mixin atLarge {
+  @media (min-width: 1024px) {
+    @mixin-content;
+  }
+}
+
+@define-mixin atExtraLarge {
+  @media (min-width: 1280px) {
+    @mixin-content;
+  }
+}
+</code></pre>
+        
+      </div>
+    </section>
+    
+    <section id="container-class">
+      <h2 class="page-title">Container Class</h2>
+
+      <div class="markdown-body">
+        
+        
+      </div>
+    </section>
+    
+      </div>
+    </section>
+    
     <section id="nucleus">
       <h1 class="page-title">Nucleus</h1>
 
       <div class="markdown-body">
         
         
-    <section id="breakpoints">
-      <h2 class="page-title">Breakpoints</h2>
+    <section id="flexbox-class">
+      <h2 class="page-title">Flexbox Class</h2>
 
       <div class="markdown-body">
-        <p><p>Es sind zwei Breakpoints definiert.</p></p>
-<p><ul></p>
-<p><li>800px</li></p>
-<p><li>1200px</li>
-</ul></p>
-<p><p><strong>Zu beachten:</strong><br>
-<strong>Diese Breakpoints sind momentan nur für das Quantum Theme nutzbar.</strong><br>
-Da sie als <code>mixin</code> innerhalb <code>postcss</code> verwendet werden, sind sie nicht für das Projekttheme anwendbar.<br>
-Dafür muss momentan innerhalb des Projekttheme ebenfalls die <code>_breakpoints.css</code> angelegt werden.<br></p></p>
-<pre><code>@define-mixin atSmall {
-    @media (min-width: 800px) {
-        @mixin-content;
-    }
-}
+        <p>Quantum verfügt über eine Flexbox Class die genutzt werden kann.
+Mit Hilfe von <code>qu-flex</code> lässt sich jedes HTML Element als Flexbox gestalten.</p>
+<p>...Anweisungen folgen noch</p>
 
-@define-mixin atMedium {
-    @media (min-width: 1200px) {
-        @mixin-content;
-    }
-}
-</code></pre>
         
       </div>
     </section>
@@ -193,7 +261,7 @@ Das ist eine zweite Zeile.</p></p>
         </main>
       </div>
       <footer class="footer">
-        Last modified Friday, 17 September 2021 19:02
+        Last modified Tuesday, 5 October 2021 21:26
       </footer>
     </div>
     <script src="prism.js?871234"></script>

@@ -1,0 +1,14 @@
+/*---
+title: Container Class
+section: Generic
+order: 8
+*/
+
+.qu-container {
+  max-width: var(--max-site-width);
+  padding-left: var(--site-spacing-left);
+  padding-right: var(--site-spacing-right);
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+}
