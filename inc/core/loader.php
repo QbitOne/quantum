@@ -25,7 +25,8 @@ require_once $path . 'core-functions.php';
 /**
  * Enqueues sccripts (css/js) into the theme
  */
-require_once $path . 'enqueue-scripts.php';
+// require_once $path . 'enqueue-scripts.php';
+require_once $path . 'class-qt-enqueue-scripts.php';
 
 /**
  * Functions which can be uses inside template-parts
