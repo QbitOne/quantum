@@ -190,69 +190,62 @@ template{
 *,
 *::before,
 *::after{
-	box-sizing:border-box;
+  box-sizing:border-box;
 }
 
 button{
-	background-color:transparent;
-	color:inherit;
-	border-width:0;
-	padding:0;
-	cursor:pointer;
+  background-color:transparent;
+  color:inherit;
+  border-width:0;
+  padding:0;
+  cursor:pointer;
 }
 
 figure{
-	margin:0;
+  margin:0;
 }
 
 input::-moz-focus-inner{
-	border:0;
-	padding:0;
-	margin:0;
+  border:0;
+  padding:0;
+  margin:0;
 }
 
-ul,
-ol,
 dl{
-	margin:0;
-	padding:0;
-	list-style:none;
+  margin:0;
+  padding:0;
+  list-style:none;
 }
 
 p{
-	margin:0;
+  margin:0;
 }
 
 cite{
-	font-style:normal;
+  font-style:normal;
 }
 
 fieldset{
-	border-width:0;
-	padding:0;
-	margin:0;
-}
-
-ul,
-ol{
-	list-style:disc inside;
+  border-width:0;
+  padding:0;
+  margin:0;
 }
 
 nav li{
-	list-style:none;
+  list-style:none;
 }
 
 dt{
-	font-weight:bold;
+  font-weight:bold;
 }
 
 dd{
-	margin:0;
-	padding:0 0 0.5em 1em;
+  margin:0;
+  padding:0 0 0.5em 1em;
 }
 
 address{
-	font-style:normal;
+  font-style:normal;
 }
 
 html{
@@ -428,6 +421,17 @@ a{
 p a{
 	text-decoration:underline;
 }
+
+ul,
+ol{
+  margin:0;
+  padding:0;
+  list-style:disc inside;
+}
+
+ul.no-list-style,ol.no-list-style{
+    list-style:none;
+  }
 
 .mobile-menu-toggle{
   background-color:transparent;
