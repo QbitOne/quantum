@@ -426,7 +426,7 @@ ul,
 ol{
   margin:0;
   padding:0;
-  list-style:disc inside;
+  list-style-position:inside;
 }
 
 ul.no-list-style,ol.no-list-style{
