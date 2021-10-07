@@ -42,3 +42,6 @@ require_once $path . 'utility-functions.php';
  * All theme hooks
  */
 require_once $path . 'theme-hooks.php';
+
+
+require_once $path . 'class-qt-adminbar.php';
