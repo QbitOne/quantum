@@ -55,10 +55,15 @@
         <a class="menu-item" href="#flexbox-class"><span>Flexbox Class</span></a>
         
         
-        <a class="menu-item" href="#farben"><span>Farben</span></a>
-        
-        
         <a class="menu-item" href="#typography"><span>Typography</span></a>
+        
+        
+  
+        
+        <a class="menu-heading" href="#atoms"><span>Atoms</span></a>
+        
+    
+        <a class="menu-item" href="#heading"><span>Heading</span></a>
         
         
   
@@ -84,8 +89,10 @@
 <p><p>Der Styleguide soll eine Übersicht liefern, wie das CSS des Quantum Themes aufgebaut ist.<br></p></p>
 <p><p>Zusätzlich soll er als Unterstützung im Development dienen, da alle genutzen CSS-Styles aufgeführt werden.</p></p>
 <p><h3 id="atomic-design">Atomic Design</h3></p>
-<p><p>Das Quantum Theme nutzen den Atomic Design Ansatz.<br>
-_Siehe <a href="https://bradfrost.com/blog/post/atomic-web-design/">Brad Frost - Atomic Design</a><br></p></p>
+<p><p>Das Quantum Theme nutzen den Atomic Design Ansatz.<br></p></p>
+<p><ul></p>
+<p><li>Siehe <a href="https://bradfrost.com/blog/post/atomic-web-design/">Brad Frost - Atomic Design</a><br></li>
+</ul></p>
 <p><p>Hierbei wird von den kleinstmöglichen Elemente ausgehend, ein System aufgebaut.<br></p></p>
 <p><ul></p>
 <p><li><code>atoms</code><ul></p>
@@ -145,7 +152,14 @@ _Siehe <a href="https://bradfrost.com/blog/post/atomic-web-design/">Brad Frost -
   --site-spacing-left: 5%;
   --site-spacing-right: 5%;
 }
+</code></pre><p>Quantum nutzt Grautöne als Standardfarben.
+Das ist eine zweite Zeile.</p>
+<pre><code class="lang-example:color">@color: hsl(0, 0%, 50%) @name: Primary
+@color: hsl(0, 0%, 75%) @name: Secondary
+@color: hsl(20, 10%, 50%) @name: Accent
+@color: hsl(0, 0%, 20%) @name: Text
 </code></pre>
+
         
       </div>
     </section>
@@ -218,22 +232,6 @@ Mit Hilfe von <code>qu-flex</code> lässt sich jedes HTML Element als Flexbox ge
       </div>
     </section>
     
-    <section id="farben">
-      <h2 class="page-title">Farben</h2>
-
-      <div class="markdown-body">
-        <p><p>Quantum nutzt Grautöne als Standardfarben.
-Das ist eine zweite Zeile.</p></p>
-<pre><code class="lang-example:color">@color: hsl(0, 0%, 50%) @name: Primary
-@color: hsl(0, 0%, 75%) @name: Secondary
-@color: hsl(0, 0%, 75%) @name: Accent
-@color: hsl(0, 0%, 20%) @name: Text
-</code></pre>
-
-        
-      </div>
-    </section>
-    
     <section id="typography">
       <h2 class="page-title">Typography</h2>
 
@@ -258,10 +256,62 @@ Das ist eine zweite Zeile.</p></p>
       </div>
     </section>
     
+    <section id="atoms">
+      <h1 class="page-title">Atoms</h1>
+
+      <div class="markdown-body">
+        
+        
+    <section id="heading">
+      <h2 class="page-title">Heading</h2>
+
+      <div class="markdown-body">
+        <p><p>Quantum hat alles 6 Headings definiert und nutzt für die <code>font-size</code> die <code>clamp()</code> Funktion.<br>
+<strong>clamp()</strong><br>
+<code>clamp(min, default, max)</code></p></p>
+<p><p>Alle Headings haben by default <code>margin:0</code> sowie <code>font-weight: 300</code></p></p>
+<pre><code>h1 {
+  /* 40px */
+  /* font-size: 4rem; */
+  font-size: clamp(3.6rem, 3.8vw, 4rem);
+}
+h2 {
+  /* 32px */
+  /* font-size: 3.2rem; */
+  font-size: clamp(2.8rem, 3vw, 3.2rem);
+}
+h3 {
+  /* 26px */
+  /* font-size: 2.6rem; */
+  font-size: clamp(2.2rem, 2.4vw, 4rem);
+}
+h4 {
+  /* 22px */
+  /* font-size: 2.2rem; */
+  font-size: clamp(1.8rem, 2vw, 4rem);
+}
+h5 {
+  /* 20px */
+  /* font-size: 2rem; */
+  font-size: clamp(1.6rem, 1.8vw, 4rem);
+}
+h6 {
+  /* 20px */
+  /* font-size: 2rem; */
+  font-size: clamp(1.6rem, 1.8vw, 4rem);
+}
+</code></pre>
+        
+      </div>
+    </section>
+    
+      </div>
+    </section>
+    
         </main>
       </div>
       <footer class="footer">
-        Last modified Tuesday, 5 October 2021 21:26
+        Last modified Friday, 8 October 2021 12:58
       </footer>
     </div>
     <script src="prism.js?871234"></script>

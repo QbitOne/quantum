@@ -1,6 +1,6 @@
 #mobile-site-navigation .menu {
   display: none;
-  background: $secondary-color;
+  background: var(--color-secondary);
   right: 0;
   z-index: 99;
   position: absolute;

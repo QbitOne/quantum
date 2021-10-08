@@ -9,7 +9,8 @@ Zusätzlich soll er als Unterstützung im Development dienen, da alle genutzen C
 ### Atomic Design
 
 Das Quantum Theme nutzen den Atomic Design Ansatz.<br>
-\_Siehe [Brad Frost - Atomic Design](https://bradfrost.com/blog/post/atomic-web-design/)<br>
+
+- Siehe [Brad Frost - Atomic Design](https://bradfrost.com/blog/post/atomic-web-design/)<br>
 
 Hierbei wird von den kleinstmöglichen Elemente ausgehend, ein System aufgebaut.<br>
 
