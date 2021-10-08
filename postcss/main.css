@@ -10,7 +10,6 @@ section: Einleitung
 @import '0-generic/_custom-reset';
 
 /* NUCLEUS */
-@import '1-nucleus/_colors';
 @import '1-nucleus/_typography';
 @import '1-nucleus/_container/_container';
 @import '1-nucleus/_flex/_flex';
