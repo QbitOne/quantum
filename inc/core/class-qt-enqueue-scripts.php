@@ -10,31 +10,31 @@ if (!defined('ABSPATH')) exit;
 
 if (!class_exists('QT_Enqueue_Scripts')) :
 
-	class QT_Enqueue_Scripts
-	{
-		private $uri;
-		private $handle_prefix;
-		private $version;
+    class QT_Enqueue_Scripts
+    {
+        private $uri;
+        private $handle_prefix;
+        private $version;
 
-		private $styles = [];
-		private $styles_login = [];
-		private $scripts = [];
+        private $styles = [];
+        private $styles_login = [];
+        private $scripts = [];
 
-		function __construct(string $uri, string $handle_prefix, string $version)
-		{
-			$this->uri = $uri;
-			$this->handle_prefix = $handle_prefix;
-			$this->version = $version;
-		}
+        function __construct(string $uri, string $handle_prefix, string $version)
+        {
+            $this->uri = $uri;
+            $this->handle_prefix = $handle_prefix;
+            $this->version = $version;
+        }
 
-		public function enqueue()
-		{
-			add_action('wp_enqueue_scripts', [$this, 'enqueue_styles']);
-			add_action('wp_enqueue_scripts', [$this, 'enqueue_scripts']);
-			add_action('login_enqueue_scripts', [$this, 'login_enqueue_scripts']);
+        public function enqueue()
+        {
+            add_action('wp_enqueue_scripts', [$this, 'enqueue_styles']);
+            add_action('wp_enqueue_scripts', [$this, 'enqueue_scripts']);
+            add_action('login_enqueue_scripts', [$this, 'login_enqueue_scripts']);
 
-			add_filter('script_loader_tag', [$this, 'filter_script_loader_tag'], 10, 3);
-		}
+            add_filter('script_loader_tag', [$this, 'filter_script_loader_tag'], 10, 3);
+        }
 
 
 
@@ -178,13 +178,21 @@ if (!class_exists('QT_Enqueue_Scripts')) :
          * @param string $handle
          * @param string $src
          * @param array $deps
-         * @param string|boolean|null $ver
-         * @param string $media
          * @return void
          */
-        public function wp_enqueue_style($handle, $src = '', $deps = array(), $ver = false, $media = 'all'): void
+        public function wp_enqueue_style($handle, $src = '', $deps = array()): void
         {
-            wp_enqueue_style($handle, $src, $deps, $ver, $media);
+            $style = [];
+
+            $style['handle'] = $this->prepared_handle($handle);
+
+            $style['src'] = $src;
+
+            $style['deps'] = $deps;
+
+            $style['ver'] = false;
+
+            $this->styles[] = $style;
         }
 
         /**
@@ -193,13 +201,24 @@ if (!class_exists('QT_Enqueue_Scripts')) :
          * @param string $handle
          * @param string $src
          * @param array $deps
-         * @param boolean $ver
-         * @param boolean $in_footer
+         * @param boolean $defer
          * @return void
          */
-        public function wp_enqueue_script($handle, $src = '', $deps = array(), $ver = false, $in_footer = false): void
+        public function wp_enqueue_script($handle, $src = '', $deps = array(), $defer = true): void
         {
-            wp_enqueue_script($handle, $src, $deps, $ver, $in_footer);
+            $script = [];
+
+            $script['handle'] = $this->prepared_handle($handle);
+
+            $script['src'] = $src;
+
+            $script['deps'] = $deps;
+
+            $script['ver'] = false;
+
+            $script['defer'] = $defer;
+
+            $this->scripts[] = $script;
         }
     }
 
@@ -208,9 +227,9 @@ if (!class_exists('QT_Enqueue_Scripts')) :
     $qt_enqueue_sripts->add_style('style');
 
     /**
-	  * Enquere siteNavigation.js
-	  */
-	  $qt_enqueue_sripts->add_script('siteNavigation');
+     * Enquere siteNavigation.js
+     */
+    $qt_enqueue_sripts->add_script('siteNavigation');
 
     $qt_enqueue_sripts->enqueue();
 
