@@ -65,17 +65,22 @@ function compileJS() {
     .splice(3, process.argv.length - 3)
     .toString()
     .replace('--', '');
+    
+  if(!source) {
+    console.log('Source missing...\nUse: npm run compile:js -- --Source')
+    return
+  }
 
   if (source) {
     return gulp
-      .src(`./assets/js/custom/${source}.js`)
+      .src(`./assets/js/unminified/${source}.js`)
       .pipe(
         terser({
           toplevel: true,
         })
       )
       .pipe(concat(`${source}.min.js`))
-      .pipe(gulp.dest('./assets/js/custom/minified'));
+      .pipe(gulp.dest('./assets/js/minified'));
   }
 
   /**
@@ -83,9 +88,9 @@ function compileJS() {
    *
    * npm run compile:js
    * bundle all script in assets/js/core to 'bundle.min.js'
-   */
+   
   return gulp
-    .src('./assets/js/core/*.js')
+    .src('./assets/js/*.js')
     .pipe(
       terser({
         toplevel: true,
@@ -93,6 +98,7 @@ function compileJS() {
     )
     .pipe(concat('bundle.min.js'))
     .pipe(gulp.dest('./assets/js'));
+    */
 }
 
 function runServer() {
