@@ -1,19 +1,10 @@
-/*---
-title: Heading
-section: Atoms
+Quantum hat alles 6 Headings definiert und nutzt für die `font-size` die `clamp()` Funktion.<br><br>
+**clamp()**<br>
+`clamp(min, default, max)` <br>
 
-*/
+Alle Headings haben by default `margin:0` sowie `font-weight: 300`
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  margin: 0;
-  font-weight: 300;
-}
-
+```
 h1 {
   /* 40px */
   /* font-size: 4rem; */
@@ -44,3 +35,4 @@ h6 {
   /* font-size: 2rem; */
   font-size: clamp(1.6rem, 1.8vw, 4rem);
 }
+```
