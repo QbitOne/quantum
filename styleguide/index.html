@@ -60,6 +60,14 @@
         
   
         
+        <a class="menu-heading" href="#atoms"><span>Atoms</span></a>
+        
+    
+        <a class="menu-item" href="#heading"><span>Heading</span></a>
+        
+        
+  
+        
   
           </nav>
         </div>
@@ -248,10 +256,62 @@ Mit Hilfe von <code>qu-flex</code> lässt sich jedes HTML Element als Flexbox ge
       </div>
     </section>
     
+    <section id="atoms">
+      <h1 class="page-title">Atoms</h1>
+
+      <div class="markdown-body">
+        
+        
+    <section id="heading">
+      <h2 class="page-title">Heading</h2>
+
+      <div class="markdown-body">
+        <p><p>Quantum hat alles 6 Headings definiert und nutzt für die <code>font-size</code> die <code>clamp()</code> Funktion.<br>
+<strong>clamp()</strong><br>
+<code>clamp(min, default, max)</code></p></p>
+<p><p>Alle Headings haben by default <code>margin:0</code> sowie <code>font-weight: 300</code></p></p>
+<pre><code>h1 {
+  /* 40px */
+  /* font-size: 4rem; */
+  font-size: clamp(3.6rem, 3.8vw, 4rem);
+}
+h2 {
+  /* 32px */
+  /* font-size: 3.2rem; */
+  font-size: clamp(2.8rem, 3vw, 3.2rem);
+}
+h3 {
+  /* 26px */
+  /* font-size: 2.6rem; */
+  font-size: clamp(2.2rem, 2.4vw, 4rem);
+}
+h4 {
+  /* 22px */
+  /* font-size: 2.2rem; */
+  font-size: clamp(1.8rem, 2vw, 4rem);
+}
+h5 {
+  /* 20px */
+  /* font-size: 2rem; */
+  font-size: clamp(1.6rem, 1.8vw, 4rem);
+}
+h6 {
+  /* 20px */
+  /* font-size: 2rem; */
+  font-size: clamp(1.6rem, 1.8vw, 4rem);
+}
+</code></pre>
+        
+      </div>
+    </section>
+    
+      </div>
+    </section>
+    
         </main>
       </div>
       <footer class="footer">
-        Last modified Friday, 8 October 2021 11:03
+        Last modified Friday, 8 October 2021 12:58
       </footer>
     </div>
     <script src="prism.js?871234"></script>
