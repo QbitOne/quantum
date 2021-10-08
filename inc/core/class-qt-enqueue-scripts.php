@@ -2,7 +2,7 @@
 
 /**
  * Class for enqueueing scripts and styles
- * 
+ *
  * @since 2.6.0
  */
 
@@ -10,31 +10,32 @@ if (!defined('ABSPATH')) exit;
 
 if (!class_exists('QT_Enqueue_Scripts')) :
 
-    class QT_Enqueue_Scripts
-    {
-        private $uri;
-        private $handle_prefix;
-        private $version;
+	class QT_Enqueue_Scripts
+	{
+		private $uri;
+		private $handle_prefix;
+		private $version;
 
-        private $styles = [];
-        private $styles_login = [];
-        private $scripts = [];
+		private $styles = [];
+		private $styles_login = [];
+		private $scripts = [];
 
-        function __construct(string $uri, string $handle_prefix, string $version)
-        {
-            $this->uri = $uri;
-            $this->handle_prefix = $handle_prefix;
-            $this->version = $version;
-        }
+		function __construct(string $uri, string $handle_prefix, string $version)
+		{
+			$this->uri = $uri;
+			$this->handle_prefix = $handle_prefix;
+			$this->version = $version;
+		}
 
-        public function enqueue()
-        {
-            add_action('wp_enqueue_scripts', [$this, 'enqueue_styles']);
-            add_action('wp_enqueue_scripts', [$this, 'enqueue_scripts']);
-            add_action('login_enqueue_scripts', [$this, 'login_enqueue_scripts']);
+		public function enqueue()
+		{
+			add_action('wp_enqueue_scripts', [$this, 'enqueue_styles']);
+			add_action('wp_enqueue_scripts', [$this, 'enqueue_scripts']);
+			add_action('login_enqueue_scripts', [$this, 'login_enqueue_scripts']);
 
-            add_filter('script_loader_tag', [$this, 'filter_script_loader_tag'], 10, 3);
-        }
+			add_filter('script_loader_tag', [$this, 'filter_script_loader_tag'], 10, 3);
+		}
+
 
 
 
@@ -205,6 +206,11 @@ if (!class_exists('QT_Enqueue_Scripts')) :
     $qt_enqueue_sripts = new QT_Enqueue_Scripts(QUANTUM_THEME_URI, 'qt', QUANTUM_THEME_VERSION);
 
     $qt_enqueue_sripts->add_style('style');
+
+    /**
+	  * Enquere siteNavigation.js
+	  */
+	  $qt_enqueue_sripts->add_script('siteNavigation');
 
     $qt_enqueue_sripts->enqueue();
 
