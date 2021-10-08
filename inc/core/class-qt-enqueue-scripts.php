@@ -38,149 +38,180 @@ if (!class_exists('QT_Enqueue_Scripts')) :
 
 
 
-		public function add_style(string $filename, string $src = 'assets/css/', array $deps = array(), bool $min = true): void
-		{
-			$style = [];
 
-			$style['handle'] = $this->prepared_handle($filename);
+        public function add_style(string $filename, string $src = 'assets/css/', array $deps = array(), bool $min = true): void
+        {
+            $style = [];
 
-			$src .= ($min ? 'minified/' : 'unminified/');
-			$filename_postfix = ($min ? '.min.css' : '.css');
-			$filename .= $filename_postfix;
-			$style['src'] = $this->uri . $src . $filename;
+            $style['handle'] = $this->prepared_handle($filename);
 
-			$style['deps'] = $deps;
+            $src .= ($min ? 'minified/' : 'unminified/');
+            $filename_postfix = ($min ? '.min.css' : '.css');
+            $filename .= $filename_postfix;
+            $style['src'] = $this->uri . $src . $filename;
 
-			$style['ver'] = $this->version;
+            $style['deps'] = $deps;
 
-			$this->styles[] = $style;
-		}
+            $style['ver'] = $this->version;
 
-		public function add_login_style(string $filename, string $src = 'assets/css/', array $deps = array(), bool $min = true): void
-		{
-			$style = [];
+            $this->styles[] = $style;
+        }
 
-			$style['handle'] = $this->prepared_handle($filename);
+        public function add_login_style(string $filename, string $src = 'assets/css/', array $deps = array(), bool $min = true): void
+        {
+            $style = [];
 
-			$src .= ($min ? 'minified/' : 'unminified/');
-			$filename_postfix = ($min ? '.min.css' : '.css');
-			$filename .= $filename_postfix;
-			$style['src'] = $this->uri . $src . $filename;
+            $style['handle'] = $this->prepared_handle($filename);
 
-			$style['deps'] = $deps;
+            $src .= ($min ? 'minified/' : 'unminified/');
+            $filename_postfix = ($min ? '.min.css' : '.css');
+            $filename .= $filename_postfix;
+            $style['src'] = $this->uri . $src . $filename;
 
-			$style['ver'] = $this->version;
+            $style['deps'] = $deps;
 
-			$this->styles_login[] = $style;
-		}
+            $style['ver'] = $this->version;
 
-		public function add_script(string $filename, string $src = 'assets/js/', array $deps = array(), bool $min = true, $defer = true): void
-		{
-			$script = [];
+            $this->styles_login[] = $style;
+        }
 
-			$script['handle'] = $this->prepared_handle($filename);
+        public function add_script(string $filename, string $src = 'assets/js/', array $deps = array(), bool $min = true, $defer = true): void
+        {
+            $script = [];
 
-			$src .= ($min ? 'minified/' : 'unminified/');
-			$filename .= ($min ? '.min.js' : '.js');
-			$script['src'] = $this->uri . $src . $filename;
+            $script['handle'] = $this->prepared_handle($filename);
 
-			$script['deps'] = $deps;
+            $src .= ($min ? 'minified/' : 'unminified/');
+            $filename .= ($min ? '.min.js' : '.js');
+            $script['src'] = $this->uri . $src . $filename;
 
-			$script['ver'] = $this->version;
+            $script['deps'] = $deps;
 
-			$script['defer'] = $defer;
+            $script['ver'] = $this->version;
 
-			$this->scripts[] = $script;
-		}
+            $script['defer'] = $defer;
+
+            $this->scripts[] = $script;
+        }
 
 
-		/**
-		 * Postfix the handle
-		 *
-		 * Example
-		 * -------
-		 * Handle is given by 'myHandle'.
-		 * Return value is then 'qt-myHandle'.
-		 *
-		 * @param string $handle
-		 * @return string
-		 */
-		private function prepared_handle($handle): string
-		{
-			return $this->handle_prefix . '-' . $handle;
-		}
+        /**
+         * Postfix the handle
+         * 
+         * Example
+         * -------
+         * Handle is given by 'myHandle'.
+         * Return value is then 'qt-myHandle'.
+         *
+         * @param string $handle
+         * @return string
+         */
+        private function prepared_handle($handle): string
+        {
+            return $this->handle_prefix . '-' . $handle;
+        }
 
-		public function enqueue_styles(): void
-		{
-			foreach ($this->styles as $style) {
-				wp_enqueue_style(
-					$style['handle'],
-					$style['src'],
-					$style['deps'],
-					$style['ver'],
-					'all'
-				);
-			}
-		}
+        public function enqueue_styles(): void
+        {
+            foreach ($this->styles as $style) {
+                wp_enqueue_style(
+                    $style['handle'],
+                    $style['src'],
+                    $style['deps'],
+                    $style['ver'],
+                    'all'
+                );
+            }
+        }
 
-		public function enqueue_scripts(): void
-		{
-			foreach ($this->scripts as $script) {
-				wp_enqueue_script(
-					$script['handle'],
-					$script['src'],
-					$script['deps'],
-					$script['ver'],
-					false
-				);
-			}
-		}
+        public function enqueue_scripts(): void
+        {
+            foreach ($this->scripts as $script) {
+                wp_enqueue_script(
+                    $script['handle'],
+                    $script['src'],
+                    $script['deps'],
+                    $script['ver'],
+                    false
+                );
+            }
+        }
 
-		/**
-		 * Filters the HTML script tag of an enqueued script.
-		 *
-		 * @param   string  $tag    The <code>script</code> tag for the enqueued script.
-		 * @param   string  $handle The script's registered handle.
-		 * @param   string  $src    The script's source URL.
-		 * @return  string  The <code>script</code> tag for the enqueued script.
-		 */
-		public function filter_script_loader_tag(string $tag, string $handle, string $src): string
-		{
-			foreach ($this->scripts as $script) {
-				if ($script['defer']) :
-					$tag = '<script src="' . esc_url($src) . '" id="' . $handle . '-js" defer></script>';
-				endif;
-			}
-			return $tag;
-		}
+        /**
+         * Filters the HTML script tag of an enqueued script.
+         *
+         * @param   string  $tag    The <code>script</code> tag for the enqueued script.
+         * @param   string  $handle The script's registered handle.
+         * @param   string  $src    The script's source URL.
+         * @return  string  The <code>script</code> tag for the enqueued script.
+         */
+        public function filter_script_loader_tag(string $tag, string $handle, string $src): string
+        {
+            foreach ($this->scripts as $script) {
+                if ($script['defer']) :
+                    $tag = '<script src="' . esc_url($src) . '" id="' . $handle . '-js" defer></script>';
+                endif;
+            }
+            return $tag;
+        }
 
-		/**
-		 * Enqueue scripts and styles for the login page.
-		 *
-		 */
-		public function login_enqueue_scripts(): void
-		{
-			foreach ($this->styles_login as $style) {
-				wp_enqueue_style(
-					$style['handle'],
-					$style['src'],
-					$style['deps'],
-					$style['ver'],
-					'all'
-				);
-			}
-		}
-	}
+        /**
+         * Enqueue scripts and styles for the login page.
+         *
+         */
+        public function login_enqueue_scripts(): void
+        {
+            foreach ($this->styles_login as $style) {
+                wp_enqueue_style(
+                    $style['handle'],
+                    $style['src'],
+                    $style['deps'],
+                    $style['ver'],
+                    'all'
+                );
+            }
+        }
 
-	$qt_enqueue_sripts = new QT_Enqueue_Scripts(QUANTUM_THEME_URI, 'qt', QUANTUM_THEME_VERSION);
+        /**
+         * Pipeline for WP function
+         *
+         * @param string $handle
+         * @param string $src
+         * @param array $deps
+         * @param string|boolean|null $ver
+         * @param string $media
+         * @return void
+         */
+        public function wp_enqueue_style($handle, $src = '', $deps = array(), $ver = false, $media = 'all'): void
+        {
+            wp_enqueue_style($handle, $src, $deps, $ver, $media);
+        }
 
-	$qt_enqueue_sripts->add_style('style');
+        /**
+         * Pipeline for WP function
+         *
+         * @param string $handle
+         * @param string $src
+         * @param array $deps
+         * @param boolean $ver
+         * @param boolean $in_footer
+         * @return void
+         */
+        public function wp_enqueue_script($handle, $src = '', $deps = array(), $ver = false, $in_footer = false): void
+        {
+            wp_enqueue_script($handle, $src, $deps, $ver, $in_footer);
+        }
+    }
 
-	/**
-	 * Enquere siteNavigation.js
-	 */
-	$qt_enqueue_sripts->add_script('siteNavigation');
+    $qt_enqueue_sripts = new QT_Enqueue_Scripts(QUANTUM_THEME_URI, 'qt', QUANTUM_THEME_VERSION);
 
-	$qt_enqueue_sripts->enqueue();
+    $qt_enqueue_sripts->add_style('style');
+
+    /**
+	  * Enquere siteNavigation.js
+	  */
+	  $qt_enqueue_sripts->add_script('siteNavigation');
+
+    $qt_enqueue_sripts->enqueue();
 
 endif;
