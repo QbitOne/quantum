@@ -170,6 +170,36 @@ if (!class_exists('QT_Enqueue_Scripts')) :
                 );
             }
         }
+
+        /**
+         * Pipeline for WP function
+         *
+         * @param string $handle
+         * @param string $src
+         * @param array $deps
+         * @param string|boolean|null $ver
+         * @param string $media
+         * @return void
+         */
+        public function wp_enqueue_style($handle, $src = '', $deps = array(), $ver = false, $media = 'all'): void
+        {
+            wp_enqueue_style($handle, $src, $deps, $ver, $media);
+        }
+
+        /**
+         * Pipeline for WP function
+         *
+         * @param string $handle
+         * @param string $src
+         * @param array $deps
+         * @param boolean $ver
+         * @param boolean $in_footer
+         * @return void
+         */
+        public function wp_enqueue_script($handle, $src = '', $deps = array(), $ver = false, $in_footer = false): void
+        {
+            wp_enqueue_script($handle, $src, $deps, $ver, $in_footer);
+        }
     }
 
     $qt_enqueue_sripts = new QT_Enqueue_Scripts(QUANTUM_THEME_URI, 'qt', QUANTUM_THEME_VERSION);
