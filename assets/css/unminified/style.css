@@ -2,6 +2,10 @@
   --max-site-width:1440px;
   --site-spacing-left:5%;
   --site-spacing-right:5%;
+  --color-primary:hsl(0, 0%, 50%);
+  --color-secondary:hsl(0, 0%, 75%);
+  --color-accent:hsl(20, 10%, 50%);
+  --color-text:hsl(0, 0%, 20%);
 }
 
 /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
@@ -569,7 +573,7 @@ ul.no-list-style,ol.no-list-style{
 
 #mobile-site-navigation .menu{
   display:none;
-  background:hsl(0, 0%, 75%);
+  background:var(--color-secondary);
   right:0;
   z-index:99;
   position:absolute;
