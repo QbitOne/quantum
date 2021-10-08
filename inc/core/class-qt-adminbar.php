@@ -3,7 +3,7 @@
 /**
  * Handling the WP backend adminbar
  *
- * @since 2.7.0
+ * @since 2.6.0
  */
 
 if (!defined('ABSPATH')) exit; // Exit if accessed directly
