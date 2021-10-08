@@ -1,4 +1,6 @@
 .site-header {
+  background-color: var(--color-secondary);
+
   &__inner {
     display: flex;
     align-items: center;
