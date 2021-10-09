@@ -74,3 +74,17 @@ if (!function_exists('quantum_no_webpage_selected')) :
         echo "<div>Keine Webseite im Menu ausgewählt</div>";
     }
 endif;
+
+
+if (!function_exists('quantum_login_logo_url')) {
+    /**
+     * Change the URL for the Login Page Logo
+     *
+     * @return void
+     */
+    function quantum_login_logo_url()
+    {
+        return home_url('/');
+    }
+    add_filter('login_headerurl', 'quantum_login_logo_url');
+}

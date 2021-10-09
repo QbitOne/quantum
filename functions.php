@@ -121,11 +121,11 @@ add_action('after_setup_theme', 'quantum_setup');
  *
  * @global int $content_width
  */
-function quantum_content_width()
-{
-    $GLOBALS['content_width'] = apply_filters('quantum_content_width', 640);
-}
-add_action('after_setup_theme', 'quantum_content_width', 0);
+// function quantum_content_width()
+// {
+//     $GLOBALS['content_width'] = apply_filters('quantum_content_width', 640);
+// }
+// add_action('after_setup_theme', 'quantum_content_width', 0);
 
 /**
  * Register widget area.
@@ -201,16 +201,7 @@ add_action('widgets_init', 'quantum_widgets_init');
 
 
 
-/**
- * Change the URL for the Login Page Logo
- */
-if (!function_exists('quantum_login_logo_url')) {
-    function quantum_login_logo_url()
-    {
-        return home_url('/');
-    }
-    add_filter('login_headerurl', 'quantum_login_logo_url');
-}
+
 
 
 /**
@@ -396,10 +387,6 @@ function quantum_count_active_footer_sidebars(): int
  */
 require get_template_directory() . '/inc/template-tags.php';
 
-/**
- * Functions which enhance the theme by hooking into WordPress.
- */
-require get_template_directory() . '/inc/template-functions.php';
 
 
 
