@@ -8,8 +8,7 @@
  * @package Quantum
  */
 
-// Exit if accessed directly.
-if (!defined('ABSPATH')) exit;
+if (!defined('ABSPATH')) exit; // Exit if accessed directly
 
 
 define('QUANTUM_THEME_VERSION', '2.5.4');
@@ -437,6 +436,29 @@ function sample_admin_notice__success()
 
 
 
+
+
+
+/**
+ * Helper functions
+ */
+require_once QUANTUM_THEME_DIR . 'inc/core/helpers.php';
+
+/**
+ * Functions which can be uses inside template-parts
+ */
+require_once QUANTUM_THEME_DIR . 'inc/utility-functions.php';
+
+/**
+ * Enqueues scripts (css/js) into the theme
+ */
+require_once QUANTUM_THEME_DIR . 'inc/core/class-qt-enqueue-scripts.php';
+
+
+/**
+ * WordPress Adminbar functions
+ */
+require_once QUANTUM_THEME_DIR . 'inc/core/class-qt-adminbar.php';
 
 /**
  * load all included files
