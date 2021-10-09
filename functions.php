@@ -440,6 +440,11 @@ function sample_admin_notice__success()
 
 
 /**
+ * All theme hooks
+ */
+require_once QUANTUM_THEME_DIR . 'inc/core/theme-hooks.php';
+
+/**
  * Helper functions
  */
 require_once QUANTUM_THEME_DIR . 'inc/core/helper.php';
@@ -453,7 +458,6 @@ require_once QUANTUM_THEME_DIR . 'inc/utility-functions.php';
  * Enqueues scripts (css/js) into the theme
  */
 require_once QUANTUM_THEME_DIR . 'inc/core/class-qt-enqueue-scripts.php';
-
 
 /**
  * WordPress Adminbar functions

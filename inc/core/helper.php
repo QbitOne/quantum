@@ -25,14 +25,13 @@ if (!function_exists('wp_body_open')) :
 endif;
 
 
-/**
- * Filters the separator for the document title.
- *
- * @param string $sep Document title separator. Default '-'.
- * @return string Document title separator. Default '-'.
- */
 if (!function_exists('quantum_filter_document_title_separator')) {
-
+    /**
+     * Filters the separator for the document title.
+     *
+     * @param string $sep Document title separator. Default '-'.
+     * @return string Document title separator. Default '-'.
+     */
     function quantum_filter_document_title_separator(string $sep): string
     {
         $sep = '|';
@@ -42,18 +41,17 @@ if (!function_exists('quantum_filter_document_title_separator')) {
 }
 
 
-/**
- * Filters the directives to be included in the 'robots' meta tag.
- *
- * @param   array $robots Associative array of directives. Every key must be the name of the directive, and the
- *                  corresponding value must either be a string to provide as value for the directive or a
- *                  boolean true if it is a boolean directive, i.e. without a value.
- * @return  array Associative array of directives. Every key must be the name of the directive, and the
- *                  corresponding value must either be a string to provide as value for the directive or a
- *                  boolean true if it is a boolean directive, i.e. without a value.
- */
 if (!function_exists('quantum_filter_wp_robots')) {
-
+    /**
+     * Filters the directives to be included in the 'robots' meta tag.
+     *
+     * @param   array $robots Associative array of directives. Every key must be the name of the directive, and the
+     *                  corresponding value must either be a string to provide as value for the directive or a
+     *                  boolean true if it is a boolean directive, i.e. without a value.
+     * @return  array Associative array of directives. Every key must be the name of the directive, and the
+     *                  corresponding value must either be a string to provide as value for the directive or a
+     *                  boolean true if it is a boolean directive, i.e. without a value.
+     */
     function quantum_filter_wp_robots(array $robots): array
     {
         if (is_archive()) {
@@ -63,3 +61,16 @@ if (!function_exists('quantum_filter_wp_robots')) {
     }
     add_filter('wp_robots', 'quantum_filter_wp_robots', 10, 1);
 }
+
+
+if (!function_exists('quantum_no_webpage_selected')) :
+    /**
+     * Fallback if no webpage is selected in registered menu
+     *
+     * @return void
+     */
+    function quantum_no_webpage_selected(): void
+    {
+        echo "<div>Keine Webseite im Menu ausgewählt</div>";
+    }
+endif;
