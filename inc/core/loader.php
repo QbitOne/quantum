@@ -22,16 +22,8 @@ require_once $path . 'core-filter.php';
  */
 require_once $path . 'core-functions.php';
 
-/**
- * Enqueues sccripts (css/js) into the theme
- */
-// require_once $path . 'enqueue-scripts.php';
-require_once $path . 'class-qt-enqueue-scripts.php';
 
-/**
- * Functions which can be uses inside template-parts
- */
-require_once $path . 'utility-functions.php';
+
 
 /**
  * Implementation for theme updates via WP Backend
@@ -43,6 +35,3 @@ require_once $path . 'utility-functions.php';
  * All theme hooks
  */
 require_once $path . 'theme-hooks.php';
-
-
-require_once $path . 'class-qt-adminbar.php';
