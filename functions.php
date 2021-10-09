@@ -451,7 +451,6 @@ require_once QUANTUM_THEME_DIR . 'inc/core/class-qt-enqueue-scripts.php';
  */
 require_once QUANTUM_THEME_DIR . 'inc/core/class-qt-adminbar.php';
 
-/**
- * load all included files
- */
-require_once QUANTUM_THEME_DIR . 'inc/loader.php';
+
+require_once QUANTUM_THEME_DIR . 'inc/header/header.php';
+require_once QUANTUM_THEME_DIR . 'inc/footer/footer.php';
