@@ -7,11 +7,6 @@
 $path = QUANTUM_THEME_DIR . 'inc/core/';
 
 /**
- * Functions which enhance the theme by hooking into WP
- */
-require_once $path . 'core-actions.php';
-
-/**
  * Functions which use WP core filters
  */
 require_once $path . 'core-filter.php';
