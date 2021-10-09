@@ -98,4 +98,4 @@ endif;
 /**
  * Kicking this off by calling 'get_instance()' method
  */
-$QT_After_Setup_Theme::get_instance();
+QT_After_Setup_Theme::get_instance();
