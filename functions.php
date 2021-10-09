@@ -442,7 +442,7 @@ function sample_admin_notice__success()
 /**
  * Helper functions
  */
-require_once QUANTUM_THEME_DIR . 'inc/core/helpers.php';
+require_once QUANTUM_THEME_DIR . 'inc/core/helper.php';
 
 /**
  * Functions which can be uses inside template-parts
