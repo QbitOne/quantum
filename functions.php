@@ -360,7 +360,6 @@ require get_template_directory() . '/inc/template-tags.php';
  */
 require get_template_directory() . '/template-parts/button.php';
 
-
 /**
  * All theme hooks
  */
@@ -377,10 +376,18 @@ require_once QUANTUM_THEME_DIR . 'inc/core/helper.php';
 require_once QUANTUM_THEME_DIR . 'inc/utility-functions.php';
 
 /**
+ * Update Checker for the theme
+ */
+require_once QUANTUM_THEME_DIR . 'inc/core/class-qt-update-checker.php';
+
+/**
  * Enqueues scripts (css/js) into the theme
  */
 require_once QUANTUM_THEME_DIR . 'inc/core/class-qt-enqueue-scripts.php';
 
+/**
+ * After setup theme initial setup
+ */
 require_once QUANTUM_THEME_DIR . 'inc/core/class-qt-after-setup-theme.php';
 
 /**
