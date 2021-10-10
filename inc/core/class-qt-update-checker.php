@@ -55,7 +55,7 @@ if (!class_exists('QT_Update_Checker')) :
         {
             if (file_exists(self::$vendor_file)) {
 
-                require $vendor_file;
+                require self::$vendor_file;
 
                 $myUpdateChecker = Puc_v4_Factory::buildUpdateChecker(
                     self::$remote_path,
