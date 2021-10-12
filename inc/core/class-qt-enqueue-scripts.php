@@ -54,7 +54,7 @@ if (!class_exists('QT_Enqueue_Scripts')) :
 
             $style['ver'] = $this->version;
 
-            $this->styles[] = $style;
+            $this->styles[$style['handle']] = $style;
         }
 
         public function add_login_style(string $filename, string $src = 'assets/css/', array $deps = array(), bool $min = true): void
@@ -91,7 +91,7 @@ if (!class_exists('QT_Enqueue_Scripts')) :
 
             $script['defer'] = $defer;
 
-            $this->scripts[] = $script;
+            $this->scripts[$script['handle']] = $script;
         }
 
 
@@ -140,18 +140,18 @@ if (!class_exists('QT_Enqueue_Scripts')) :
         /**
          * Filters the HTML script tag of an enqueued script.
          *
-         * @param   string  $tag    The <code>script</code> tag for the enqueued script.
+         * @param   string  $tag    The <script> tag for the enqueued script.
          * @param   string  $handle The script's registered handle.
          * @param   string  $src    The script's source URL.
-         * @return  string  The <code>script</code> tag for the enqueued script.
+         * @return  string  The <script> tag for the enqueued script.
          */
         public function filter_script_loader_tag(string $tag, string $handle, string $src): string
         {
-            foreach ($this->scripts as $script) {
-                if ($script['defer']) :
-                    $tag = '<script src="' . esc_url($src) . '" id="' . $handle . '-js" defer></script>';
-                endif;
-            }
+            // if $handle is in our QT scripts, than output w/ defer attribute
+            if (array_key_exists($handle, $this->scripts)) :
+                $tag = '<script src="' . esc_url($src) . '" id="' . $handle . '-js" defer></script>';
+            endif;
+
             return $tag;
         }
 
@@ -219,6 +219,17 @@ if (!class_exists('QT_Enqueue_Scripts')) :
             $script['defer'] = $defer;
 
             $this->scripts[] = $script;
+        }
+
+        public function echo(): void
+        {
+            quantum_print_r($this->styles);
+            quantum_print_r($this->scripts);
+        }
+
+        public function get_all_handles(): array
+        {
+            return array_keys($this->scripts);
         }
     }
 
