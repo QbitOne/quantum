@@ -5,10 +5,13 @@ order: 0
 */
 
 :root {
-  /* LAYOUT */
-  --max-site-width: 1440px;
-  --site-spacing-left: 5%;
-  --site-spacing-right: 5%;
+  /* LAYOUT 
+  *
+  *     see 1-nucleus/_container/_container.css
+  */
+  --max-site-width: 1600px;
+  --site-spacing-left: clamp(1rem, 5vw, 8rem);
+  --site-spacing-right: clamp(1rem, 5vw, 8rem);
 
   /* COLORS */
   --color-primary: hsl(0, 0%, 50%);
