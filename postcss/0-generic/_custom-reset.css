@@ -3,72 +3,56 @@
 *,
 *::before,
 *::after {
-	box-sizing: border-box;
+  box-sizing: border-box;
 }
 button {
-	background-color: transparent;
-	color: inherit;
-	border-width: 0;
-	padding: 0;
-	cursor: pointer;
+  background-color: transparent;
+  color: inherit;
+  border-width: 0;
+  padding: 0;
+  cursor: pointer;
 }
 figure {
-	margin: 0;
+  margin: 0;
 }
 input::-moz-focus-inner {
-	border: 0;
-	padding: 0;
-	margin: 0;
-}
-ul,
-ol,
-dl {
-	margin: 0;
-	padding: 0;
-	list-style: none;
-}
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-	margin: 0;
-	font-size: inherit;
-	font-weight: inherit;
-}
-p {
-	margin: 0;
-}
-cite {
-	font-style: normal;
-}
-fieldset {
-	border-width: 0;
-	padding: 0;
-	margin: 0;
-}
-/* set default list-style to disc and align items to parent element*/
-ul,
-ol {
-	list-style: disc inside;
+  border: 0;
+  padding: 0;
+  margin: 0;
 }
 
+dl {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+p {
+  margin: 0;
+}
+cite {
+  font-style: normal;
+}
+fieldset {
+  border-width: 0;
+  padding: 0;
+  margin: 0;
+}
 /* no list-style for list-items inside a nav */
 nav li {
-	list-style: none;
+  list-style: none;
 }
 
 /* set default style for definition lists */
 dt {
-	font-weight: bold;
+  font-weight: bold;
 }
 dd {
-	margin: 0;
-	padding: 0 0 0.5em 1em;
+  margin: 0;
+  padding: 0 0 0.5em 1em;
 }
 
 /* set default font-style of address to normal instead of italic */
 address {
-	font-style: normal;
+  font-style: normal;
 }

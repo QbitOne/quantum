@@ -4,23 +4,26 @@ section: Einleitung
 */
 
 /* GENERIC */
+@import '0-generic/_breakpoints/_breakpoints';
+@import '0-generic/_global-vars/_global-vars';
 @import '0-generic/_normalize';
 @import '0-generic/_custom-reset';
 
 /* NUCLEUS */
-@import '1-nucleus/_colors';
 @import '1-nucleus/_typography';
-@import '1-nucleus/_breakpoints';
+@import '1-nucleus/_container/_container';
+@import '1-nucleus/_flex/_flex';
 
 /* ATOMS */
-@import '2-atoms/_headings/_headings.css';
-@import '2-atoms/_paragraphs/_paragraphs.css';
-@import '2-atoms/_links/_links.css';
-@import '2-atoms/_buttons/_mobile-site-nav-burger-btn.css';
+@import '2-atoms/_headings/_headings';
+@import '2-atoms/_paragraphs/_paragraphs';
+@import '2-atoms/_links/_links';
+@import '2-atoms/_lists/_lists';
+@import '2-atoms/_buttons/_mobile-site-nav-burger-btn';
 
 /* MOLECULES */
 
 /* ORGANISMS */
-@import '4-organisms/_site-headers/_site-header.css';
-@import '4-organisms/_site-navs/_site-nav.css';
-@import '4-organisms/_site-navs/_mobile-site-nav.css';
+@import '4-organisms/_site-headers/_site-header';
+@import '4-organisms/_site-navs/_site-nav';
+@import '4-organisms/_site-navs/_mobile-site-nav';

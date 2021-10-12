@@ -35,16 +35,35 @@
         
   
         
-        <a class="menu-heading" href="#nucleus"><span>Nucleus</span></a>
+        <a class="menu-heading" href="#generic"><span>Generic</span></a>
         
     
+        <a class="menu-item" href="#global-variables"><span>Global Variables</span></a>
+        
+        
         <a class="menu-item" href="#breakpoints"><span>Breakpoints</span></a>
         
         
-        <a class="menu-item" href="#farben"><span>Farben</span></a>
+        <a class="menu-item" href="#container-class"><span>Container Class</span></a>
+        
+        
+  
+        
+        <a class="menu-heading" href="#nucleus"><span>Nucleus</span></a>
+        
+    
+        <a class="menu-item" href="#flexbox-class"><span>Flexbox Class</span></a>
         
         
         <a class="menu-item" href="#typography"><span>Typography</span></a>
+        
+        
+  
+        
+        <a class="menu-heading" href="#atoms"><span>Atoms</span></a>
+        
+    
+        <a class="menu-item" href="#heading"><span>Heading</span></a>
         
         
   
@@ -70,8 +89,10 @@
 <p><p>Der Styleguide soll eine Übersicht liefern, wie das CSS des Quantum Themes aufgebaut ist.<br></p></p>
 <p><p>Zusätzlich soll er als Unterstützung im Development dienen, da alle genutzen CSS-Styles aufgeführt werden.</p></p>
 <p><h3 id="atomic-design">Atomic Design</h3></p>
-<p><p>Das Quantum Theme nutzen den Atomic Design Ansatz.<br>
-<em>Siehe <a href="https://bradfrost.com/blog/post/atomic-web-design/">Brad Frost - Atomic Design</a></em>&lt;br</p></p>
+<p><p>Das Quantum Theme nutzen den Atomic Design Ansatz.<br></p></p>
+<p><ul></p>
+<p><li>Siehe <a href="https://bradfrost.com/blog/post/atomic-web-design/">Brad Frost - Atomic Design</a><br></li>
+</ul></p>
 <p><p>Hierbei wird von den kleinstmöglichen Elemente ausgehend, ein System aufgebaut.<br></p></p>
 <p><ul></p>
 <p><li><code>atoms</code><ul></p>
@@ -115,52 +136,97 @@
       </div>
     </section>
     
-    <section id="nucleus">
-      <h1 class="page-title">Nucleus</h1>
+    <section id="generic">
+      <h1 class="page-title">Generic</h1>
 
       <div class="markdown-body">
         
         
+    <section id="global-variables">
+      <h2 class="page-title">Global Variables</h2>
+
+      <div class="markdown-body">
+        <p><p>Quantum nutzt globale CSS Variablen, welche widerum im Child Theme überschrieben werden können.</p></p>
+<pre><code>:root {
+  --max-site-width: 1440px;
+  --site-spacing-left: 5%;
+  --site-spacing-right: 5%;
+}
+</code></pre><p>Quantum nutzt Grautöne als Standardfarben.
+Das ist eine zweite Zeile.</p>
+<pre><code class="lang-example:color">@color: hsl(0, 0%, 50%) @name: Primary
+@color: hsl(0, 0%, 75%) @name: Secondary
+@color: hsl(20, 10%, 50%) @name: Accent
+@color: hsl(0, 0%, 20%) @name: Text
+</code></pre>
+
+        
+      </div>
+    </section>
+    
     <section id="breakpoints">
       <h2 class="page-title">Breakpoints</h2>
 
       <div class="markdown-body">
-        <p><p>Es sind zwei Breakpoints definiert.</p></p>
-<p><ul></p>
-<p><li>800px</li></p>
-<p><li>1200px</li>
-</ul></p>
+        <p><p>Quantum nutzt 4 vordefinierte Breakpoints, welche als Mixin innerhalb PostCSS eingesetzt werden können.<br>
+Inspiriert von <a href="https://tailwindcss.com/docs/breakpoints">TailwindCSS Breakpoints</a></p></p>
 <p><p><strong>Zu beachten:</strong><br>
-<strong>Diese Breakpoints sind momentan nur für das Quantum Theme nutzbar.</strong><br>
+<strong>Diese Breakpoints sind nur für das Quantum Theme nutzbar.</strong><br>
 Da sie als <code>mixin</code> innerhalb <code>postcss</code> verwendet werden, sind sie nicht für das Projekttheme anwendbar.<br>
-Dafür muss momentan innerhalb des Projekttheme ebenfalls die <code>_breakpoints.css</code> angelegt werden.<br></p></p>
+Es muss innerhalb des Projekttheme ebenfalls die <code>_breakpoints.css</code> angelegt werden.<br></p></p>
 <pre><code>@define-mixin atSmall {
-    @media (min-width: 800px) {
-        @mixin-content;
-    }
+  @media (min-width: 640px) {
+    @mixin-content;
+  }
 }
 
 @define-mixin atMedium {
-    @media (min-width: 1200px) {
-        @mixin-content;
-    }
+  @media (min-width: 768px) {
+    @mixin-content;
+  }
+}
+
+@define-mixin atLarge {
+  @media (min-width: 1024px) {
+    @mixin-content;
+  }
+}
+
+@define-mixin atExtraLarge {
+  @media (min-width: 1280px) {
+    @mixin-content;
+  }
 }
 </code></pre>
         
       </div>
     </section>
     
-    <section id="farben">
-      <h2 class="page-title">Farben</h2>
+    <section id="container-class">
+      <h2 class="page-title">Container Class</h2>
 
       <div class="markdown-body">
-        <p><p>Quantum nutzt Grautöne als Standardfarben.
-Das ist eine zweite Zeile.</p></p>
-<pre><code class="lang-example:color">@color: hsl(0, 0%, 50%) @name: Primary
-@color: hsl(0, 0%, 75%) @name: Secondary
-@color: hsl(0, 0%, 75%) @name: Accent
-@color: hsl(0, 0%, 20%) @name: Text
-</code></pre>
+        
+        
+      </div>
+    </section>
+    
+      </div>
+    </section>
+    
+    <section id="nucleus">
+      <h1 class="page-title">Nucleus</h1>
+
+      <div class="markdown-body">
+        
+        
+    <section id="flexbox-class">
+      <h2 class="page-title">Flexbox Class</h2>
+
+      <div class="markdown-body">
+        <p>Quantum verfügt über eine Flexbox Class die genutzt werden kann.
+Mit Hilfe von <code>qu-flex</code> lässt sich jedes HTML Element als Flexbox gestalten.</p>
+<p>...Anweisungen folgen noch</p>
 
         
       </div>
@@ -190,10 +256,62 @@ Das ist eine zweite Zeile.</p></p>
       </div>
     </section>
     
+    <section id="atoms">
+      <h1 class="page-title">Atoms</h1>
+
+      <div class="markdown-body">
+        
+        
+    <section id="heading">
+      <h2 class="page-title">Heading</h2>
+
+      <div class="markdown-body">
+        <p><p>Quantum hat alles 6 Headings definiert und nutzt für die <code>font-size</code> die <code>clamp()</code> Funktion.<br><br>
+<strong>clamp()</strong><br>
+<code>clamp(min, default, max)</code> <br></p></p>
+<p><p>Alle Headings haben by default <code>margin:0</code> sowie <code>font-weight: 300</code></p></p>
+<pre><code>h1 {
+  /* 40px */
+  /* font-size: 4rem; */
+  font-size: clamp(3.6rem, 3.8vw, 4rem);
+}
+h2 {
+  /* 32px */
+  /* font-size: 3.2rem; */
+  font-size: clamp(2.8rem, 3vw, 3.2rem);
+}
+h3 {
+  /* 26px */
+  /* font-size: 2.6rem; */
+  font-size: clamp(2.2rem, 2.4vw, 4rem);
+}
+h4 {
+  /* 22px */
+  /* font-size: 2.2rem; */
+  font-size: clamp(1.8rem, 2vw, 4rem);
+}
+h5 {
+  /* 20px */
+  /* font-size: 2rem; */
+  font-size: clamp(1.6rem, 1.8vw, 4rem);
+}
+h6 {
+  /* 20px */
+  /* font-size: 2rem; */
+  font-size: clamp(1.6rem, 1.8vw, 4rem);
+}
+</code></pre>
+        
+      </div>
+    </section>
+    
+      </div>
+    </section>
+    
         </main>
       </div>
       <footer class="footer">
-        Last modified Friday, 17 September 2021 19:02
+        Last modified Friday, 8 October 2021 16:52
       </footer>
     </div>
     <script src="prism.js?871234"></script>
