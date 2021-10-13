@@ -19,6 +19,7 @@ section: Einleitung
 @import '2-atoms/_paragraphs/_paragraphs';
 @import '2-atoms/_links/_links';
 @import '2-atoms/_lists/_lists';
+@import '2-atoms/_images/_images';
 @import '2-atoms/_buttons/_mobile-site-nav-burger-btn';
 
 /* MOLECULES */
