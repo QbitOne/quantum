@@ -1,7 +1,7 @@
 :root{
-  --max-site-width:1440px;
-  --site-spacing-left:5%;
-  --site-spacing-right:5%;
+  --max-site-width:1600px;
+  --site-spacing-left:clamp(1rem, 5vw, 8rem);
+  --site-spacing-right:clamp(1rem, 5vw, 8rem);
   --color-primary:hsl(0, 0%, 50%);
   --color-secondary:hsl(0, 0%, 75%);
   --color-accent:hsl(20, 10%, 50%);
@@ -436,6 +436,24 @@ ol{
 ul.no-list-style,ol.no-list-style{
     list-style:none;
   }
+
+img{
+  max-width:100%;
+}
+
+img[width]{
+  width:auto;
+}
+
+img[width][height]{
+  height:auto;
+}
+
+img[src$='.svg']{
+  width:100%;
+  height:auto;
+  max-width:none;
+}
 
 .mobile-menu-toggle{
   background-color:transparent;
