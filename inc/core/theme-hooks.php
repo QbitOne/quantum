@@ -1,16 +1,12 @@
 <?php
 
 /**
- * Theme hook list.
+ * Theme Hook Alliance hook stub list.
  *
  * @see  https://github.com/zamoose/themehookalliance
- *
- * @package     Quantum
  */
 
-if (!defined('ABSPATH')) {
-    exit; // Exit if accessed directly.
-}
+if (!defined('ABSPATH')) exit; // Exit if accessed directly.
 
 function quantum_header_before()
 {
