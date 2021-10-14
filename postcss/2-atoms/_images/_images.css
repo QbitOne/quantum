@@ -7,14 +7,19 @@ section: Atoms
 img {
   max-width: 100%;
 }
+
+/* Only allow change the height through img height attribute */
 img[width] {
-  width: auto; /* Defer to max-width */
-}
-img[width][height] {
-  height: auto; /* Preserve aspect ratio */
+  /* Defer to max-width */
+  width: auto;
 }
 
-/* Let SVG scale without boundaries */
+img[width][height] {
+  /* Preserve aspect ratio */
+  height: auto;
+}
+
+/* Let SVG scale without boundaries, set them in each case */
 img[src$='.svg'] {
   width: 100%;
   height: auto;
