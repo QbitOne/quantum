@@ -436,6 +436,9 @@ function sample_admin_notice__success()
 }
 
 
+/**
+ * @since 3.0.0
+ */
 require_once QUANTUM_THEME_DIR . 'inc/core/class-qt-controller-scroll-top.php';
 
 

@@ -11,14 +11,28 @@ if (!defined('ABSPATH')) exit; // Exit if accessed directly
 if (!class_exists('QT_Controller_Scroll_Top')) :
     /**
      * Controller Class for Scroll Top
+     * 
+     * @since 3.0.0
      */
     class QT_Controller_Scroll_Top
     {
+        /**
+         * Constructor
+         * 
+         * @since 3.0.0
+         */
         public function __construct()
         {
             add_action('customize_register', [$this, 'build_customizer']);
         }
 
+        /**
+         * Checke if Scroll Top is activated
+         *
+         * @static  true
+         * @return  boolean
+         * @since   3.0.0
+         */
         public static function is_scroll_top_active(): bool
         {
             // Return false by default
@@ -36,10 +50,11 @@ if (!class_exists('QT_Controller_Scroll_Top')) :
         /**
          * Register customizer options.
          *
-         * @param WP_Customize_Manager $wp_customize Theme Customizer object.
-         * @return void
+         * @param   WP_Customize_Manager $wp_customize Theme Customizer object.
+         * @return  void
+         * @since   3.0.0
          */
-        public function build_customizer($wp_customize)
+        public function build_customizer($wp_customize): void
         {
             $wp_customize->add_panel(
                 'qt_panel',
