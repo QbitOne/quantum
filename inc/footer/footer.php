@@ -13,3 +13,9 @@ if (!function_exists('quantum_footer_html')) {
     }
     add_action('quantum_footer', 'quantum_footer_html');
 }
+
+if (QT_Controller_Scroll_Top::is_scroll_top_active()) :
+    add_action('quantum_footer_after', function () {
+        get_template_part('template-parts/scroll-top');
+    });
+endif;
