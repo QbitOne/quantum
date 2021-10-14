@@ -6,11 +6,11 @@ section: Einleitung
 /* GENERIC */
 @import '0-generic/_breakpoints/_breakpoints';
 @import '0-generic/_global-vars/_global-vars';
+@import '0-generic/_typography/_typography';
 @import '0-generic/_normalize';
 @import '0-generic/_custom-reset';
 
 /* NUCLEUS */
-@import '1-nucleus/_typography';
 @import '1-nucleus/_container/_container';
 @import '1-nucleus/_flex/_flex';
 
