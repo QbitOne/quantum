@@ -589,6 +589,11 @@ form p{
     margin-bottom:1rem;
   }
 
+#footerbar__social img{
+    max-width:1.8rem;
+    margin:0 1rem;
+  }
+
 .site-header{
   background-color:var(--color-secondary);
 }
