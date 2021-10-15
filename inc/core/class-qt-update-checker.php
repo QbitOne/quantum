@@ -33,7 +33,7 @@ if (!class_exists('QT_Update_Checker')) :
          *
          * @var string
          */
-        private static $remote_path = 'http://qbitone.de/quantum.json';
+        private static $remote_path = 'https://qbitone.de/quantum.json';
 
         /**
          * Initiator
