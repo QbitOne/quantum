@@ -101,41 +101,34 @@ get_header();
 	<div>
 		<h2>Table</h2>
 		<table>
-			<tr>
-				<th>Company</th>
-				<th>Contact</th>
-				<th>Country</th>
-			</tr>
-			<tr>
-				<td>Alfreds Futterkiste</td>
-				<td>Maria Anders</td>
-				<td>Germany</td>
-			</tr>
-			<tr>
-				<td>Centro comercial Moctezuma</td>
-				<td>Francisco Chang</td>
-				<td>Mexico</td>
-			</tr>
-			<tr>
-				<td>Ernst Handel</td>
-				<td>Roland Mendel</td>
-				<td>Austria</td>
-			</tr>
-			<tr>
-				<td>Island Trading</td>
-				<td>Helen Bennett</td>
-				<td>UK</td>
-			</tr>
-			<tr>
-				<td>Laughing Bacchus Winecellars</td>
-				<td>Yoshi Tannamuri</td>
-				<td>Canada</td>
-			</tr>
-			<tr>
-				<td>Magazzini Alimentari Riuniti</td>
-				<td>Giovanni Rovelli</td>
-				<td>Italy</td>
-			</tr>
+			<thead>
+				<tr>
+					<th>Type of Food</th>
+					<th>Calories</th>
+					<th>Tasty Factor</th>
+					<th>Average Price</th>
+					<th>Rarity</th>
+					<th>Average Rating</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>Slice of Pizza</td>
+					<td>450</td>
+					<td>95%</td>
+					<td>$5.00</td>
+					<td>Common</td>
+					<td>8/10</td>
+				</tr>
+				<tr>
+					<td>Hamburger</td>
+					<td>350</td>
+					<td>87%</td>
+					<td>$3.50</td>
+					<td>Common</td>
+					<td>7.5/10</td>
+				</tr>
+			</tbody>
 		</table>
 	</div>
 </div>
