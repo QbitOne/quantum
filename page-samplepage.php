@@ -155,20 +155,19 @@ get_header();
 					<p>
 						<input type="radio" id="huey" name="drone" value="huey" checked>
 						<label for="huey">Huey</label>
-					</p>
-
-					<p>
 						<input type="radio" id="dewey" name="drone" value="dewey">
 						<label for="dewey">Dewey</label>
-					</p>
-
-					<p>
 						<input type="radio" id="louie" name="drone" value="louie">
 						<label for="louie">Louie</label>
 					</p>
 				</fieldset>
 			</form>
 		</div>
+	</div>
+	<div>
+		<h2>Simple button</h2>
+		<div>Following element is a <code>button</code></div>
+		<button>Button Text</button>
 	</div>
 </div>
 </div>
