@@ -41,7 +41,7 @@ get_header();
 	</div>
 	<div>
 		<h2>Lists</h2>
-		<div class="qu-flex">
+		<div class="qu-flex justify--between">
 			<div>
 				<h3>Unordered List</h3>
 				<ul>
@@ -79,7 +79,7 @@ get_header();
 	</div>
 	<div>
 		<h2>Images</h2>
-		<div class="qu-fle justify--between">
+		<div class="qu-flex justify--between">
 			<div>
 				<img src="https://picsum.photos/1920/1080" alt="">
 			</div>
@@ -97,6 +97,46 @@ get_header();
 				</picture>
 			</div>
 		</div>
+	</div>
+	<div>
+		<h2>Table</h2>
+		<table>
+			<tr>
+				<th>Company</th>
+				<th>Contact</th>
+				<th>Country</th>
+			</tr>
+			<tr>
+				<td>Alfreds Futterkiste</td>
+				<td>Maria Anders</td>
+				<td>Germany</td>
+			</tr>
+			<tr>
+				<td>Centro comercial Moctezuma</td>
+				<td>Francisco Chang</td>
+				<td>Mexico</td>
+			</tr>
+			<tr>
+				<td>Ernst Handel</td>
+				<td>Roland Mendel</td>
+				<td>Austria</td>
+			</tr>
+			<tr>
+				<td>Island Trading</td>
+				<td>Helen Bennett</td>
+				<td>UK</td>
+			</tr>
+			<tr>
+				<td>Laughing Bacchus Winecellars</td>
+				<td>Yoshi Tannamuri</td>
+				<td>Canada</td>
+			</tr>
+			<tr>
+				<td>Magazzini Alimentari Riuniti</td>
+				<td>Giovanni Rovelli</td>
+				<td>Italy</td>
+			</tr>
+		</table>
 	</div>
 </div>
 </div>
