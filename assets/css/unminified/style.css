@@ -1,11 +1,22 @@
 :root{
-  --max-site-width:1440px;
-  --site-spacing-left:5%;
-  --site-spacing-right:5%;
+  --max-site-width:1600px;
+  --site-spacing-left:clamp(1rem, 5vw, 8rem);
+  --site-spacing-right:clamp(1rem, 5vw, 8rem);
   --color-primary:hsl(0, 0%, 50%);
   --color-secondary:hsl(0, 0%, 75%);
   --color-accent:hsl(20, 10%, 50%);
   --color-text:hsl(0, 0%, 20%);
+  --color-body-bg:hsl(0, 0%, 100%);
+}
+
+html{
+  font-size:62.5%;
+  font-family:sans-serif;
+}
+
+body{
+  font-size:clamp(1.4rem, 1.6vw, 1.8rem);
+  line-height:1.5;
 }
 
 /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
@@ -209,30 +220,14 @@ figure{
   margin:0;
 }
 
-input::-moz-focus-inner{
-  border:0;
-  padding:0;
-  margin:0;
-}
-
 dl{
   margin:0;
   padding:0;
   list-style:none;
 }
 
-p{
-  margin:0;
-}
-
 cite{
   font-style:normal;
-}
-
-fieldset{
-  border-width:0;
-  padding:0;
-  margin:0;
 }
 
 nav li{
@@ -250,16 +245,6 @@ dd{
 
 address{
   font-style:normal;
-}
-
-html{
-  font-size:62.5%;
-  font-family:sans-serif;
-}
-
-body{
-  font-size:clamp(1.4rem, 1.6vw, 1.8rem);
-  line-height:1.5;
 }
 
 .qu-container{
@@ -377,6 +362,10 @@ body{
       }
   }
 
+body{
+  background:var(--color-body-bg);
+}
+
 h1,
 h2,
 h3,
@@ -436,6 +425,29 @@ ol{
 ul.no-list-style,ol.no-list-style{
     list-style:none;
   }
+
+img{
+  max-width:100%;
+}
+
+img[width]{
+  width:auto;
+}
+
+img[width][height]{
+  height:auto;
+}
+
+img[src$='.svg']{
+  width:100%;
+  height:auto;
+  max-width:none;
+}
+
+button{
+  background:var(--color-primary);
+  padding:1.2rem 2.4rem;
+}
 
 .mobile-menu-toggle{
   background-color:transparent;
@@ -512,6 +524,75 @@ ul.no-list-style,ol.no-list-style{
         transform:rotate(-45deg);
         transition:top 200ms, transform 200ms 200ms;
       }
+
+table{
+  display:block;
+  border-collapse:collapse;
+  overflow:auto;
+  white-space:nowrap;
+}
+
+table td,
+  table th{
+    border:1px solid var(--color-text);
+    text-align:left;
+    padding:1rem;
+  }
+
+label{
+  display:block;
+}
+
+input::-moz-focus-inner{
+    border:0;
+    padding:0;
+    margin:0;
+  }
+
+input[type='text'],
+  input[type='email'],
+  input[type='password']{
+    width:100%;
+  }
+
+input[type='submit']{
+    width:100%;
+    background:var(--color-primary);
+    border:none;
+    padding:1.2rem 0;
+  }
+
+textarea{
+  width:100%;
+}
+
+fieldset{
+  border-width:0.2rem;
+  border-color:var(--color-primary);
+  padding:1rem;
+  margin:0;
+}
+
+fieldset legend{
+    padding:0 1rem;
+  }
+
+@media (min-width: 1024px){
+
+form{
+    max-width:75ch;
+}
+  }
+
+form p{
+    max-width:100%;
+    margin-bottom:1rem;
+  }
+
+#footerbar__social img{
+    max-width:1.8rem;
+    margin:0 1rem;
+  }
 
 .site-header{
   background-color:var(--color-secondary);
