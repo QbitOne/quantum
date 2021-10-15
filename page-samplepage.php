@@ -132,8 +132,28 @@ get_header();
 		</table>
 	</div>
 	<div>
-		<h2>Forms (using CF7 here)</h2>
-		<?php echo do_shortcode('[contact-form-7 id="9" title="Testformular"]'); ?>
+		<div class="qu-flex qu-flex-grid cols-2">
+			<div class="qu-flex-grid__item">
+				<h2>Form using CF7 here</h2>
+				<?php echo do_shortcode('[contact-form-7 id="9" title="Testformular"]'); ?>
+			</div>
+			<div class="qu-flex-grid__item">
+				<h2>Custom Form</h2>
+				<form action="#">
+					<p>
+						<label for="name">Name</label>
+						<input type="text" id="name">
+					</p>
+					<p>
+						<label for="name">Email</label>
+						<input type="email" id="email">
+					</p>
+					<p>
+						<input type="submit" id="submit" value="Senden">
+					</p>
+				</form>
+			</div>
+		</div>
 	</div>
 </div>
 </div>
