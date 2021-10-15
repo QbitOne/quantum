@@ -474,6 +474,18 @@ table td,
     padding:1rem;
   }
 
+label{
+  display:block;
+}
+
+input{
+  width:100%;
+}
+
+textarea{
+  width:100%;
+}
+
 .mobile-menu-toggle{
   background-color:transparent;
   width:32px;
@@ -549,6 +561,18 @@ table td,
         transform:rotate(-45deg);
         transition:top 200ms, transform 200ms 200ms;
       }
+
+@media (min-width: 1024px){
+
+form{
+    max-width:75ch;
+}
+  }
+
+form p{
+    max-width:100%;
+    margin-bottom:1rem;
+  }
 
 .site-header{
   background-color:var(--color-secondary);
