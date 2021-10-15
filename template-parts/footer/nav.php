@@ -9,19 +9,21 @@
 if (!defined('ABSPATH')) exit; // Exit if accessed directly
 ?>
 
-<small>
-    <?php
+<div>
+    <small>
+        <?php
 
-    wp_nav_menu(
-        array(
-            'theme_location' => 'footerbar_menu',
-            'menu_id' => 'footerbar_menu',
-            'menu_class' => 'qu-flex',
-            'container' => 'nav',
-            'fallback_cb' => 'quantum_no_webpage_selected', // Fallback if now webpage is selected in this menu,
-        )
-    );
-    do_action('quantum_footer_navigation_extension');
+        wp_nav_menu(
+            array(
+                'theme_location' => 'footerbar_menu',
+                'menu_id' => 'footerbar_menu',
+                'menu_class' => 'qu-flex menu',
+                'container' => 'nav',
+                'fallback_cb' => 'quantum_no_webpage_selected', // Fallback if now webpage is selected in this menu,
+            )
+        );
+        do_action('quantum_footer_navigation_extension');
 
-    ?>
-</small>
+        ?>
+    </small>
+</div>
