@@ -131,6 +131,10 @@ get_header();
 			</tbody>
 		</table>
 	</div>
+	<div>
+		<h2>Forms (using CF7 here)</h2>
+		<?php echo do_shortcode('[contact-form-7 id="9" title="Testformular"]'); ?>
+	</div>
 </div>
 </div>
 <?php
