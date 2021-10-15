@@ -461,7 +461,10 @@ img[src$='.svg']{
 }
 
 table{
+  display:block;
   border-collapse:collapse;
+  overflow:auto;
+  white-space:nowrap;
 }
 
 table td,
