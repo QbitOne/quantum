@@ -65,3 +65,53 @@ if (!function_exists('the_quantum_abbr')) {
         echo get_quantum_abbr($abbr);
     }
 }
+
+
+/**
+ * Print a src for an img tag. If filename is given,
+ * the src will be loaded.
+ * If now filename is given (empty string excepted)
+ * then a dummy image with the size given in args is loaded
+ *
+ * @param   string $filename
+ * @param   string $args
+ * @return  void
+ */
+// function the_quantum_image_src( string $filename, string $args ) {
+
+//     if ( empty( $filename ) ) {
+
+//         $format = 'https://dummyimage.com/%s';
+//         printf( $format, $args );
+//     } else {
+
+//         $path = get_template_directory_uri() . '/assets/img/' . $filename;
+//         echo $path;
+//     }
+// }
+
+
+
+
+
+// Fallback for new php8 function
+if (!function_exists('str_contains')) {
+    function str_contains($haystack, $needle): bool
+    {
+        return $needle !== '' && mb_strpos($haystack, $needle) !== false;
+    }
+}
+
+
+function quantum_count_active_footer_sidebars(): int
+{
+    $count = 0;
+    $sidebars = $GLOBALS['wp_registered_sidebars'];
+
+    foreach ($sidebars as $sidebar_key => $sidebar_array) {
+        if (str_contains($sidebar_key, 'footer') && is_active_sidebar($sidebar_key)) :
+            $count++;
+        endif;
+    }
+    return $count;
+}

@@ -4,6 +4,7 @@
  * Main navigation for the Quantum Theme
  */
 
+if (!defined('ABSPATH')) exit; // Exit if accessed directly
 ?>
 
 <div class="site-header__inner__nav">

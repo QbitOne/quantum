@@ -9,7 +9,7 @@ if (!function_exists('quantum_footer_html')) {
 
     function quantum_footer_html()
     {
-        get_template_part('template-parts/footer');
+        get_template_part('template-parts/footer/footer');
     }
     add_action('quantum_footer', 'quantum_footer_html');
 }
