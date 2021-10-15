@@ -482,6 +482,12 @@ input{
   width:100%;
 }
 
+input[type='submit']{
+    background:var(--color-primary);
+    border:none;
+    padding:1.2rem 0;
+  }
+
 textarea{
   width:100%;
 }
