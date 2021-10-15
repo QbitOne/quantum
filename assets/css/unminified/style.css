@@ -220,30 +220,14 @@ figure{
   margin:0;
 }
 
-input::-moz-focus-inner{
-  border:0;
-  padding:0;
-  margin:0;
-}
-
 dl{
   margin:0;
   padding:0;
   list-style:none;
 }
 
-p{
-  margin:0;
-}
-
 cite{
   font-style:normal;
-}
-
-fieldset{
-  border-width:0;
-  padding:0;
-  margin:0;
 }
 
 nav li{
@@ -460,36 +444,9 @@ img[src$='.svg']{
   max-width:none;
 }
 
-table{
-  display:block;
-  border-collapse:collapse;
-  overflow:auto;
-  white-space:nowrap;
-}
-
-table td,
-  table th{
-    border:1px solid var(--color-text);
-    text-align:left;
-    padding:1rem;
-  }
-
-label{
-  display:block;
-}
-
-input{
-  width:100%;
-}
-
-input[type='submit']{
-    background:var(--color-primary);
-    border:none;
-    padding:1.2rem 0;
-  }
-
-textarea{
-  width:100%;
+button{
+  background:var(--color-primary);
+  padding:1.2rem 2.4rem;
 }
 
 .mobile-menu-toggle{
@@ -567,6 +524,58 @@ textarea{
         transform:rotate(-45deg);
         transition:top 200ms, transform 200ms 200ms;
       }
+
+table{
+  display:block;
+  border-collapse:collapse;
+  overflow:auto;
+  white-space:nowrap;
+}
+
+table td,
+  table th{
+    border:1px solid var(--color-text);
+    text-align:left;
+    padding:1rem;
+  }
+
+label{
+  display:block;
+}
+
+input::-moz-focus-inner{
+    border:0;
+    padding:0;
+    margin:0;
+  }
+
+input[type='text'],
+  input[type='email'],
+  input[type='password']{
+    width:100%;
+  }
+
+input[type='submit']{
+    width:100%;
+    background:var(--color-primary);
+    border:none;
+    padding:1.2rem 0;
+  }
+
+textarea{
+  width:100%;
+}
+
+fieldset{
+  border-width:0.2rem;
+  border-color:var(--color-primary);
+  padding:1rem;
+  margin:0;
+}
+
+fieldset legend{
+    padding:0 1rem;
+  }
 
 @media (min-width: 1024px){
 
