@@ -6,6 +6,7 @@
   --color-secondary:hsl(0, 0%, 75%);
   --color-accent:hsl(20, 10%, 50%);
   --color-text:hsl(0, 0%, 20%);
+  --color-body-bg:hsl(0, 0%, 100%);
 }
 
 html{
@@ -377,6 +378,10 @@ address{
       }
   }
 
+body{
+  background:var(--color-body-bg);
+}
+
 h1,
 h2,
 h3,
@@ -454,6 +459,17 @@ img[src$='.svg']{
   height:auto;
   max-width:none;
 }
+
+table{
+  border-collapse:collapse;
+}
+
+table td,
+  table th{
+    border:1px solid var(--color-text);
+    text-align:left;
+    padding:1rem;
+  }
 
 .mobile-menu-toggle{
   background-color:transparent;
