@@ -25,6 +25,7 @@ section: Einleitung
 @import '2-atoms/_labels/_labels';
 @import '2-atoms/_inputs/_inputs';
 @import '2-atoms/_textareas/_textareas';
+@import '2-atoms/_fieldsets/_fieldsets';
 @import '2-atoms/_buttons/_mobile-site-nav-burger-btn';
 
 /* MOLECULES */
