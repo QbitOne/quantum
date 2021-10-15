@@ -1,5 +1,8 @@
 table {
+  display: block;
   border-collapse: collapse;
+  overflow: auto;
+  white-space: nowrap;
 
   td,
   th {
