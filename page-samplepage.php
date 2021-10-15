@@ -132,27 +132,42 @@ get_header();
 		</table>
 	</div>
 	<div>
-		<div class="qu-flex qu-flex-grid cols-2">
-			<div class="qu-flex-grid__item">
-				<h2>Form using CF7 here</h2>
-				<?php echo do_shortcode('[contact-form-7 id="9" title="Testformular"]'); ?>
-			</div>
-			<div class="qu-flex-grid__item">
-				<h2>Custom Form</h2>
-				<form action="#">
+		<div>
+			<h2>Form using CF7 here</h2>
+			<?php echo do_shortcode('[contact-form-7 id="9" title="Testformular"]'); ?>
+		</div>
+		<div>
+			<h2>Custom Form</h2>
+			<form action="#">
+				<p>
+					<label for="name">Name</label>
+					<input type="text" id="name">
+				</p>
+				<p>
+					<label for="name">Email</label>
+					<input type="email" id="email">
+				</p>
+				<p>
+					<input type="submit" id="submit" value="Senden">
+				</p>
+				<fieldset>
+					<legend>Fieldset</legend>
 					<p>
-						<label for="name">Name</label>
-						<input type="text" id="name">
+						<input type="radio" id="huey" name="drone" value="huey" checked>
+						<label for="huey">Huey</label>
 					</p>
+
 					<p>
-						<label for="name">Email</label>
-						<input type="email" id="email">
+						<input type="radio" id="dewey" name="drone" value="dewey">
+						<label for="dewey">Dewey</label>
 					</p>
+
 					<p>
-						<input type="submit" id="submit" value="Senden">
+						<input type="radio" id="louie" name="drone" value="louie">
+						<label for="louie">Louie</label>
 					</p>
-				</form>
-			</div>
+				</fieldset>
+			</form>
 		</div>
 	</div>
 </div>
