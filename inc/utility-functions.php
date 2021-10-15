@@ -91,59 +91,7 @@ if (!function_exists('the_quantum_abbr')) {
 // }
 
 
-if (!function_exists('quantum_footerbar_menu')) :
 
-    function quantum_footerbar_menu(): void
-    {
-
-        if (has_nav_menu('footerbar_menu')) :
-            wp_nav_menu(
-                array(
-                    'theme_location'    => 'footerbar_menu',
-                    'menu_id'           => 'footerbar_menu',
-                    'fallback_cb'       => false,
-                )
-            );
-        endif;
-
-        do_action('quantum_footer_navigation_extension');
-    }
-endif;
-
-
-if (!function_exists('quantum_footerbar_meta')) :
-
-    function quantum_footerbar_meta(): void
-    {
-
-        $url = parse_url(home_url('/'), PHP_URL_HOST);
-
-        // Check whether the URL is www-prefixed
-        if (explode('.', $url)[0] === $url) {
-            $url = 'www.' . $url;
-        }
-        echo $url;
-    }
-endif;
-
-
-if (!function_exists('quantum_footerbar_copyright')) :
-
-    function quantum_footerbar_copyright(): void
-    {
-
-        $copyright = apply_filters('quantum_copyright_text', 'Copyright');
-
-        // TODO: implement solution you use a year of foundation
-        // $year_of_foundation = apply_filters('quantum_copyright_year_of_foundation', '');
-
-        $current_year = date('Y');
-        $site_title = get_bloginfo('name');
-
-        $format = '<span role="contentinfo">%s &copy; %s %s</span>';
-        printf($format, esc_html($copyright), $current_year, $site_title);
-    }
-endif;
 
 
 // Fallback for new php8 function
