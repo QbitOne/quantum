@@ -3,7 +3,7 @@
 /**
  * Template part for the footer
  *
- * @since 0.2.0
+ * @since 2.7.1
  */
 
 if (!defined('ABSPATH')) exit; // Exit if accessed directly
