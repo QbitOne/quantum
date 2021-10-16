@@ -181,7 +181,7 @@ if (!function_exists('get_quantum_branding_text')) :
     {
         $html = '';
         $unlink_homepage_logo = (bool) get_theme_support('custom-logo', 'unlink-homepage-logo');
-        $text = apply_filters('quantum_branding_text', bloginfo('name'));
+        $text = apply_filters('quantum_branding_text', get_bloginfo('name'));
 
         if ($unlink_homepage_logo && is_front_page() && !is_paged()) {
             // If on the home page, don't link the logo to home.
