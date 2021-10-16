@@ -162,3 +162,43 @@ if (!function_exists('quantum_login_logo_url')) {
 // 	}
 // 	add_action( 'wp_footer', 'quantum_deregister_wp_embed' );
 // }
+
+if (!function_exists('get_quantum_branding_text')) :
+    /**
+     * Return the branding text.
+     * 
+     * If the WP theme support for ``custom-logo`` allows for ``unlink-homepage-logo``
+     * the branding text will have the same behavior of not linking to the homepage
+     * if you are already on the homepage
+     * 
+     * @since 2.7.3
+     *
+     * @return string The html string for the branding text
+     * 
+     * @filter ``quantum_branding_text`` (default: bloginfo('name'))
+     */
+    function get_quantum_branding_text(): string
+    {
+        $html = '';
+        $unlink_homepage_logo = (bool) get_theme_support('custom-logo', 'unlink-homepage-logo');
+        $text = apply_filters('quantum_branding_text', get_bloginfo('name'));
+
+        if ($unlink_homepage_logo && is_front_page() && !is_paged()) {
+            // If on the home page, don't link the logo to home.
+            $html = sprintf(
+                '<span class="custom-logo-link">%1$s</span>',
+                $text
+            );
+        } else {
+            $aria_current = is_front_page() && !is_paged() ? 'aria-current="page"' : '';
+
+            $html = sprintf(
+                '<a href="%1$s" class="custom-logo-link" rel="home" %2$s>%3$s</a>',
+                esc_url(home_url('/')),
+                $aria_current,
+                $text
+            );
+        }
+        return $html;
+    }
+endif;
