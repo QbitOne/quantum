@@ -89,6 +89,22 @@ if (!class_exists('QT_After_Setup_Theme')) :
                 )
             );
 
+            /**
+             * Add support for core custom logo.
+             *
+             * @link https://developer.wordpress.org/themes/functionality/custom-logo/
+             */
+            add_theme_support(
+                'custom-logo',
+                array(
+                    'height'      => 50,
+                    'width'       => 200,
+                    'flex-width'  => true,
+                    'flex-height' => true,
+                    'unlink-homepage-logo' => true,
+                )
+            );
+
             // Add theme support for selective refresh for widgets.
             add_theme_support('customize-selective-refresh-widgets');
         }
