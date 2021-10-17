@@ -60,7 +60,8 @@ if (!class_exists('QT_AdminBar')) :
                 $wp_admin_bar->add_node($args);
             endif;
 
-            if (file_exists(QUANTUM_CHILD_DIR . '.git')) :
+
+            if (defined('QUANTUM_CHILD_DIR') && file_exists(QUANTUM_CHILD_DIR . '.git')) :
                 $gitStr = file_get_contents(QUANTUM_CHILD_DIR . '.git' . '/HEAD');
                 $gitBranchName = rtrim(preg_replace("/(.*?\/){2}/", '', $gitStr));
 
@@ -74,6 +75,7 @@ if (!class_exists('QT_AdminBar')) :
                     ],
                 );
                 $wp_admin_bar->add_node($args);
+
             endif;
         }
 
@@ -90,16 +92,18 @@ if (!class_exists('QT_AdminBar')) :
             );
             $wp_admin_bar->add_node($args);
 
-            // add a parent item
-            $args = array(
-                'id'        => 'quantum-child',
-                'title'     => 'v.' . QUANTUM_CHILD_VERSION,
-                'parent'    => 'top-secondary',
-                'meta'         => [
-                    'title'     => 'Quantum Child Version',
-                ],
-            );
-            $wp_admin_bar->add_node($args);
+            if (defined('QUANTUM_CHILD_VERSION')) :
+                // add a parent item
+                $args = array(
+                    'id'        => 'quantum-child',
+                    'title'     => 'v.' . QUANTUM_CHILD_VERSION,
+                    'parent'    => 'top-secondary',
+                    'meta'         => [
+                        'title'     => 'Quantum Child Version',
+                    ],
+                );
+                $wp_admin_bar->add_node($args);
+            endif;
 
             // add a parent item
             $args = array(
