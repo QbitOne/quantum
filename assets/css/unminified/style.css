@@ -450,7 +450,8 @@ button{
 }
 
 .mobile-menu-toggle{
-  background-color:transparent;
+  background:transparent;
+  padding:0;
   width:32px;
   height:32px;
   border:none;
@@ -471,7 +472,7 @@ button{
   }
 
 .mobile-menu-toggle .mobile-menu-burger-btn::before{
-      content:"";
+      content:'';
       display:block;
       background-color:black;
       height:3px;
@@ -482,7 +483,7 @@ button{
     }
 
 .mobile-menu-toggle .mobile-menu-burger-btn::after{
-      content:"";
+      content:'';
       display:block;
       background-color:black;
       height:3px;
@@ -502,7 +503,7 @@ button{
     }
 
 .mobile-menu-toggle .mobile-menu-burger-btn--is-active::before{
-        content:"";
+        content:'';
         display:block;
         background-color:black;
         height:3px;
@@ -514,7 +515,7 @@ button{
       }
 
 .mobile-menu-toggle .mobile-menu-burger-btn--is-active::after{
-        content:"";
+        content:'';
         display:block;
         background-color:black;
         height:3px;
