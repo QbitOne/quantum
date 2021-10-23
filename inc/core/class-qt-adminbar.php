@@ -105,6 +105,19 @@ if (!class_exists('QT_AdminBar')) :
                 $wp_admin_bar->add_node($args);
             endif;
 
+            if (defined('QUANTUM_PROJECT_VERSION')) :
+                // add a parent item
+                $args = array(
+                    'id'        => 'quantum-project',
+                    'title'     => 'v.' . QUANTUM_PROJECT_VERSION,
+                    'parent'    => 'top-secondary',
+                    'meta'         => [
+                        'title'     => 'Quantum Project Version',
+                    ],
+                );
+                $wp_admin_bar->add_node($args);
+            endif;
+
             // add a parent item
             $args = array(
                 'id'        => 'qbitone',
