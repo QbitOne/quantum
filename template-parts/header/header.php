@@ -19,6 +19,7 @@
     // TODO improve code
     // the div element below shouldnt be necessary
     ?>
+	<!--
     <div class="site-header__mobile-nav">
         <nav id="mobile-site-navigation">
 
@@ -37,5 +38,6 @@
             <?php do_action('quantum_header_navigation_mobile_extension'); ?>
         </nav>
     </div>
+		-->
 
 </header><!-- #masthead -->
