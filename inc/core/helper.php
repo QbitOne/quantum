@@ -1,8 +1,12 @@
 <?php
 
 /**
- * Helper functions
+ * Helper functions.
  * 
+ * These functions are not intented to
+ * be used further used in development.
+ * 
+ * @author Andreas Geyer <andreas@qbitone.de>
  * @since 2.7.0
  */
 
@@ -17,6 +21,7 @@ if (!function_exists('wp_body_open')) :
      * @link https://core.trac.wordpress.org/ticket/12563
      * @link https://en.wikipedia.org/wiki/Shim_(computing)
      * @return void
+     * @since 2.7.0
      */
     function wp_body_open(): void
     {
@@ -51,6 +56,7 @@ if (!function_exists('quantum_filter_wp_robots')) {
      * @return  array Associative array of directives. Every key must be the name of the directive, and the
      *                  corresponding value must either be a string to provide as value for the directive or a
      *                  boolean true if it is a boolean directive, i.e. without a value.
+     * @since 2.7.0
      */
     function quantum_filter_wp_robots(array $robots): array
     {
@@ -65,9 +71,10 @@ if (!function_exists('quantum_filter_wp_robots')) {
 
 if (!function_exists('quantum_no_webpage_selected')) :
     /**
-     * Fallback if no webpage is selected in registered menu
+     * Fallback if no webpage is selected in registered menu.
      *
      * @return void
+     * @since 2.7.0
      */
     function quantum_no_webpage_selected(): void
     {
@@ -78,90 +85,110 @@ endif;
 
 if (!function_exists('quantum_login_logo_url')) {
     /**
-     * Change the URL for the Login Page Logo
+     * Change the URL for the login page logo.
      *
      * @return void
+     * @since 2.7.0
      */
     function quantum_login_logo_url()
     {
-        return home_url('/');
+        return esc_url(home_url('/'));
     }
     add_filter('login_headerurl', 'quantum_login_logo_url');
 }
 
 
-/**
- * Remove WP Gutenberg core styles
- */
-// if ( ! function_exists( 'quantum_remove_wp_block_library_css' ) ) {
-// 	function quantum_remove_wp_block_library_css() {
-// 		wp_dequeue_style( 'wp-block-library' );
-// 		wp_dequeue_style( 'wp-block-library-theme' );
-// 		wp_dequeue_style( 'wc-block-style' ); // Remove WooCommerce block CSS
-// 	}
-// 	add_action( 'wp_enqueue_scripts', 'quantum_remove_wp_block_library_css', 100 );
-// }
+if (!function_exists('quantum_disable_emojis')) :
+    /**
+     * Disable emoji's.
+     * 
+     * Disable emoji's by removing WP default actions and filters.
+     * 
+     * @return void
+     * @see /wp-includes/default-filters.php
+     * @link https://kinsta.com/de/wissensdatenbank/deaktivierst-emojis-wordpress/#disable-emojis-plugin
+     * @since 2.8.0
+     */
+    function quantum_disable_emojis(): void
+    {
+        remove_action('wp_head', 'print_emoji_detection_script', 7);
+        remove_action('wp_print_styles', 'print_emoji_styles');
+
+        remove_action('admin_print_scripts', 'print_emoji_detection_script');
+        remove_action('admin_print_styles', 'print_emoji_styles');
+
+        // RSS filters.
+        remove_filter('the_content_feed', 'wp_staticize_emoji');
+        remove_filter('comment_text_rss', 'wp_staticize_emoji');
+
+        // Email filters.
+        remove_filter('wp_mail', 'wp_staticize_emoji_for_email');
+
+        // Embeds.
+        remove_action('embed_head', 'print_emoji_detection_script');
+
+        add_filter('tiny_mce_plugins', 'quantum_disable_emojis_tinymce');
+        add_filter('wp_resource_hints', 'quantum_disable_emojis_remove_dns_prefetch', 10, 2);
+    }
+    add_action('init', 'quantum_disable_emojis');
+endif;
 
 
-/**
- * Disable the emoji's
- * @link    https://kinsta.com/de/wissensdatenbank/deaktivierst-emojis-wordpress/#disable-emojis-plugin
- */
-// function disable_emojis() {
-// 	remove_action( 'wp_head', 'print_emoji_detection_script', 7 );
-// 	remove_action( 'admin_print_scripts', 'print_emoji_detection_script' );
-// 	remove_action( 'wp_print_styles', 'print_emoji_styles' );
-// 	remove_action( 'admin_print_styles', 'print_emoji_styles' );
-// 	remove_filter( 'the_content_feed', 'wp_staticize_emoji' );
-// 	remove_filter( 'comment_text_rss', 'wp_staticize_emoji' );
-// 	remove_filter( 'wp_mail', 'wp_staticize_emoji_for_email' );
-// 	add_filter( 'tiny_mce_plugins', 'disable_emojis_tinymce' );
-// 	add_filter( 'wp_resource_hints', 'disable_emojis_remove_dns_prefetch', 10, 2 );
-// }
-// add_action( 'init', 'disable_emojis' );
+if (!function_exists('quantum_disable_emojis_tinymce')) :
+    /**
+     * Filter function used to remove the tinymce emoji plugin.
+     * 
+     * @param array $plugins
+     * @return array Difference betwen the two arrays
+     * @see quantum_disable_emojis()
+     * @since 2.7.0
+     */
+    function quantum_disable_emojis_tinymce(array $plugins): array
+    {
+        if (is_array($plugins)) {
+            return array_diff($plugins, array('wpemoji'));
+        } else {
+            return array();
+        }
+    }
+endif;
 
 
-/**
- * Filter function used to remove the tinymce emoji plugin.
- * @param 	array $plugins
- * @return 	array Difference betwen the two arrays
- */
-// function disable_emojis_tinymce( $plugins ) {
-// 	if ( is_array( $plugins ) ) {
-// 		return array_diff( $plugins, array( 'wpemoji' ) );
-// 	} else {
-// 		return array();
-// 	}
-// }
+if (!function_exists('quantum_disable_emojis_remove_dns_prefetch')) :
+    /**
+     * Remove emoji CDN hostname from DNS prefetching hints.
+     * 
+     * @param array $urls URLs to print for resource hints.
+     * @param string $relation_type The relation type the URLs are printed for.
+     * @return array Difference betwen the two arrays.
+     * @see quantum_disable_emojis()
+     * @since 2.7.0
+     */
+    function quantum_disable_emojis_remove_dns_prefetch(array $urls, string $relation_type): array
+    {
+        if ('dns-prefetch' == $relation_type) {
+            /** This filter is documented in wp-includes/formatting.php */
+            $emoji_svg_url = apply_filters('emoji_svg_url', 'https://s.w.org/images/core/emoji/2/svg/');
+            $urls = array_diff($urls, array($emoji_svg_url));
+        }
+        return $urls;
+    }
+endif;
 
 
-/**
- * Remove emoji CDN hostname from DNS prefetching hints.
- * @param 	array $urls URLs to print for resource hints.
- * @param 	string $relation_type The relation type the URLs are printed for.
- * @return 	array Difference betwen the two arrays.
- */
-// function disable_emojis_remove_dns_prefetch( $urls, $relation_type ) {
-// 	if ( 'dns-prefetch' == $relation_type ) {
-// 		/** This filter is documented in wp-includes/formatting.php */
-// 		$emoji_svg_url = apply_filters( 'emoji_svg_url', 'https://s.w.org/images/core/emoji/2/svg/' );
-
-// 		$urls = array_diff( $urls, array( $emoji_svg_url ) );
-// 	}
-// 	return $urls;
-// }
-
-
-/**
- * Deregister the wp_embed js script from the website
- * @link    https://kinsta.com/de/wissensdatenbank/deaktivierst-embeds-wordpress/#disable-embeds-code
- */
-// if ( ! function_exists( 'quantum_deregister_wp_embed' ) ) {
-// 	function quantum_deregister_wp_embed() {
-// 		wp_dequeue_script( 'wp-embed' );
-// 	}
-// 	add_action( 'wp_footer', 'quantum_deregister_wp_embed' );
-// }
+if (!function_exists('quantum_deregister_wp_embed')) {
+    /**
+     * Deregister the wp_embed js script from the website.
+     * 
+     * @link https://kinsta.com/de/wissensdatenbank/deaktivierst-embeds-wordpress/#disable-embeds-code
+     * @since 2.7.0
+     */
+    function quantum_deregister_wp_embed(): void
+    {
+        wp_dequeue_script('wp-embed');
+    }
+    add_action('wp_footer', 'quantum_deregister_wp_embed');
+}
 
 if (!function_exists('get_quantum_branding_text')) :
     /**
@@ -171,11 +198,11 @@ if (!function_exists('get_quantum_branding_text')) :
      * the branding text will have the same behavior of not linking to the homepage
      * if you are already on the homepage
      * 
-     * @since 2.7.3
-     *
      * @return string The html string for the branding text
+     * @since 2.7.3
      * 
      * @filter ``quantum_branding_text`` (default: bloginfo('name'))
+     * 
      */
     function get_quantum_branding_text(): string
     {
@@ -202,3 +229,33 @@ if (!function_exists('get_quantum_branding_text')) :
         return $html;
     }
 endif;
+
+
+if (!function_exists('quantum_remove_generator')) :
+    /**
+     * Removes the genertor tag.
+     *
+     * @return void
+     * @see wp_generator() in /wp-includes/general-template.php
+     * @since 2.8.0
+     */
+    function quantum_remove_generator(): void
+    {
+        remove_action('wp_head', 'wp_generator');
+    }
+    add_action('init', 'quantum_remove_generator');
+endif;
+
+
+
+/**
+ * Remove WP Gutenberg core styles
+ */
+// if ( ! function_exists( 'quantum_remove_wp_block_library_css' ) ) {
+// 	function quantum_remove_wp_block_library_css() {
+// 		wp_dequeue_style( 'wp-block-library' );
+// 		wp_dequeue_style( 'wp-block-library-theme' );
+// 		wp_dequeue_style( 'wc-block-style' ); // Remove WooCommerce block CSS
+// 	}
+// 	add_action( 'wp_enqueue_scripts', 'quantum_remove_wp_block_library_css', 100 );
+// }
