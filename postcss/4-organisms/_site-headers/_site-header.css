@@ -15,14 +15,6 @@
       }
     }
 
-    &__nav {
-      display: none;
-
-      @mixin atLarge {
-        display: block;
-      }
-    }
-
     &__mobile-btn {
       @mixin atLarge {
         display: none;
