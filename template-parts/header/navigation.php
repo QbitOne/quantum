@@ -7,8 +7,14 @@
 if (!defined('ABSPATH')) exit; // Exit if accessed directly
 ?>
 
+<div class="site-header__inner__mobile-btn">
+    <button id="menu-toggle" class="mobile-menu-toggle" aria-controls="primary-menu" aria-expanded="false">
+        <span id="burger-btn" class="mobile-menu-burger-btn"></span>
+    </button>
+</div>
+
 <div class="site-header__inner__nav">
-    <nav id="site-navigation">
+    <!-- <nav id="site-navigation"> -->
 
         <?php
         // $nav_name = (is_home() ? 'home_menu' : 'primary_menu');
@@ -16,6 +22,8 @@ if (!defined('ABSPATH')) exit; // Exit if accessed directly
             array(
                 'theme_location'    => 'primary_menu',
                 'menu_id'           => 'primary_menu',
+				'menu_class' 		=> 'qu-flex menu',
+                'container' 		=> 'nav',
                 'fallback_cb'       => 'quantum_no_webpage_selected', // Fallback if now webpage is selected in this menu
             )
         );
@@ -23,11 +31,7 @@ if (!defined('ABSPATH')) exit; // Exit if accessed directly
 
         <?php do_action('quantum_header_navigation_extension'); ?>
 
-    </nav>
+    <!-- </nav> -->
 </div>
 
-<div class="site-header__inner__mobile-btn">
-    <button id="menu-toggle" class="mobile-menu-toggle" aria-controls="primary-menu" aria-expanded="false">
-        <span id="burger-btn" class="mobile-menu-burger-btn"></span>
-    </button>
-</div>
+
