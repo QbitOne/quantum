@@ -3,7 +3,8 @@
 *
 */
 .mobile-menu-toggle {
-  background-color: transparent;
+  background: transparent;
+  padding: 0;
   width: 32px;
   height: 32px;
   border: none;
@@ -32,7 +33,7 @@
     transition: background-color 200ms 400ms;
 
     &::before {
-      content: "";
+      content: '';
       display: block;
       background-color: black;
       height: 3px;
@@ -43,7 +44,7 @@
     }
 
     &::after {
-      content: "";
+      content: '';
       display: block;
       background-color: black;
       height: 3px;
@@ -62,7 +63,7 @@
       transition: background-color 200ms;
 
       &::before {
-        content: "";
+        content: '';
         display: block;
         background-color: black;
         height: 3px;
@@ -74,7 +75,7 @@
       }
 
       &::after {
-        content: "";
+        content: '';
         display: block;
         background-color: black;
         height: 3px;
