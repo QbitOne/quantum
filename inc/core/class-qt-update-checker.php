@@ -62,8 +62,12 @@ if (!class_exists('QT_Update_Checker')) :
                     QUANTUM_THEME_DIR . 'functions.php',
                     'quantum'
                 );
+
+                if (defined('QT_ENV') && QT_ENV === 'dev') :
+                    add_action('admin_notices', [$this, 'action_admin_notices_activ_plugin_checker']);
+                endif;
             } else {
-                add_action('admin_notices', 'action_admin_notices');
+                add_action('admin_notices', [$this, 'action_admin_notices_no_composer']);
             }
         }
 
@@ -73,10 +77,23 @@ if (!class_exists('QT_Update_Checker')) :
          * @param none
          * @return void
          */
-        function action_admin_notices(): void
+        function action_admin_notices_no_composer(): void
         {
             echo '<div class="notice notice-info is-dismissible">';
             echo '<p>Composer ist nicht installiert!</p>';
+            echo '</div>';
+        }
+
+        /**
+         * Prints admin screen notices.
+         * 
+         * @param none
+         * @return void
+         */
+        function action_admin_notices_activ_plugin_checker(): void
+        {
+            echo '<div class="notice notice-info is-dismissible">';
+            echo '<p>Update Checker ist aktiv</p>';
             echo '</div>';
         }
     }
