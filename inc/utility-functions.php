@@ -77,3 +77,19 @@ if (!function_exists('quantum_placeholder_image')) :
         return $html;
     }
 endif;
+
+
+if (!function_exists('get_quantum_button')) :
+    /**
+     * Undocumented function
+     *
+     * @param string $name name of the specific button
+     * @param array $args further details/attributes of the button
+     * @return void
+     * @since 2.9.0
+     */
+    function get_quantum_button($name = 'link', $args = []): void
+    {
+        get_template_part('template-parts/button', $name, $args);
+    }
+endif;
