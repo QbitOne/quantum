@@ -84,7 +84,7 @@ if (!function_exists('get_quantum_button')) :
      * Get a button template.
      * 
      * Shortcut function to get a button via get_template_part
-     * function
+     * function.
      *
      * @param string $name name of the specific button
      * @param array $args further details/attributes of the button
