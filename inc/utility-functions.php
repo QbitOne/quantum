@@ -77,3 +77,30 @@ if (!function_exists('quantum_placeholder_image')) :
         return $html;
     }
 endif;
+
+
+if (!function_exists('get_quantum_svg')) :
+    /**
+     * Get a SVG as HTML.
+     * 
+     * Use this function to include a SVG directly i.e.
+     * with its HTML markup into the page.
+     *
+     * @param string $name The name of the icon. Further parent paths have to be included
+     * @param string $dir Choose parent or child theme with ``template`` or ``stylesheet`` respectively
+     * @return string The HTML SVG markup
+     * @since 2.9.0
+     * 
+     * ### Example
+     *      get_quantum_svg('social/facebook-icon', 'template');
+     */
+    function get_quantum_svg(string $name, string $dir = 'stylesheet'): string
+    {
+        if (!in_array($dir, ['stylesheet', 'template'])) :
+            error_log('SVG Problem: unkown directory name: ' . $dir);
+            return false;
+        endif;
+        $dir = 'get_' . $dir . '_directory';
+        return file_get_contents($dir() . '/assets/svg/' . $name . '.svg');
+    }
+endif;
