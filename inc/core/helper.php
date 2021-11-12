@@ -274,45 +274,48 @@ if (!function_exists('quantum_filter_upload_mimes')) :
     {
         if (current_user_can('manage_options')) :
             $t['svg'] = 'image/svg+xml';
-            $t['svgz'] = 'image/svg+xml';
+        // $t['svgz'] = 'image/svg+xml';
         endif;
         return $t;
     }
     add_filter('upload_mimes', 'quantum_filter_upload_mimes', 10, 2);
 endif;
 
+/**
+ * The filter below seems not to be needed anymore while uploading a
+ * SVG file as slong as the file contains the proper xml tag
+ */
+// if (!function_exists('quantum_filter_wp_check_filetype_and_ext')) :
+/**
+ * Filters the "real" file type of the given file.
+ *
+ * @param array        $wp_check_filetype_and_ext {     Values for the extension, mime type, and corrected filename.     @type string|false $ext             File extension, or false if the file doesn't match a mime type.     @type string|false $type            File mime type, or false if the file doesn't match a mime type.     @type string|false $proper_filename File name with its correct extension, or false if it cannot be determined. }
+ * @param string       $file                      Full path to the file.
+ * @param string       $filename                  The name of the file (may differ from $file due to                                                $file being in a tmp directory).
+ * @param string[]     $mimes                     Array of mime types keyed by their file extension regex.
+ * @param string|false $real_mime                 The actual mime type or false if the type cannot be determined.
+ * @return array {     Values for the extension, mime type, and corrected filename.     @type string|false $ext             File extension, or false if the file doesn't match a mime type.     @type string|false $type            File mime type, or false if the file doesn't match a mime type.     @type string|false $proper_filename File name with its correct extension, or false if it cannot be determined. }
+ * @see https://kulturbanause.de/blog/svg-dateien-in-die-wordpress-mediathek-hochladen/
+ * @since 2.9.0
+ */
+//     function quantum_filter_wp_check_filetype_and_ext(array $wp_check_filetype_and_ext, string $file, string $filename, array $mimes, $real_mime): array
+//     {
+//         if (current_user_can('manage_options')) :
+//             if (!$wp_check_filetype_and_ext['type']) {
+//                 $wp_filetype = wp_check_filetype($filename, $mimes);
+//                 $ext = $wp_filetype['ext'];
+//                 $type = $wp_filetype['type'];
+//                 $proper_filename = $filename;
 
-if (!function_exists('quantum_filter_wp_check_filetype_and_ext')) :
-    /**
-     * Filters the "real" file type of the given file.
-     *
-     * @param array        $wp_check_filetype_and_ext {     Values for the extension, mime type, and corrected filename.     @type string|false $ext             File extension, or false if the file doesn't match a mime type.     @type string|false $type            File mime type, or false if the file doesn't match a mime type.     @type string|false $proper_filename File name with its correct extension, or false if it cannot be determined. }
-     * @param string       $file                      Full path to the file.
-     * @param string       $filename                  The name of the file (may differ from $file due to                                                $file being in a tmp directory).
-     * @param string[]     $mimes                     Array of mime types keyed by their file extension regex.
-     * @param string|false $real_mime                 The actual mime type or false if the type cannot be determined.
-     * @return array {     Values for the extension, mime type, and corrected filename.     @type string|false $ext             File extension, or false if the file doesn't match a mime type.     @type string|false $type            File mime type, or false if the file doesn't match a mime type.     @type string|false $proper_filename File name with its correct extension, or false if it cannot be determined. }
-     * @see https://kulturbanause.de/blog/svg-dateien-in-die-wordpress-mediathek-hochladen/
-     * @since 2.9.0
-     */
-    function quantum_filter_wp_check_filetype_and_ext(array $wp_check_filetype_and_ext, string $file, string $filename, array $mimes, $real_mime): array
-    {
-        if (current_user_can('manage_options')) :
-            if (!$wp_check_filetype_and_ext['type']) {
-                $wp_filetype = wp_check_filetype($filename, $mimes);
-                $ext = $wp_filetype['ext'];
-                $type = $wp_filetype['type'];
-                $proper_filename = $filename;
+//                 if ($type && 0 === strpos($type, 'image/') && $ext !== 'svg') {
+//                     $ext = $type = false;
+//                 }
 
-                if ($type && 0 === strpos($type, 'image/') && $ext !== 'svg') {
-                    $ext = $type = false;
-                }
+//                 $wp_check_filetype_and_ext = compact('ext', 'type', 'proper_filename');
+//             }
+//         endif;
 
-                $wp_check_filetype_and_ext = compact('ext', 'type', 'proper_filename');
-            }
-        endif;
-
-        return $wp_check_filetype_and_ext;
-    }
-    add_filter('wp_check_filetype_and_ext', 'quantum_filter_wp_check_filetype_and_ext', 10, 5);
-endif;
+//         return $wp_check_filetype_and_ext;
+//     }
+//     add_filter('wp_check_filetype_and_ext', 'quantum_filter_wp_check_filetype_and_ext', 10, 5);
+// endif;
