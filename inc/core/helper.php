@@ -272,9 +272,11 @@ if (!function_exists('quantum_filter_body_class')) :
      */
     function quantum_filter_body_class(array $classes, array $class): array
     {
-        global $post;
-        // add the post slug to the body classes.
-        $classes[] = $post->post_name;
+        if (is_singular()) :
+            global $post;
+            // add the post slug to the body classes.
+            $classes[] = $post->post_name;
+        endif;
         return $classes;
     }
     add_filter('body_class', 'quantum_filter_body_class', 10, 2);
