@@ -83,15 +83,10 @@ if (!function_exists('quantum_entry_footer')) :
             $categories_list = get_the_category_list(esc_html__(', ', 'quantum'));
             if ($categories_list) {
                 /* translators: 1: list of categories. */
-                printf('<span class="cat-links">' . esc_html__('Veröffentlicht in %1$s', 'quantum') . '</span>', $categories_list); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+                printf('<div class="cat-links">' . esc_html__('Veröffentlicht in %1$s', 'quantum') . '</div>', $categories_list);
             }
 
-            /* translators: used between list items, there is a space after the comma */
-            $tags_list = get_the_tag_list('', esc_html_x(', ', 'list item separator', 'quantum'));
-            if ($tags_list) {
-                /* translators: 1: list of tags. */
-                printf('<span class="tags-links">' . esc_html__('Tagged %1$s', 'quantum') . '</span>', $tags_list); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-            }
+            quantum_tags();
         }
 
         if (!is_single() && !post_password_required() && (comments_open() || get_comments_number())) {
@@ -116,6 +111,31 @@ if (!function_exists('quantum_entry_footer')) :
         quantum_edit_post_link();
     }
 endif;
+
+
+function quantum_hashtagging($tag_name): string
+{
+    return '#' . $tag_name;
+}
+
+
+function quantum_tags(): void
+{
+    $tags = get_the_tags();
+    $links = [];
+
+    foreach ($tags as $tag) {
+        if (is_object($tag)) :
+            $links[] = '<a href="' . esc_url(get_term_link($tag)) . '" rel="tag">' . '#' . $tag->name . '</a>';
+        endif;
+    }
+
+    $links = implode(', ', $links);
+    printf('<div>' . esc_html__('Schlagwörter %1$s', 'quantum') . '</div>', $links);
+    // quantum_print_r($tag_names);
+}
+
+
 
 
 if (!function_exists('quantum_edit_post_link')) :
