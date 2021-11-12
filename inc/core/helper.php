@@ -259,3 +259,25 @@ endif;
 // 	}
 // 	add_action( 'wp_enqueue_scripts', 'quantum_remove_wp_block_library_css', 100 );
 // }
+
+
+if (!function_exists('quantum_filter_body_class')) :
+    /**
+     * Filters the list of CSS body class names for the current post or page.
+     *
+     * @param string[] $classes An array of body class names.
+     * @param string[] $class   An array of additional class names added to the body.
+     * @return string[] An array of body class names.
+     * @since 2.9.0
+     */
+    function quantum_filter_body_class(array $classes, array $class): array
+    {
+        if (is_singular()) :
+            global $post;
+            // add the post slug to the body classes.
+            $classes[] = $post->post_name;
+        endif;
+        return $classes;
+    }
+    add_filter('body_class', 'quantum_filter_body_class', 10, 2);
+endif;
