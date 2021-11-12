@@ -38,7 +38,7 @@
 			sprintf(
 				wp_kses(
 					/* translators: %s: Name of current post. Only visible to screen readers */
-					__('Continue reading<span class="screen-reader-text"> "%s"</span>', 'quantum'),
+					__('Weiterlesen <span class="screen-reader-text">von "%s"</span>', 'quantum'),
 					array(
 						'span' => array(
 							'class' => array(),
