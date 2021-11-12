@@ -449,6 +449,7 @@ img[src$='.svg']{
 
 .qu-button{
   display:inline-block;
+  cursor:pointer;
   background:var(--color-primary);
   padding:0.8rem 2.4rem;
 }
