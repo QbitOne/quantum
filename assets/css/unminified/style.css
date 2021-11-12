@@ -702,6 +702,11 @@ form p{
       transition:visibility 800ms ease-in-out 100ms;
     }
 
+.site-footer{
+  padding:3.2rem 0;
+  background:var(--color-primary--lighten);
+}
+
 #footerbar_menu li::after{
     content:' |';
   }
