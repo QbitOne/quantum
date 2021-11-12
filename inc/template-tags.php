@@ -64,7 +64,7 @@ if (!function_exists('quantum_posted_by')) :
         $byline = sprintf(
             /* translators: %s: post author. */
             esc_html_x('Von %s', 'post author', 'quantum'),
-            '<a href="' . esc_url(get_author_posts_url(get_the_author_meta('ID'))) . '">' . esc_html(get_the_author()) . '</a>',
+            '<a href="' . esc_url(get_author_posts_url(get_the_author_meta('ID'))) . '" rel="author">' . esc_html(get_the_author()) . '</a>',
         );
 
         echo '<span class="byline"> ' . $byline . '</span>';
@@ -113,11 +113,25 @@ if (!function_exists('quantum_entry_footer')) :
             echo '</span>';
         }
 
+        quantum_edit_post_link();
+    }
+endif;
+
+
+if (!function_exists('quantum_edit_post_link')) :
+    /**
+     * Displays the edit post link for post.
+     *
+     * @return void
+     * @since 2.10.0
+     */
+    function quantum_edit_post_link(): void
+    {
         edit_post_link(
             sprintf(
                 wp_kses(
                     /* translators: %s: Name of current post. Only visible to screen readers */
-                    __('Bearbeiten <span class="screen-reader-text">%s</span>', 'quantum'),
+                    __('Bearbeiten <span class="screen-reader-text">von %s</span>', 'quantum'),
                     array(
                         'span' => array(
                             'class' => array(),
@@ -126,11 +140,12 @@ if (!function_exists('quantum_entry_footer')) :
                 ),
                 wp_kses_post(get_the_title())
             ),
-            '<span class="edit-link">',
-            '</span>'
+            '<div class="edit-link">',
+            '</div>'
         );
     }
 endif;
+
 
 if (!function_exists('quantum_post_thumbnail')) :
     /**
@@ -154,7 +169,7 @@ if (!function_exists('quantum_post_thumbnail')) :
 
         <?php else : ?>
 
-            <a class="post-thumbnail" href="<?php the_permalink(); ?>" aria-hidden="true" tabindex="-1">
+            <a class="post-thumbnail" href="<?php esc_url(the_permalink()); ?>" aria-hidden="true" tabindex="-1">
                 <?php
                 the_post_thumbnail(
                     'post-thumbnail',
