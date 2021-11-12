@@ -1,0 +1,34 @@
+/* Generate seperator | for footerbar_menu
+      -----------------------------------------
+      */
+#footerbar_menu {
+  flex-direction: column-reverse;
+  li {
+    margin: 0.6rem 0;
+  }
+
+  @mixin atSmall {
+    flex-direction: row;
+
+    li {
+      margin-left: unset;
+    }
+
+    li::after {
+      content: ' |';
+    }
+
+    li::before {
+      content: ' |';
+      opacity: 0;
+    }
+
+    li:first-child::before {
+      content: '';
+    }
+
+    li:last-child::after {
+      content: '';
+    }
+  }
+}
