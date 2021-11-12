@@ -40,11 +40,30 @@ if (!function_exists('quantum_print_r')) {
      * @return void
      * @since 1.0.0
      */
-    function quantum_print_r(mixed $expression): void
+    function quantum_print_r($expression): void
     {
         echo '<pre>' . print_r($expression, true) . '</pre>';
     }
 }
+
+if (!function_exists('quantum_var_dump')) :
+    /**
+     * Dumps information about a variable.
+     * 
+     * This function displays structured information about 
+     * one or more expressions that includes its type and value. 
+     * Arrays and objects are explored 
+     * recursively with values indented to show structure.
+     *
+     * @param mixed $expression The expression to dump.
+     * @return void
+     * @since 2.9.0
+     */
+    function quantum_var_dump($expression): void
+    {
+        echo '<pre>' . var_dump($expression) . '</pre>';
+    }
+endif;
 
 
 if (!function_exists('quantum_placeholder_image')) :
