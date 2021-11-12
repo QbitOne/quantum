@@ -1,34 +1,19 @@
-/* Generate seperator | for footerbar_menu
-      -----------------------------------------
-      */
+/* Generate seperator | for footerbar_menu */
 #footerbar_menu {
-  flex-direction: column-reverse;
-  li {
-    margin: 0.6rem 0;
+  li::after {
+    content: ' |';
   }
 
-  @mixin atSmall {
-    flex-direction: row;
+  li::before {
+    content: ' |';
+    opacity: 0;
+  }
 
-    li {
-      margin-left: unset;
-    }
+  li:first-child::before {
+    content: '';
+  }
 
-    li::after {
-      content: ' |';
-    }
-
-    li::before {
-      content: ' |';
-      opacity: 0;
-    }
-
-    li:first-child::before {
-      content: '';
-    }
-
-    li:last-child::after {
-      content: '';
-    }
+  li:last-child::after {
+    content: '';
   }
 }

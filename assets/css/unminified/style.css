@@ -702,40 +702,21 @@ form p{
       transition:visibility 800ms ease-in-out 100ms;
     }
 
-#footerbar_menu{
-  flex-direction:column-reverse;
-}
-
-#footerbar_menu li{
-    margin:0.6rem 0;
+#footerbar_menu li::after{
+    content:' |';
   }
 
-@media (min-width: 640px){
+#footerbar_menu li::before{
+    content:' |';
+    opacity:0;
+  }
 
-#footerbar_menu{
-    flex-direction:row;
-	}
+#footerbar_menu li:first-child::before{
+    content:'';
+  }
 
-    #footerbar_menu li{
-      margin-left:unset;
-    }
-
-    #footerbar_menu li::after{
-      content:' |';
-    }
-
-    #footerbar_menu li::before{
-      content:' |';
-      opacity:0;
-    }
-
-    #footerbar_menu li:first-child::before{
-      content:'';
-    }
-
-    #footerbar_menu li:last-child::after{
-      content:'';
-    }
+#footerbar_menu li:last-child::after{
+    content:'';
   }
 
 #footerbar__social img{
