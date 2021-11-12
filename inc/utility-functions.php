@@ -40,11 +40,30 @@ if (!function_exists('quantum_print_r')) {
      * @return void
      * @since 1.0.0
      */
-    function quantum_print_r(mixed $expression): void
+    function quantum_print_r($expression): void
     {
         echo '<pre>' . print_r($expression, true) . '</pre>';
     }
 }
+
+if (!function_exists('quantum_var_dump')) :
+    /**
+     * Dumps information about a variable.
+     * 
+     * This function displays structured information about 
+     * one or more expressions that includes its type and value. 
+     * Arrays and objects are explored 
+     * recursively with values indented to show structure.
+     *
+     * @param mixed $expression The expression to dump.
+     * @return void
+     * @since 2.9.0
+     */
+    function quantum_var_dump($expression): void
+    {
+        echo '<pre>' . var_dump($expression) . '</pre>';
+    }
+endif;
 
 
 if (!function_exists('quantum_placeholder_image')) :
@@ -75,5 +94,51 @@ if (!function_exists('quantum_placeholder_image')) :
         $html .= '">';
 
         return $html;
+    }
+endif;
+
+
+if (!function_exists('get_quantum_button')) :
+    /**
+     * Get a button template.
+     * 
+     * Shortcut function to get a button via get_template_part
+     * function.
+     *
+     * @param string $name name of the specific button
+     * @param array $args further details/attributes of the button
+     * @return void
+     * @since 2.9.0
+     */
+    function get_quantum_button($name = 'link', $args = []): void
+    {
+        get_template_part('template-parts/button', $name, $args);
+    }
+endif;
+
+      
+if (!function_exists('get_quantum_svg')) :
+    /**
+     * Get a SVG as HTML.
+     * 
+     * Use this function to include a SVG directly i.e.
+     * with its HTML markup into the page.
+     *
+     * @param string $name The name of the icon. Further parent paths have to be included
+     * @param string $dir Choose parent or child theme with ``template`` or ``stylesheet`` respectively
+     * @return string The HTML SVG markup
+     * @since 2.9.0
+     * 
+     * ### Example
+     *      get_quantum_svg('social/facebook-icon', 'template');
+     */
+    function get_quantum_svg(string $name, string $dir = 'stylesheet'): string
+    {
+        if (!in_array($dir, ['stylesheet', 'template'])) :
+            error_log('SVG Problem: unkown directory name: ' . $dir);
+            return false;
+        endif;
+        $dir = 'get_' . $dir . '_directory';
+        return file_get_contents($dir() . '/assets/svg/' . $name . '.svg');
     }
 endif;

@@ -259,3 +259,86 @@ endif;
 // 	}
 // 	add_action( 'wp_enqueue_scripts', 'quantum_remove_wp_block_library_css', 100 );
 // }
+
+
+
+if (!function_exists('quantum_filter_upload_mimes')) :
+    /**
+     * Filters list of allowed mime types and file extensions.
+     *
+     * @param array             $t    Mime types keyed by the file extension regex corresponding to those types.
+     * @param int|\WP_User|null $user User ID, User object or null if not provided (indicates current user).
+     * @return array Mime types keyed by the file extension regex corresponding to those types.
+     * @since 2.9.0
+     */
+    function quantum_filter_upload_mimes(array $t, $user): array
+    {
+        if (current_user_can('manage_options')) :
+            $t['svg'] = 'image/svg+xml';
+        // $t['svgz'] = 'image/svg+xml';
+        endif;
+        return $t;
+    }
+    add_filter('upload_mimes', 'quantum_filter_upload_mimes', 10, 2);
+endif;
+
+/**
+ * The filter below seems not to be needed anymore while uploading a
+ * SVG file as slong as the file contains the proper xml tag
+ */
+// if (!function_exists('quantum_filter_wp_check_filetype_and_ext')) :
+/**
+ * Filters the "real" file type of the given file.
+ *
+ * @param array        $wp_check_filetype_and_ext {     Values for the extension, mime type, and corrected filename.     @type string|false $ext             File extension, or false if the file doesn't match a mime type.     @type string|false $type            File mime type, or false if the file doesn't match a mime type.     @type string|false $proper_filename File name with its correct extension, or false if it cannot be determined. }
+ * @param string       $file                      Full path to the file.
+ * @param string       $filename                  The name of the file (may differ from $file due to                                                $file being in a tmp directory).
+ * @param string[]     $mimes                     Array of mime types keyed by their file extension regex.
+ * @param string|false $real_mime                 The actual mime type or false if the type cannot be determined.
+ * @return array {     Values for the extension, mime type, and corrected filename.     @type string|false $ext             File extension, or false if the file doesn't match a mime type.     @type string|false $type            File mime type, or false if the file doesn't match a mime type.     @type string|false $proper_filename File name with its correct extension, or false if it cannot be determined. }
+ * @see https://kulturbanause.de/blog/svg-dateien-in-die-wordpress-mediathek-hochladen/
+ * @since 2.9.0
+ */
+//     function quantum_filter_wp_check_filetype_and_ext(array $wp_check_filetype_and_ext, string $file, string $filename, array $mimes, $real_mime): array
+//     {
+//         if (current_user_can('manage_options')) :
+//             if (!$wp_check_filetype_and_ext['type']) {
+//                 $wp_filetype = wp_check_filetype($filename, $mimes);
+//                 $ext = $wp_filetype['ext'];
+//                 $type = $wp_filetype['type'];
+//                 $proper_filename = $filename;
+
+//                 if ($type && 0 === strpos($type, 'image/') && $ext !== 'svg') {
+//                     $ext = $type = false;
+//                 }
+
+//                 $wp_check_filetype_and_ext = compact('ext', 'type', 'proper_filename');
+//             }
+//         endif;
+
+//         return $wp_check_filetype_and_ext;
+//     }
+//     add_filter('wp_check_filetype_and_ext', 'quantum_filter_wp_check_filetype_and_ext', 10, 5);
+// endif;
+
+if (!function_exists('quantum_filter_body_class')) :
+    /**
+     * Filters the list of CSS body class names for the current post or page.
+     *
+     * @param string[] $classes An array of body class names.
+     * @param string[] $class   An array of additional class names added to the body.
+     * @return string[] An array of body class names.
+     * @since 2.9.0
+     */
+    function quantum_filter_body_class(array $classes, array $class): array
+    {
+        if (is_singular()) :
+            global $post;
+            // add the post slug to the body classes.
+            $classes[] = $post->post_name;
+        endif;
+        return $classes;
+    }
+    add_filter('body_class', 'quantum_filter_body_class', 10, 2);
+endif;
+
