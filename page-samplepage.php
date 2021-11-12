@@ -169,6 +169,37 @@ get_header();
 		<div>Following element is a <code>button</code></div>
 		<button>Button Text</button>
 	</div>
+
+	<div>
+		<h2>Sample Button Links</h2>
+		<h3>Default Button Link</h3>
+		<?php get_quantum_button('link') ?>
+		<h3>Example of a Button Link</h3>
+		<?php get_quantum_button(
+			'link',
+			[
+				'href' => 'https://qbitone.de',
+				'class' => 'qu-button test',
+				'innerHTML' => 'MyLink',
+				'target' => '_blank',
+			]
+		) ?>
+		<h3>Example of a Download Button Link</h3>
+		<?php get_quantum_button(
+			'link',
+			[
+				'href' => 'https://qbitone.de/quantum.zip',
+				'class' => '',
+				'innerHTML' => 'MyDownloadLink',
+				'download' => true,
+			]
+		) ?>
+  </div>
+
+	<div>
+		<h2>SVGs</h2>
+		<?php echo get_quantum_svg('social/facebook-icon', 'template'); ?>
+	</div>
 </div>
 </div>
 <?php
