@@ -169,6 +169,11 @@ get_header();
 		<div>Following element is a <code>button</code></div>
 		<button>Button Text</button>
 	</div>
+
+	<div>
+		<h2>SVGs</h2>
+		<?php echo get_quantum_svg('social/facebook-icon', 'template'); ?>
+	</div>
 </div>
 </div>
 <?php
