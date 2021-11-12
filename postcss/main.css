@@ -34,7 +34,7 @@ section: Einleitung
 
 /* ORGANISMS */
 @import '4-organisms/_site-headers/_site-header';
-@import '4-organisms/_siteNavigation';
+@import '4-organisms/_site-headers/_site-header-nav';
 @import '4-organisms/_site-footers/_site-footer';
 @import '4-organisms/_site-footers/_footerbar/_footerbar-menu';
 @import '4-organisms/_site-footers/_footerbar/_social';
