@@ -4,6 +4,7 @@
  * Author base slug controller class.
  * 
  * @author Andreas Geyer <andreas@qbitone.de>
+ * @see https://letswp.io/how-to-change-author-base-in-wordpress/
  * @since 2.10.0
  */
 
