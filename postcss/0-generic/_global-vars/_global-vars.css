@@ -5,18 +5,19 @@ order: 0
 */
 
 :root {
-  /* LAYOUT 
-  *
-  *     see 1-nucleus/_container/_container.css
-  */
+  /* LAYOUT */
   --max-site-width: 1600px;
   --site-spacing-left: clamp(1rem, 5vw, 8rem);
   --site-spacing-right: clamp(1rem, 5vw, 8rem);
 
+  /* FRONT */
+  --font-primary: sans-serif;
+
   /* COLORS */
+  /* primary */
   --color-primary: hsl(0, 0%, 50%);
-  --color-secondary: hsl(0, 0%, 75%);
-  --color-accent: hsl(20, 10%, 50%);
-  --color-text: hsl(0, 0%, 20%);
-  --color-body-bg: hsl(0, 0%, 100%);
+  --color-primary--lighten: hsl(0, 0%, 75%);
+  --color-primary--light: hsl(0, 0%, 99%);
+  --color-primary--darken: hsl(0, 0%, 35%);
+  --color-primary--dark: hsl(0, 0%, 1%);
 }
