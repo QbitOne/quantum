@@ -191,6 +191,11 @@ require_once QUANTUM_THEME_DIR . 'inc/core/class-qt-enqueue-scripts.php';
 require_once QUANTUM_THEME_DIR . 'inc/core/class-qt-after-setup-theme.php';
 
 /**
+ * Author Base Controller
+ */
+require_once QUANTUM_THEME_DIR . 'inc/core/class-qt-author-base-controller.php';
+
+/**
  * WordPress Adminbar functions
  */
 require_once QUANTUM_THEME_DIR . 'inc/core/class-qt-adminbar.php';
