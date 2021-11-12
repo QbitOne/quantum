@@ -12,46 +12,62 @@ if (!function_exists('quantum_posted_on')) :
     /**
      * Prints HTML with meta information for the current post-date/time.
      */
-    function quantum_posted_on()
+    function quantum_posted_on(): void
     {
-        $time_string = '<time class="entry-date published updated" datetime="%1$s">%2$s</time>';
-        if (get_the_time('U') !== get_the_modified_time('U')) {
-            $time_string = '<time class="entry-date published" datetime="%1$s">%2$s</time><time class="updated" datetime="%3$s">%4$s</time>';
-        }
+        $time_string = '<time class="entry-date published" datetime="%1$s">%2$s</time>';
 
         $time_string = sprintf(
             $time_string,
             esc_attr(get_the_date(DATE_W3C)),
             esc_html(get_the_date()),
-            esc_attr(get_the_modified_date(DATE_W3C)),
-            esc_html(get_the_modified_date())
         );
 
         $posted_on = sprintf(
             /* translators: %s: post date. */
             esc_html_x('Veröffentlicht am %s', 'post date', 'quantum'),
-            '<a href="' . esc_url(get_permalink()) . '" rel="bookmark">' . $time_string . '</a>'
+            // '<a href="' . esc_url(get_permalink()) . '" rel="bookmark">' . $time_string . '</a>'
+            $time_string
         );
 
-        echo '<span class="posted-on">' . $posted_on . '</span>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-
+        echo '<div class="posted-on">' . $posted_on . '</div>';
     }
 endif;
+
+function quantum_modified_on(): void
+{
+    if (get_the_time('U') !== get_the_modified_time('U')) {
+        $time_string = '<time class="entry-date updated" datetime="%1$s">%2$s</time>';
+
+        $time_string = sprintf(
+            $time_string,
+            esc_attr(get_the_modified_date(DATE_W3C)),
+            esc_html(get_the_modified_date()),
+        );
+
+        $modified_on = sprintf(
+            /* translators: %s: modified date. */
+            esc_html_x('Aktualisiert am %s', ',modified date', 'quantum'),
+            // '<a href="' . esc_url(get_permalink()) . '" rel="bookmark">' . $time_string . '</a>'
+            $time_string
+        );
+
+        echo '<div class="modified-on">' . $modified_on . '</div>';
+    }
+}
 
 if (!function_exists('quantum_posted_by')) :
     /**
      * Prints HTML with meta information for the current author.
      */
-    function quantum_posted_by()
+    function quantum_posted_by(): void
     {
         $byline = sprintf(
             /* translators: %s: post author. */
-            esc_html_x('von %s', 'post author', 'quantum'),
-            '<span class="author vcard"><a class="url fn n" href="' . esc_url(get_author_posts_url(get_the_author_meta('ID'))) . '">' . esc_html(get_the_author()) . '</a></span>'
+            esc_html_x('Von %s', 'post author', 'quantum'),
+            '<a href="' . esc_url(get_author_posts_url(get_the_author_meta('ID'))) . '">' . esc_html(get_the_author()) . '</a>',
         );
 
-        echo '<span class="byline"> ' . $byline . '</span>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-
+        echo '<span class="byline"> ' . $byline . '</span>';
     }
 endif;
 
@@ -132,14 +148,14 @@ if (!function_exists('quantum_post_thumbnail')) :
         if (is_singular()) :
 ?>
 
-<div class="post-thumbnail">
-    <?php the_post_thumbnail(); ?>
-</div><!-- .post-thumbnail -->
+            <div class="post-thumbnail">
+                <?php the_post_thumbnail(); ?>
+            </div><!-- .post-thumbnail -->
 
-<?php else : ?>
+        <?php else : ?>
 
-<a class="post-thumbnail" href="<?php the_permalink(); ?>" aria-hidden="true" tabindex="-1">
-    <?php
+            <a class="post-thumbnail" href="<?php the_permalink(); ?>" aria-hidden="true" tabindex="-1">
+                <?php
                 the_post_thumbnail(
                     'post-thumbnail',
                     array(
@@ -151,7 +167,7 @@ if (!function_exists('quantum_post_thumbnail')) :
                     )
                 );
                 ?>
-</a>
+            </a>
 
 <?php
         endif; // End is_singular().

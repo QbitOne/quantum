@@ -23,6 +23,7 @@
 			<div class="entry-meta">
 				<?php
 				quantum_posted_on();
+				quantum_modified_on();
 				quantum_posted_by();
 				?>
 			</div><!-- .entry-meta -->
