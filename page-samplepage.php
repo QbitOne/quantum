@@ -183,6 +183,16 @@ get_header();
 				'target' => '_blank',
 			]
 		) ?>
+		<h3>Example of a Download Button Link</h3>
+		<?php get_quantum_button(
+			'link',
+			[
+				'href' => 'https://qbitone.de/quantum.zip',
+				'class' => '',
+				'innerHTML' => 'MyDownloadLink',
+				'download' => true,
+			]
+		) ?>
 	</div>
 </div>
 </div>
