@@ -403,8 +403,9 @@ h6{
 }
 
 p{
-	margin-bottom:2.4rem;
-	max-width:75ch;
+  margin-top:0;
+  margin-bottom:2.4rem;
+  max-width:75ch;
 }
 
 a{
