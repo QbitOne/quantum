@@ -61,7 +61,7 @@ if (!function_exists('quantum_var_dump')) :
      */
     function quantum_var_dump($expression): void
     {
-        echo '<pre>' . var_dump($expression, true) . '</pre>';
+        echo '<pre>' . var_dump($expression) . '</pre>';
     }
 endif;
 
