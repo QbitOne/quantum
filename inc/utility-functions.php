@@ -79,6 +79,25 @@ if (!function_exists('quantum_placeholder_image')) :
 endif;
 
 
+if (!function_exists('get_quantum_button')) :
+    /**
+     * Get a button template.
+     * 
+     * Shortcut function to get a button via get_template_part
+     * function.
+     *
+     * @param string $name name of the specific button
+     * @param array $args further details/attributes of the button
+     * @return void
+     * @since 2.9.0
+     */
+    function get_quantum_button($name = 'link', $args = []): void
+    {
+        get_template_part('template-parts/button', $name, $args);
+    }
+endif;
+
+      
 if (!function_exists('get_quantum_svg')) :
     /**
      * Get a SVG as HTML.
