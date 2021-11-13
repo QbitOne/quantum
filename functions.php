@@ -186,7 +186,7 @@ require_once QUANTUM_THEME_DIR . 'inc/core/class-qt-update-checker.php';
 require_once QUANTUM_THEME_DIR . 'inc/core/class-qt-enqueue-scripts.php';
 
 require_once QUANTUM_THEME_DIR . 'inc/core/class-qt-customizer.php';
-new QT_Customizer_API();
+new QT_Customizer();
 
 /**
  * After setup theme initial setup

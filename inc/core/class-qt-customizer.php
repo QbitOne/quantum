@@ -4,7 +4,7 @@
  * Customizer API class.
  */
 
-class QT_Customizer_API
+class QT_Customizer
 {
     /**
      * Main panel name
