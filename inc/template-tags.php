@@ -67,7 +67,7 @@ if (!function_exists('quantum_posted_by')) :
             '<a href="' . esc_url(get_author_posts_url(get_the_author_meta('ID'))) . '" rel="author">' . esc_html(get_the_author()) . '</a>',
         );
 
-        echo '<span class="byline"> ' . $byline . '</span>';
+        echo '<div class="byline"> ' . $byline . '</div>';
     }
 endif;
 
@@ -79,12 +79,7 @@ if (!function_exists('quantum_entry_footer')) :
     {
         // Hide category and tag text for pages.
         if ('post' === get_post_type()) {
-            /* translators: used between list items, there is a space after the comma */
-            $categories_list = get_the_category_list(esc_html__(', ', 'quantum'));
-            if ($categories_list) {
-                /* translators: 1: list of categories. */
-                printf('<div class="cat-links">' . esc_html__('Veröffentlicht in %1$s', 'quantum') . '</div>', $categories_list);
-            }
+            quantum_categories();
 
             quantum_tags();
         }
@@ -113,26 +108,42 @@ if (!function_exists('quantum_entry_footer')) :
 endif;
 
 
-function quantum_hashtagging($tag_name): string
-{
-    return '#' . $tag_name;
-}
 
 
-function quantum_tags(): void
+function quantum_tags()
 {
     $tags = get_the_tags();
-    $links = [];
 
-    foreach ($tags as $tag) {
-        if (is_object($tag)) :
-            $links[] = '<a href="' . esc_url(get_term_link($tag)) . '" rel="tag">' . '#' . $tag->name . '</a>';
-        endif;
+    if (is_wp_error($tags)) {
+        return false;
     }
 
-    $links = implode(', ', $links);
-    printf('<div>' . esc_html__('Schlagwörter %1$s', 'quantum') . '</div>', $links);
+    if ($tags) :
+        $links = [];
+        foreach ($tags as $tag) {
+            if (is_wp_error($tag)) {
+                return false;
+            }
+
+            if (is_object($tag)) :
+                $links[] = '<a href="' . esc_url(get_term_link($tag)) . '" rel="tag">' . '#' . $tag->name . '</a>';
+            endif;
+        }
+        $links = implode(', ', $links);
+
+        printf('<div>' . esc_html__('Schlagwörter %1$s', 'quantum') . '</div>', $links);
+    endif;
     // quantum_print_r($tag_names);
+}
+
+function quantum_categories(): void
+{
+    /* translators: used between list items, there is a space after the comma */
+    $categories_list = get_the_category_list(', ');
+    if ($categories_list) {
+        /* translators: 1: list of categories. */
+        printf('<div class="cat-links">' . esc_html__('Veröffentlicht in %1$s', 'quantum') . '</div>', $categories_list);
+    }
 }
 
 
