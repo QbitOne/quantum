@@ -23,7 +23,9 @@
 			<div class="entry-meta">
 				<?php
 				quantum_posted_on();
-				quantum_modified_on();
+				if (get_theme_mod('qt-set-modified-on', false)) :
+					quantum_modified_on();
+				endif;
 				quantum_posted_by();
 				?>
 			</div><!-- .entry-meta -->
