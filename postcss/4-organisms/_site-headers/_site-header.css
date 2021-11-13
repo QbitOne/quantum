@@ -1,5 +1,5 @@
 .site-header {
-  background-color: var(--color-secondary);
+  background-color: var(--color-primary--lighten);
 
   &__inner {
     display: flex;

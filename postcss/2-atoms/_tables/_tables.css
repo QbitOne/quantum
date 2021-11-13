@@ -6,7 +6,7 @@ table {
 
   td,
   th {
-    border: 1px solid var(--color-text);
+    border: 1px solid var(--color-primary--dark);
     text-align: left;
     padding: 1rem;
   }
