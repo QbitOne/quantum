@@ -1,0 +1,19 @@
+/* Generate seperator | for footerbar_menu */
+#footerbar_menu {
+  li::after {
+    content: ' |';
+  }
+
+  li::before {
+    content: ' |';
+    opacity: 0;
+  }
+
+  li:first-child::before {
+    content: '';
+  }
+
+  li:last-child::after {
+    content: '';
+  }
+}
