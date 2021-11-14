@@ -79,9 +79,7 @@ if (!function_exists('quantum_entry_footer')) :
     {
         // Hide category and tag text for pages.
         if ('post' === get_post_type()) {
-            quantum_categories();
-
-            quantum_tags();
+            get_quantum_content_part('meta');
         }
 
         if (!is_single() && !post_password_required() && (comments_open() || get_comments_number())) {

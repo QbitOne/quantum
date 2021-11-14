@@ -17,19 +17,7 @@
 		else :
 			the_title('<h2 class="entry-title"><a href="' . esc_url(get_permalink()) . '" rel="bookmark">', '</a></h2>');
 		endif;
-
-		if ('post' === get_post_type()) :
 		?>
-			<div class="entry-meta">
-				<?php
-				quantum_posted_on();
-				if (get_theme_mod('qt-set-modified-on', false)) :
-					quantum_modified_on();
-				endif;
-				quantum_posted_by();
-				?>
-			</div><!-- .entry-meta -->
-		<?php endif; ?>
 	</header><!-- .entry-header -->
 
 	<?php quantum_post_thumbnail(); ?>

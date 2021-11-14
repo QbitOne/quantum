@@ -116,7 +116,7 @@ if (!function_exists('get_quantum_button')) :
     }
 endif;
 
-      
+
 if (!function_exists('get_quantum_svg')) :
     /**
      * Get a SVG as HTML.
@@ -142,3 +142,8 @@ if (!function_exists('get_quantum_svg')) :
         return file_get_contents($dir() . '/assets/svg/' . $name . '.svg');
     }
 endif;
+
+function get_quantum_content_part(string $name = null, array $args = []): void
+{
+    get_template_part('template-parts/content/content', $name, $args);
+}
