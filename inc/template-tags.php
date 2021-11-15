@@ -8,6 +8,8 @@
  * @package Quantum
  */
 
+if (!defined('ABSPATH')) exit; // Exit if accessed directly
+
 if (!function_exists('quantum_posted_on')) :
     /**
      * Prints HTML with meta information for the current post-date/time.
@@ -78,28 +80,28 @@ if (!function_exists('quantum_entry_footer')) :
     function quantum_entry_footer()
     {
         // Hide category and tag text for pages.
-        if ('post' === get_post_type()) {
+        if ('post' === get_post_type() && is_singular()) {
             get_quantum_content_part('meta');
         }
 
-        if (!is_single() && !post_password_required() && (comments_open() || get_comments_number())) {
-            echo '<span class="comments-link">';
-            comments_popup_link(
-                sprintf(
-                    wp_kses(
-                        /* translators: %s: post title */
-                        __('Schreibe einen Kommentar<span class="screen-reader-text"> in %s</span>', 'quantum'),
-                        array(
-                            'span' => array(
-                                'class' => array(),
-                            ),
-                        )
-                    ),
-                    wp_kses_post(get_the_title())
-                )
-            );
-            echo '</span>';
-        }
+        // if (!is_single() && !post_password_required() && (comments_open() || get_comments_number())) {
+        //     echo '<span class="comments-link">';
+        //     comments_popup_link(
+        //         sprintf(
+        //             wp_kses(
+        //                 /* translators: %s: post title */
+        //                 __('Schreibe einen Kommentar<span class="screen-reader-text"> in %s</span>', 'quantum'),
+        //                 array(
+        //                     'span' => array(
+        //                         'class' => array(),
+        //                     ),
+        //                 )
+        //             ),
+        //             wp_kses_post(get_the_title())
+        //         )
+        //     );
+        //     echo '</span>';
+        // }
 
         quantum_edit_post_link();
     }
