@@ -116,7 +116,7 @@ if (!function_exists('get_quantum_button')) :
     }
 endif;
 
-      
+
 if (!function_exists('get_quantum_svg')) :
     /**
      * Get a SVG as HTML.
@@ -140,5 +140,24 @@ if (!function_exists('get_quantum_svg')) :
         endif;
         $dir = 'get_' . $dir . '_directory';
         return file_get_contents($dir() . '/assets/svg/' . $name . '.svg');
+    }
+endif;
+
+
+if (!function_exists('get_quantum_internlink')) :
+    /**
+     * Get a intern URL of your site.
+     * 
+     * ### Example
+     * - Link to page mit slug 'myslug' under the domain 'mydomain.de'.
+     *   Use get_quantum_internlink('myslug') to get 'http(s)://mydomain.de/myslug'.
+     *
+     * @param string $slug The slug appended to the domain
+     * @return string The URL escaped home url link with slug appended 
+     * @since 2.9.2
+     */
+    function get_quantum_internlink(string $slug): string
+    {
+        return esc_url(home_url($slug));
     }
 endif;
