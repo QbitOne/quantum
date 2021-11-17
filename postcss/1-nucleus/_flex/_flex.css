@@ -12,6 +12,10 @@ section: Nucleus
     flex-wrap: nowrap;
   }
 
+  &.flex--nowrap {
+    flex-wrap: nowrap;
+  }
+
   &.flex--column {
     flex-direction: column;
   }
@@ -23,10 +27,10 @@ section: Nucleus
   &.justify--center {
     justify-content: center;
   }
-  &.justify--center {
+  &.justify--start {
     justify-content: flex-start;
   }
-  &.justify--center {
+  &.justify--end {
     justify-content: flex-end;
   }
   &.justify--between {
@@ -35,7 +39,7 @@ section: Nucleus
   &.justify--around {
     justify-content: space-around;
   }
-  &.justify--center {
+  &.justify--evenly {
     justify-content: space-evenly;
   }
 
@@ -46,13 +50,13 @@ section: Nucleus
   &.align--start {
     align-items: flex-start;
   }
-  &.align--start {
+  &.align--end {
     align-items: flex-end;
   }
-  &.align--start {
+  &.align--strech {
     align-items: strech;
   }
-  &.align--start {
+  &.align--baseline {
     align-items: baseline;
   }
 

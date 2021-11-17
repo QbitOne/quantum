@@ -270,6 +270,10 @@ body{
 }
   }
 
+.qu-flex.flex--nowrap{
+    flex-wrap:nowrap;
+  }
+
 .qu-flex.flex--column{
     flex-direction:column;
   }
@@ -282,11 +286,11 @@ body{
     justify-content:center;
   }
 
-.qu-flex.justify--center{
+.qu-flex.justify--start{
     justify-content:flex-start;
   }
 
-.qu-flex.justify--center{
+.qu-flex.justify--end{
     justify-content:flex-end;
   }
 
@@ -298,7 +302,7 @@ body{
     justify-content:space-around;
   }
 
-.qu-flex.justify--center{
+.qu-flex.justify--evenly{
     justify-content:space-evenly;
   }
 
@@ -310,15 +314,15 @@ body{
     align-items:flex-start;
   }
 
-.qu-flex.align--start{
+.qu-flex.align--end{
     align-items:flex-end;
   }
 
-.qu-flex.align--start{
+.qu-flex.align--strech{
     align-items:strech;
   }
 
-.qu-flex.align--start{
+.qu-flex.align--baseline{
     align-items:baseline;
   }
 
