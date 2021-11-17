@@ -15,25 +15,6 @@ if (!class_exists('QT_After_Setup_Theme')) :
      */
     class QT_After_Setup_Theme
     {
-        /**
-         * Instance
-         *
-         * @var $instance
-         */
-        private static $instance;
-
-        /**
-         * Initiator
-         *
-         * @return object
-         */
-        public static function get_instance()
-        {
-            if (!isset(self::$instance)) {
-                self::$instance = new self();
-            }
-            return self::$instance;
-        }
 
         /**
          * Constructor
@@ -110,8 +91,3 @@ if (!class_exists('QT_After_Setup_Theme')) :
         }
     }
 endif;
-
-/**
- * Kicking this off by calling 'get_instance()' method
- */
-QT_After_Setup_Theme::get_instance();
