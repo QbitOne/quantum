@@ -232,16 +232,4 @@ if (!class_exists('QT_Enqueue_Scripts')) :
             return array_keys($this->scripts);
         }
     }
-
-    $qt_enqueue_sripts = new QT_Enqueue_Scripts(QUANTUM_THEME_URI, 'qt', QUANTUM_THEME_VERSION);
-
-    $qt_enqueue_sripts->add_style('style');
-
-    /**
-     * Enquere siteNavigation.js
-     */
-    $qt_enqueue_sripts->add_script('siteNavigation');
-
-    $qt_enqueue_sripts->enqueue();
-
 endif;
