@@ -16,29 +16,34 @@ if (!defined('ABSPATH')) exit; // Exit if accessed directly
 
 	<header class="entry-header">
 
+		<?php quantum_post_thumbnail(); ?>
+
+		<?php
+		if (is_singular()) :
+			quantum_categories();
+		endif;
+		?>
+
+		<?php echo get_quantum_title(); ?>
+
 		<?php if (is_singular()) : ?>
+			<div>
+				<?php quantum_posted_by(); ?>
 
-			<h1 class="entry-title"> <?php the_title() ?> </h1>
+				<?php
 
-		<?php else : ?>
+				if (get_theme_mod('qt-set-modified-on', false)) :
+					quantum_modified_on();
+				else :
+					quantum_posted_on();
+				endif;
 
-			<h2 class="entry-title">
-
-				<a href="<?php echo esc_url(get_permalink()) ?>" rel="bookmark">
-
-					<?php the_title(); ?>
-
-				</a>
-
-			</h2>
-
+				?>
+			</div>
 		<?php endif ?>
 
+
 	</header><!-- .entry-header -->
-
-
-	<?php quantum_post_thumbnail(); ?>
-
 
 	<?php if (is_singular()) : ?>
 
