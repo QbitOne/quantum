@@ -189,6 +189,9 @@ new QT_Update_Checker();
 require_once QUANTUM_THEME_DIR . 'inc/classes/enqueue-scripts.class.php';
 require_once QUANTUM_THEME_DIR . 'inc/core/enqueue-scripts.php';
 
+require_once QUANTUM_THEME_DIR . 'inc/core/class-qt-customizer.php';
+new QT_Customizer();
+
 /**
  * Initialize various stuff after all themes are loaded.
  * 

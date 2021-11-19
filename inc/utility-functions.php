@@ -152,12 +152,27 @@ if (!function_exists('get_quantum_internlink')) :
      * - Link to page mit slug 'myslug' under the domain 'mydomain.de'.
      *   Use get_quantum_internlink('myslug') to get 'http(s)://mydomain.de/myslug'.
      *
-     * @param string $slug The slug appended to the domain
-     * @return string The URL escaped home url link with slug appended 
+     * @param string $slug The slug appended to the domain.
+     * @return string The URL escaped home url link with slug appended.
      * @since 2.9.2
      */
     function get_quantum_internlink(string $slug): string
     {
         return esc_url(home_url($slug));
+    }
+endif;
+
+if (!function_exists('get_quantum_content_part')) :
+    /**
+     * Alias shorcut function for get_template_part for content parts.
+     *
+     * @param string|null $name The name of the particular template file.
+     * @param array $args Optional. Additional arguments passed to the template. Default empty array.
+     * @return void|false Void on success, false if the template does not exist.
+     * @since 2.10.0
+     */
+    function get_quantum_content_part(string $name = null, array $args = []): void
+    {
+        get_template_part('template-parts/content/content', $name, $args);
     }
 endif;

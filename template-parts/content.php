@@ -8,56 +8,83 @@
  * @package Quantum
  */
 
+if (!defined('ABSPATH')) exit; // Exit if accessed directly
+
 ?>
-<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+
+<article id="post-<?php the_ID(); ?>" <?php post_class((!is_singular() ? 'qu-flex-grid__item' : '')); ?>>
+
 	<header class="entry-header">
+
+		<?php quantum_post_thumbnail(); ?>
+
 		<?php
 		if (is_singular()) :
-			the_title('<h1 class="entry-title">', '</h1>');
-		else :
-			the_title('<h2 class="entry-title"><a href="' . esc_url(get_permalink()) . '" rel="bookmark">', '</a></h2>');
+			quantum_categories();
 		endif;
-
-		if ('post' === get_post_type()) :
 		?>
-			<div class="entry-meta">
+
+		<?php echo get_quantum_title(); ?>
+
+		<?php if (is_singular()) : ?>
+			<div>
+				<?php quantum_posted_by(); ?>
+
 				<?php
-				quantum_posted_on();
-				quantum_posted_by();
+
+				if (get_theme_mod('qt-set-modified-on', false)) :
+					quantum_modified_on();
+				else :
+					quantum_posted_on();
+				endif;
+
 				?>
-			</div><!-- .entry-meta -->
-		<?php endif; ?>
+			</div>
+		<?php endif ?>
+
+
 	</header><!-- .entry-header -->
 
-	<?php quantum_post_thumbnail(); ?>
+	<?php if (is_singular()) : ?>
 
-	<div class="entry-content">
-		<?php
-		the_content(
-			sprintf(
-				wp_kses(
-					/* translators: %s: Name of current post. Only visible to screen readers */
-					__('Continue reading<span class="screen-reader-text"> "%s"</span>', 'quantum'),
-					array(
-						'span' => array(
-							'class' => array(),
-						),
-					)
-				),
-				wp_kses_post(get_the_title())
-			)
-		);
+		<div class="entry-content">
 
-		wp_link_pages(
-			array(
-				'before' => '<div class="page-links">' . esc_html__('Pages:', 'quantum'),
-				'after'  => '</div>',
-			)
-		);
-		?>
-	</div><!-- .entry-content -->
+			<?php the_content() ?>
+
+			<?php
+			wp_link_pages(
+				[
+					'before' => '<div class="page-links">' . esc_html__('Pages:', 'quantum'),
+					'after'  => '</div>',
+				]
+			);
+			?>
+
+		</div><!-- .entry-content -->
+
+	<?php endif ?>
+
+
+	<?php if (!is_singular() && has_excerpt()) :  ?>
+
+		<div class="entry-excerpt">
+
+			<?php the_excerpt(); ?>
+
+		</div><!-- .entry-excerpt -->
+
+	<?php endif ?>
+
+
+	<?php if (is_singular()) : ?>
+		<hr>
+	<?php endif; ?>
+
 
 	<footer class="entry-footer">
+
 		<?php quantum_entry_footer(); ?>
+
 	</footer><!-- .entry-footer -->
+
 </article><!-- #post-<?php the_ID(); ?> -->
