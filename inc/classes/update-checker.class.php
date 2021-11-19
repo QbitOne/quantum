@@ -15,13 +15,6 @@ if (!class_exists('QT_Update_Checker')) :
     class QT_Update_Checker
     {
         /**
-         * Instance
-         *
-         * @var $instance
-         */
-        private static $instance;
-
-        /**
          * Vendor file for update checker
          *
          * @var string
@@ -34,19 +27,6 @@ if (!class_exists('QT_Update_Checker')) :
          * @var string
          */
         private static $remote_path = 'https://qbitone.de/quantum.json';
-
-        /**
-         * Initiator
-         *
-         * @return object
-         */
-        public static function get_instance()
-        {
-            if (!isset(self::$instance)) {
-                self::$instance = new self();
-            }
-            return self::$instance;
-        }
 
         /**
          * Constructor
@@ -98,8 +78,3 @@ if (!class_exists('QT_Update_Checker')) :
         }
     }
 endif;
-
-/**
- * Kicking this off by calling 'get_instance()' method
- */
-QT_Update_Checker::get_instance();
