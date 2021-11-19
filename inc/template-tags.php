@@ -8,50 +8,73 @@
  * @package Quantum
  */
 
+if (!defined('ABSPATH')) exit; // Exit if accessed directly
+
 if (!function_exists('quantum_posted_on')) :
     /**
      * Prints HTML with meta information for the current post-date/time.
      */
-    function quantum_posted_on()
+    function quantum_posted_on(): void
     {
-        $time_string = '<time class="entry-date published updated" datetime="%1$s">%2$s</time>';
-        if (get_the_time('U') !== get_the_modified_time('U')) {
-            $time_string = '<time class="entry-date published" datetime="%1$s">%2$s</time><time class="updated" datetime="%3$s">%4$s</time>';
-        }
+        $time_string = '<time class="entry-date published" datetime="%1$s">%2$s</time>';
 
         $time_string = sprintf(
             $time_string,
             esc_attr(get_the_date(DATE_W3C)),
             esc_html(get_the_date()),
-            esc_attr(get_the_modified_date(DATE_W3C)),
-            esc_html(get_the_modified_date())
         );
 
-        $posted_on = sprintf(
-            /* translators: %s: post date. */
-            esc_html_x('Veröffentlicht am %s', 'post date', 'quantum'),
-            '<a href="' . esc_url(get_permalink()) . '" rel="bookmark">' . $time_string . '</a>'
-        );
+        // $posted_on = sprintf(
+        /* translators: %s: post date. */
+        // esc_html_x('Veröffentlicht am %s', 'post date', 'quantum'),
+        // '<a href="' . esc_url(get_permalink()) . '" rel="bookmark">' . $time_string . '</a>'
+        // $time_string
+        // );
+        $posted_on = $time_string;
 
-        echo '<span class="posted-on">' . $posted_on . '</span>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-
+        echo '<div class="posted-on">' . $posted_on . '</div>';
     }
 endif;
+
+function quantum_modified_on(): void
+{
+    if (get_the_time('U') !== get_the_modified_time('U')) :
+        $time_string = '<time class="entry-date updated" datetime="%1$s">%2$s</time>';
+
+        $time_string = sprintf(
+            $time_string,
+            esc_attr(get_the_modified_date(DATE_W3C)),
+            esc_html(get_the_modified_date()),
+        );
+
+        $modified_on = sprintf(
+            /* translators: %s: modified date. */
+            esc_html_x('Aktualisiert am %s', ',modified date', 'quantum'),
+            // '<a href="' . esc_url(get_permalink()) . '" rel="bookmark">' . $time_string . '</a>'
+            $time_string
+        );
+
+        echo '<div class="modified-on">' . $modified_on . '</div>';
+
+    else :
+        quantum_posted_on();
+    endif;
+}
 
 if (!function_exists('quantum_posted_by')) :
     /**
      * Prints HTML with meta information for the current author.
      */
-    function quantum_posted_by()
+    function quantum_posted_by(): void
     {
-        $byline = sprintf(
-            /* translators: %s: post author. */
-            esc_html_x('von %s', 'post author', 'quantum'),
-            '<span class="author vcard"><a class="url fn n" href="' . esc_url(get_author_posts_url(get_the_author_meta('ID'))) . '">' . esc_html(get_the_author()) . '</a></span>'
-        );
+        // $byline = sprintf(
+        //     /* translators: %s: post author. */
+        //     esc_html_x('Von %s', 'post author', 'quantum'),
+        //     '<a href="' . esc_url(get_author_posts_url(get_the_author_meta('ID'))) . '" rel="author">' . esc_html(get_the_author()) . '</a>',
+        // );
+        $byline = '<a href="' . esc_url(get_author_posts_url(get_the_author_meta('ID'))) . '" rel="author">' . esc_html(get_the_author()) . '</a>';
 
-        echo '<span class="byline"> ' . $byline . '</span>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-
+        echo '<div class="byline"> ' . $byline . '</div>';
     }
 endif;
 
@@ -62,46 +85,93 @@ if (!function_exists('quantum_entry_footer')) :
     function quantum_entry_footer()
     {
         // Hide category and tag text for pages.
-        if ('post' === get_post_type()) {
-            /* translators: used between list items, there is a space after the comma */
-            $categories_list = get_the_category_list(esc_html__(', ', 'quantum'));
-            if ($categories_list) {
-                /* translators: 1: list of categories. */
-                printf('<span class="cat-links">' . esc_html__('Veröffentlicht in %1$s', 'quantum') . '</span>', $categories_list); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-            }
-
-            /* translators: used between list items, there is a space after the comma */
-            $tags_list = get_the_tag_list('', esc_html_x(', ', 'list item separator', 'quantum'));
-            if ($tags_list) {
-                /* translators: 1: list of tags. */
-                printf('<span class="tags-links">' . esc_html__('Tagged %1$s', 'quantum') . '</span>', $tags_list); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-            }
+        if ('post' === get_post_type() && is_singular()) {
+            quantum_tags();
         }
 
-        if (!is_single() && !post_password_required() && (comments_open() || get_comments_number())) {
-            echo '<span class="comments-link">';
-            comments_popup_link(
-                sprintf(
-                    wp_kses(
-                        /* translators: %s: post title */
-                        __('Schreibe einen Kommentar<span class="screen-reader-text"> in %s</span>', 'quantum'),
-                        array(
-                            'span' => array(
-                                'class' => array(),
-                            ),
-                        )
-                    ),
-                    wp_kses_post(get_the_title())
-                )
-            );
-            echo '</span>';
-        }
+        // if (!is_single() && !post_password_required() && (comments_open() || get_comments_number())) {
+        //     echo '<span class="comments-link">';
+        //     comments_popup_link(
+        //         sprintf(
+        //             wp_kses(
+        //                 /* translators: %s: post title */
+        //                 __('Schreibe einen Kommentar<span class="screen-reader-text"> in %s</span>', 'quantum'),
+        //                 array(
+        //                     'span' => array(
+        //                         'class' => array(),
+        //                     ),
+        //                 )
+        //             ),
+        //             wp_kses_post(get_the_title())
+        //         )
+        //     );
+        //     echo '</span>';
+        // }
 
+        quantum_edit_post_link();
+    }
+endif;
+
+
+
+
+function quantum_tags()
+{
+    $tags = get_the_tags();
+
+    if (is_wp_error($tags)) {
+        return false;
+    }
+
+    if ($tags) :
+        $links = [];
+        foreach ($tags as $tag) {
+            if (is_wp_error($tag)) {
+                return false;
+            }
+
+            if (is_object($tag)) :
+                $links[] = '<a href="' . esc_url(get_term_link($tag)) . '" rel="tag">' . '#' . $tag->name . '</a>';
+            endif;
+        }
+        $links = implode(' ', $links);
+
+        printf('<div>' . esc_html__('%1$s', 'quantum') . '</div>', $links);
+    endif;
+    // quantum_print_r($tag_names);
+}
+
+function quantum_categories(): void
+{
+    /* translators: used between list items, there is a space after the comma */
+    // $categories_list = get_the_category_list(', ');
+    $categories_list = get_the_category_list(' ');
+    // if ($categories_list) {
+    /* translators: 1: list of categories. */
+    // printf('<div class="cat-links">' . esc_html__('Veröffentlicht in %1$s', 'quantum') . '</div>', $categories_list);
+    // }
+    if ($categories_list) {
+        echo '<div class="cat-links">' . $categories_list . '</div>';
+    }
+}
+
+
+
+
+if (!function_exists('quantum_edit_post_link')) :
+    /**
+     * Displays the edit post link for post.
+     *
+     * @return void
+     * @since 2.10.0
+     */
+    function quantum_edit_post_link(): void
+    {
         edit_post_link(
             sprintf(
                 wp_kses(
                     /* translators: %s: Name of current post. Only visible to screen readers */
-                    __('Bearbeiten <span class="screen-reader-text">%s</span>', 'quantum'),
+                    __('Bearbeiten <span class="screen-reader-text">von %s</span>', 'quantum'),
                     array(
                         'span' => array(
                             'class' => array(),
@@ -110,11 +180,12 @@ if (!function_exists('quantum_entry_footer')) :
                 ),
                 wp_kses_post(get_the_title())
             ),
-            '<span class="edit-link">',
-            '</span>'
+            '<div class="edit-link">',
+            '</div>'
         );
     }
 endif;
+
 
 if (!function_exists('quantum_post_thumbnail')) :
     /**
@@ -132,14 +203,14 @@ if (!function_exists('quantum_post_thumbnail')) :
         if (is_singular()) :
 ?>
 
-<div class="post-thumbnail">
-    <?php the_post_thumbnail(); ?>
-</div><!-- .post-thumbnail -->
+            <div class="post-thumbnail">
+                <?php the_post_thumbnail(); ?>
+            </div><!-- .post-thumbnail -->
 
-<?php else : ?>
+        <?php else : ?>
 
-<a class="post-thumbnail" href="<?php the_permalink(); ?>" aria-hidden="true" tabindex="-1">
-    <?php
+            <a class="post-thumbnail" href="<?php esc_url(the_permalink()); ?>" aria-hidden="true" tabindex="-1">
+                <?php
                 the_post_thumbnail(
                     'post-thumbnail',
                     array(
@@ -151,9 +222,33 @@ if (!function_exists('quantum_post_thumbnail')) :
                     )
                 );
                 ?>
-</a>
+            </a>
 
 <?php
         endif; // End is_singular().
+    }
+endif;
+
+
+if (!function_exists('get_quantum_title')) :
+    /**
+     * Undocumented function
+     *
+     * @return string
+     */
+    function get_quantum_title(): string
+    {
+        $html = '';
+
+        if (is_singular()) :
+            $html = '<h1 class="entry-title">' . get_the_title() . '</h1>';
+        else :
+            $html = '<h2 class="entry-title">';
+            $html .= '<a href="' . esc_url(get_permalink()) . '" rel="bookmark">';
+            $html .= get_the_title();
+            $html .= '</a>';
+            $html .= '</h2>';
+        endif;
+        return $html;
     }
 endif;

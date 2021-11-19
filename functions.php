@@ -11,7 +11,7 @@
 if (!defined('ABSPATH')) exit; // Exit if accessed directly
 
 
-define('QUANTUM_THEME_VERSION', '2.8.1');
+define('QUANTUM_THEME_VERSION', '2.9.3');
 define('QUANTUM_THEME_SETTINGS', 'quantum-settings');
 define('QUANTUM_THEME_DIR', trailingslashit(get_template_directory()));
 define('QUANTUM_THEME_URI', trailingslashit(esc_url(get_template_directory_uri())));
@@ -184,6 +184,9 @@ require_once QUANTUM_THEME_DIR . 'inc/core/class-qt-update-checker.php';
  * Enqueues scripts (css/js) into the theme
  */
 require_once QUANTUM_THEME_DIR . 'inc/core/class-qt-enqueue-scripts.php';
+
+require_once QUANTUM_THEME_DIR . 'inc/core/class-qt-customizer.php';
+new QT_Customizer();
 
 /**
  * After setup theme initial setup
