@@ -21,7 +21,7 @@ get_header();
         ?>
     </header><!-- .page-header -->
 
-    <div class="qu-flex qu-flex-gri cols-3">
+    <div class="qu-flex qu-flex-grid cols-3">
 
     <?php
     /* Start the Loop */
