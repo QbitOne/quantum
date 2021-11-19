@@ -175,11 +175,13 @@ require_once QUANTUM_THEME_DIR . 'inc/core/helper.php';
  */
 require_once QUANTUM_THEME_DIR . 'inc/utility-functions.php';
 
+
 /**
  * Update Checker for the theme
  */
 require_once QUANTUM_THEME_DIR . 'inc/classes/update-checker.class.php';
 new QT_Update_Checker();
+
 
 /**
  * Enqueue scripts into the theme.
@@ -189,8 +191,15 @@ new QT_Update_Checker();
 require_once QUANTUM_THEME_DIR . 'inc/classes/enqueue-scripts.class.php';
 require_once QUANTUM_THEME_DIR . 'inc/core/enqueue-scripts.php';
 
-require_once QUANTUM_THEME_DIR . 'inc/core/class-qt-customizer.php';
+
+/**
+ * Initializes Quantum customizer settings.
+ * 
+ * @since 2.10.0
+ */
+require_once QUANTUM_THEME_DIR . 'inc/classes/customizer.class.php';
 new QT_Customizer();
+
 
 /**
  * Initialize various stuff after all themes are loaded.
@@ -200,7 +209,17 @@ new QT_Customizer();
 require_once QUANTUM_THEME_DIR . 'inc/classes/after-setup-theme.class.php';
 new QT_After_Setup_Theme();
 
+
 /**
+ * Author Base Controller.
+ * 
+ * @since 2.10.0
+ */
+require_once QUANTUM_THEME_DIR . 'inc/classes/author-base-controller.class.php';
+
+
+/**
+ * WordPress Adminbar functions.
  * Initalize Quantum Admin Bar features.
  * 
  * @since 2.10.0
