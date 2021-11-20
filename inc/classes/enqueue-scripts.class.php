@@ -57,6 +57,56 @@ if (!class_exists('QT_Enqueue_Scripts')) :
             $this->styles[$style['handle']] = $style;
         }
 
+        /**
+         * Add a stylesheet.
+         *
+         * @param string $filename
+         * @param string $src
+         * @param boolean $minified
+         * @param array $deps
+         * @param boolean|string $ver
+         * @param string $media
+         * @param array $args Arguments like 'login' to add stylesheet on login page.
+         * @return void
+         * @since 2.10.0
+         */
+        public function add_style2($filename, $src = '', $minified = true, $args = [], $deps = [], $ver = false, $media = 'all'): void
+        {
+            $style = [];
+
+            $handle = $filename;
+            $filename .= ($minified ? '.min.css' : '.css');
+
+            if (empty($src)) :
+                $src = 'assets/css/' . ($minified ? 'minified/' : 'unminified/');
+            endif;
+
+            $style['handle'] = $this->prepared_handle($handle);
+            $style['src'] = $this->uri . $src . $filename;
+            $style['deps'] = $deps;
+            $style['ver'] = ($ver ? $ver : $this->version);
+            $style['media'] = $media;
+
+            if (in_array('login', $args)) :
+                $this->styles_login[] = $style;
+            else :
+                $this->styles[] = $style;
+            endif;
+        }
+
+        public function enqueue_styles(): void
+        {
+            foreach ($this->styles as $style) {
+                wp_enqueue_style(
+                    $style['handle'],
+                    $style['src'],
+                    $style['deps'],
+                    $style['ver'],
+                    $style['media'],
+                );
+            }
+        }
+
         public function add_login_style(string $filename, string $src = 'assets/css/', array $deps = array(), bool $min = true): void
         {
             $style = [];
@@ -96,32 +146,21 @@ if (!class_exists('QT_Enqueue_Scripts')) :
 
 
         /**
-         * Postfix the handle
+         * Postfix the handle.
          * 
          * Example
          * -------
          * Handle is given by 'myHandle'.
-         * Return value is then 'qt-myHandle'.
+         * Return value is then 'qt-myHandle' if
+         * prefix is given by 'qt'.
          *
-         * @param string $handle
+         * @param string $handle The name for the handle
          * @return string
+         * @since 2.10.0
          */
         private function prepared_handle($handle): string
         {
             return $this->handle_prefix . '-' . $handle;
-        }
-
-        public function enqueue_styles(): void
-        {
-            foreach ($this->styles as $style) {
-                wp_enqueue_style(
-                    $style['handle'],
-                    $style['src'],
-                    $style['deps'],
-                    $style['ver'],
-                    'all'
-                );
-            }
         }
 
         public function enqueue_scripts(): void
