@@ -36,27 +36,6 @@ if (!class_exists('QT_Enqueue_Scripts')) :
             add_filter('script_loader_tag', [$this, 'filter_script_loader_tag'], 10, 3);
         }
 
-
-
-
-        public function add_style(string $filename, string $src = 'assets/css/', array $deps = array(), bool $min = true): void
-        {
-            $style = [];
-
-            $style['handle'] = $this->prepared_handle($filename);
-
-            $src .= ($min ? 'minified/' : 'unminified/');
-            $filename_postfix = ($min ? '.min.css' : '.css');
-            $filename .= $filename_postfix;
-            $style['src'] = $this->uri . $src . $filename;
-
-            $style['deps'] = $deps;
-
-            $style['ver'] = $this->version;
-
-            $this->styles[$style['handle']] = $style;
-        }
-
         /**
          * Add a stylesheet.
          *
@@ -70,7 +49,7 @@ if (!class_exists('QT_Enqueue_Scripts')) :
          * @return void
          * @since 2.10.0
          */
-        public function add_style2($filename, $src = '', $minified = true, $args = [], $deps = [], $ver = false, $media = 'all'): void
+        public function add_style($filename, $src = '', $minified = true, $args = [], $deps = [], $ver = false, $media = 'all'): void
         {
             $style = [];
 
