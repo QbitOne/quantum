@@ -27,7 +27,7 @@ if (!class_exists('QT_Enqueue_Scripts')) :
         /**
          * The handle prefix.
          * 
-         * For Example 'qt'.
+         * For Example ``qt``.
          *
          * @var string
          * @since 2.10.0
@@ -75,7 +75,7 @@ if (!class_exists('QT_Enqueue_Scripts')) :
         /**
          * Defer scripts container.
          * 
-         * Holds all scripts that will be loaded with 'defer'.
+         * Holds all scripts that will be loaded with ``defer``.
          *
          * @var array
          * @since 2.10.0
@@ -115,13 +115,15 @@ if (!class_exists('QT_Enqueue_Scripts')) :
         /**
          * Add a stylesheet.
          *
-         * @param string $filename
-         * @param string $src
-         * @param boolean $minified
-         * @param array $deps
-         * @param boolean|string $ver
-         * @param string $media
-         * @param array $args Arguments like 'login' to add stylesheet on login page.
+         * @param string $filename The filename of the stylesheet. Is also used as handle.
+         * @param string $src 
+         *  The source path to the file. Defaults to ``assets/css/``.
+         *  If a source is given, the minified contional check to ``(un)minified directory`` is overwritten.
+         * @param boolean $minified Checks if file is a ``.min`` file or not.
+         * @param array $args Arguments like ``login`` to add stylesheet on login page.
+         * @param array $deps Any dependencies, see ``wp_enqueue_styles()``.
+         * @param boolean|string $ver The version of the file.
+         * @param string $media The css media attribute.
          * @return void
          * @since 2.10.0
          */
@@ -151,15 +153,17 @@ if (!class_exists('QT_Enqueue_Scripts')) :
         }
 
         /**
-         * Add script.
+         * Add a script.
          *
-         * @param string $filename
+         * @param string $filename The filename of the script. Is also used as handle.
          * @param string $src
-         * @param boolean $minified
-         * @param array $args
-         * @param array $deps
-         * @param boolean|string $ver
-         * @param boolean $in_footer
+         *  The source path to the file. Defaults to ``assets/js/``.
+         *  If a source is given, the minified contional check to ``(un)minified directory`` is overwritten.
+         * @param boolean $minified Checks if file is a ``.min`` file or not.
+         * @param array $args Arguments like ``defer`` to load script with defer attribute.
+         * @param array $deps Any dependencies, see ``wp_enqueue_styles()``.
+         * @param boolean|string $ver The version of the file.
+         * @param boolean $in_footer If the script should be loaded in the footer.
          * @return void
          * @since 2.10.0
          */
@@ -191,9 +195,9 @@ if (!class_exists('QT_Enqueue_Scripts')) :
          * 
          * Example
          * -------
-         * Handle is given by 'myHandle'.
-         * Return value is then 'qt-myHandle' if
-         * prefix is given by 'qt'.
+         * Handle is given by ``myHandle``.
+         * Return value is then ``qt-myHandle`` if
+         * prefix is given by ``qt``.
          *
          * @param string $handle The name for the handle
          * @return string
@@ -267,7 +271,7 @@ if (!class_exists('QT_Enqueue_Scripts')) :
                     $style['src'],
                     $style['deps'],
                     $style['ver'],
-                    'all'
+                    $style['media']
                 );
             }
         }
