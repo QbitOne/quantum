@@ -14,7 +14,7 @@ if (!defined('ABSPATH')) exit; // Exit if accessed directly
 
 <article id="post-<?php the_ID(); ?>" <?php post_class((!is_singular() ? 'qu-flex-grid__item' : '')); ?>>
 
-	<header class="entry-header">
+	<header class="post-header">
 
 		<?php quantum_post_thumbnail(); ?>
 
@@ -27,7 +27,7 @@ if (!defined('ABSPATH')) exit; // Exit if accessed directly
 		<?php echo get_quantum_title(); ?>
 
 		<?php if (is_singular()) : ?>
-			<div>
+			<div class="post-meta qu-flex justify--between">
 				<?php quantum_posted_by(); ?>
 
 				<?php
@@ -43,11 +43,11 @@ if (!defined('ABSPATH')) exit; // Exit if accessed directly
 		<?php endif ?>
 
 
-	</header><!-- .entry-header -->
+	</header><!-- .post-header -->
 
 	<?php if (is_singular()) : ?>
 
-		<div class="entry-content">
+		<div class="post-content">
 
 			<?php the_content() ?>
 
@@ -60,18 +60,18 @@ if (!defined('ABSPATH')) exit; // Exit if accessed directly
 			);
 			?>
 
-		</div><!-- .entry-content -->
+		</div><!-- .post-content -->
 
 	<?php endif ?>
 
 
 	<?php if (!is_singular() && has_excerpt()) :  ?>
 
-		<div class="entry-excerpt">
+		<div class="post-excerpt">
 
 			<?php the_excerpt(); ?>
 
-		</div><!-- .entry-excerpt -->
+		</div><!-- .post-excerpt -->
 
 	<?php endif ?>
 
@@ -81,10 +81,10 @@ if (!defined('ABSPATH')) exit; // Exit if accessed directly
 	<?php endif; ?>
 
 
-	<footer class="entry-footer">
+	<footer class="post-footer">
 
 		<?php quantum_entry_footer(); ?>
 
-	</footer><!-- .entry-footer -->
+	</footer><!-- .post-footer -->
 
 </article><!-- #post-<?php the_ID(); ?> -->
