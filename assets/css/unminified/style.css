@@ -379,6 +379,7 @@ h4,
 h5,
 h6{
   margin:0;
+  line-height:1.2;
   font-weight:300;
 }
 
@@ -408,7 +409,7 @@ h6{
 
 p{
   margin-top:0;
-  margin-bottom:2.4rem;
+  margin-bottom:2rem;
   max-width:75ch;
 }
 
@@ -600,6 +601,43 @@ form p{
     margin-bottom:1rem;
   }
 
+body.single .post-header{
+  display:grid;
+  margin-bottom:3rem;
+}
+
+body.single .post-header .post-thumbnail{
+    margin-bottom:1rem;
+  }
+
+body.single .post-header .post-cat{
+    margin-bottom:2rem;
+  }
+
+body.single .post-header .post-cat a{
+      padding:1rem 1.6rem;
+      background:var(--color-primary--lighten);
+    }
+
+body.single .post-header .post-title{
+    font-weight:700;
+    margin-bottom:0.5rem;
+  }
+
+main.site-main .posts article .post-thumbnail{
+    margin-bottom:2rem;
+  }
+
+main.site-main .posts article .post-title{
+    margin-bottom:1rem;
+    font-size:clamp(1.8rem, 2vw, 2.2rem);
+    font-weight:700;
+  }
+
+main.site-main .posts article .post-thumbnail{
+    margin-bottom:1rem;
+  }
+
 .site-header{
   background-color:var(--color-primary--lighten);
 }
@@ -705,6 +743,11 @@ form p{
       visibility:visible;
       transition:visibility 800ms ease-in-out 100ms;
     }
+
+body.single .site-main article{
+  max-width:75ch;
+  padding-right:5%;
+}
 
 .site-footer{
   padding:3.2rem 0;

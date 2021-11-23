@@ -31,10 +31,13 @@ section: Einleitung
 
 /* MOLECULES */
 @import '3-molecules/_forms/_forms';
+@import '3-molecules/_single-post/_single-post-header';
+@import '3-molecules/_post-teaser/_post-teaser';
 
 /* ORGANISMS */
 @import '4-organisms/_site-headers/_site-header';
 @import '4-organisms/_site-headers/_site-header-nav';
+@import '4-organisms/_single-post/_single-post-article';
 @import '4-organisms/_site-footers/_site-footer';
 @import '4-organisms/_site-footers/_footerbar/_footerbar-menu';
 @import '4-organisms/_site-footers/_footerbar/_social';
