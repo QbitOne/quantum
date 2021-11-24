@@ -1,0 +1,13 @@
+main.site-main .posts article {
+  .post-thumbnail {
+    margin-bottom: 2rem;
+  }
+  .post-title {
+    margin-bottom: 1rem;
+    font-size: clamp(1.8rem, 2vw, 2.2rem);
+    font-weight: 700;
+  }
+  .post-thumbnail {
+    margin-bottom: 1rem;
+  }
+}

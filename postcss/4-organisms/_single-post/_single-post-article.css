@@ -1,0 +1,4 @@
+body.single .site-main article {
+  max-width: 75ch;
+  padding-right: 5%;
+}

@@ -1,0 +1,30 @@
+/*---
+title: Post Header for Single
+section: Molecules
+
+*/
+
+body.single .post-header {
+  /* use grid to change order easily */
+  display: grid;
+  margin-bottom: 3rem;
+
+  .post-thumbnail {
+    margin-bottom: 1rem;
+  }
+
+  .post-cat {
+    margin-bottom: 2rem;
+
+    /* each category is generated as individual a element */
+    a {
+      padding: 1rem 1.6rem;
+      background: var(--color-primary--lighten);
+    }
+  }
+
+  .post-title {
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+  }
+}
