@@ -1,9 +1,9 @@
 /*---
 title: Flexbox Class
 section: Nucleus
-
 */
 
+/* Flexbox util class */
 .qu-flex {
   display: flex;
   flex-wrap: wrap;
@@ -12,10 +12,12 @@ section: Nucleus
     flex-wrap: nowrap;
   }
 
+  /* nowrap */
   &.flex--nowrap {
     flex-wrap: nowrap;
   }
 
+  /* direction */
   &.flex--column {
     flex-direction: column;
   }
@@ -60,47 +62,100 @@ section: Nucleus
     align-items: baseline;
   }
 
-  /**
-  * Create a flexbox based grid layout
-  *
-  */
+  /* Create a flexbox based grid layout */
   &-grid {
+    /* var for the gap between columns */
+    --qu-flex-grid-gap: 2.5%;
+
+    /* one column on default */
+    .qu-flex-grid__item {
+      width: 100%;
+    }
+
+    /* set the gridish layout on larger screens */
     @mixin atLarge {
+      /* this is important for the grid */
       flex-wrap: wrap;
     }
 
+    /* choose amount of columns */
     &.cols-2 {
       .qu-flex-grid__item {
         @mixin atLarge {
-          width: calc((100% / 2));
+          /* calc the given width of 100% minus the gap times the number of gaps and divide by number of columns */
+          width: calc((100% - var(--qu-flex-grid-gap)) / 2);
+
+          /* every item get a margin right */
+          margin-right: var(--qu-flex-grid-gap);
+
+          /* every last item in the row get no margin right */
+          &:nth-child(2n + 2) {
+            margin-right: 0;
+          }
         }
       }
     }
     &.cols-3 {
       .qu-flex-grid__item {
         @mixin atLarge {
-          width: calc((100% / 3));
+          /* calc the given width of 100% minus the gap times the number of gaps and divide by number of columns */
+          width: calc((100% - (var(--qu-flex-grid-gap) * 2)) / 3);
+
+          /* every item get a margin right */
+          margin-right: var(--qu-flex-grid-gap);
+
+          /* every last item in the row get no margin right */
+          &:nth-child(3n + 3) {
+            margin-right: 0;
+          }
         }
       }
     }
     &.cols-4 {
       .qu-flex-grid__item {
         @mixin atLarge {
-          width: calc((100% / 4));
+          /* calc the given width of 100% minus the gap times the number of gaps and divide by number of columns */
+          width: calc((100% - (var(--qu-flex-grid-gap) * 3)) / 4);
+
+          /* every item get a margin right */
+          margin-right: var(--qu-flex-grid-gap);
+
+          /* every last item in the row get no margin right */
+          &:nth-child(4n + 4) {
+            margin-right: 0;
+          }
         }
       }
     }
     &.cols-5 {
       .qu-flex-grid__item {
         @mixin atLarge {
-          width: calc((100% / 5));
+          /* calc the given width of 100% minus the gap times the number of gaps and divide by number of columns */
+          width: calc((100% - (var(--qu-flex-grid-gap) * 4)) / 5);
+
+          /* every item get a margin right */
+          margin-right: var(--qu-flex-grid-gap);
+
+          /* every last item in the row get no margin right */
+          &:nth-child(5n + 5) {
+            margin-right: 0;
+          }
         }
       }
     }
     &.cols-6 {
       .qu-flex-grid__item {
         @mixin atLarge {
-          width: calc((100% / 6));
+          /* calc the given width of 100% minus the gap times the number of gaps and divide by number of columns */
+          width: calc((100% - (var(--qu-flex-grid-gap) * 5)) / 6);
+
+          /* every item get a margin right */
+          margin-right: var(--qu-flex-grid-gap);
+
+          /* every last item in the row get no margin right */
+          &:nth-child(6n + 6) {
+            margin-right: 0;
+          }
         }
       }
     }
