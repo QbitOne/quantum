@@ -143,6 +143,11 @@ if (!class_exists('QT_Enqueue_Scripts')) :
             $this->$style_arr[$style['handle']] = $style;
         }
 
+        public function add_login_style($filename, $src = '', $minified = true, $args = ['login'], $deps = [], $ver = false, $media = 'all')
+        {
+            $this->add_style($filename, $src, $minified, $args, $deps, $ver, $media);
+        }
+
         /**
          * Add a script.
          *
