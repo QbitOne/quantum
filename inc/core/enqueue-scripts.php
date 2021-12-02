@@ -11,5 +11,3 @@ $QT_Enqueue_Scripts = new QT_Enqueue_Scripts(QUANTUM_THEME_URI, 'qt', QUANTUM_TH
 
 $QT_Enqueue_Scripts->add_style('style');
 $QT_Enqueue_Scripts->add_script('siteNavigation');
-
-$QT_Enqueue_Scripts->enqueue();

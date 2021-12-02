@@ -95,16 +95,7 @@ if (!class_exists('QT_Enqueue_Scripts')) :
             $this->uri = $uri;
             $this->handle_prefix = $handle_prefix;
             $this->version = $version;
-        }
 
-        /**
-         * Register all actions/filters.
-         *
-         * @return void
-         * @since 2.10.0
-         */
-        public function enqueue(): void
-        {
             add_action('wp_enqueue_scripts', [$this, 'enqueue_styles']);
             add_action('wp_enqueue_scripts', [$this, 'enqueue_scripts']);
             add_action('login_enqueue_scripts', [$this, 'login_enqueue_scripts']);
