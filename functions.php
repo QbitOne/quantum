@@ -11,7 +11,7 @@
 if (!defined('ABSPATH')) exit; // Exit if accessed directly
 
 
-define('QUANTUM_THEME_VERSION', '2.9.3');
+define('QUANTUM_THEME_VERSION', '2.10.0');
 define('QUANTUM_THEME_SETTINGS', 'quantum-settings');
 define('QUANTUM_THEME_DIR', trailingslashit(get_template_directory()));
 define('QUANTUM_THEME_URI', trailingslashit(esc_url(get_template_directory_uri())));
