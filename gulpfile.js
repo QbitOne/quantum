@@ -104,7 +104,7 @@ function compileJS() {
 function runServer() {
   watch('./postcss/**/*.css', series(style, compileCSS));
   browserSync.init({
-    proxy: 'http://localhost:8888/wp-local-quantum/',
+    proxy: 'https://quantum.local',
     browser: 'google chrome',
   });
 }

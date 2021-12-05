@@ -342,3 +342,9 @@ if (!function_exists('quantum_filter_body_class')) :
     add_filter('body_class', 'quantum_filter_body_class', 10, 2);
 endif;
 
+/**
+ * Filters the archive title prefix.
+ * 
+ * @since 2.10.0
+ */
+add_filter('get_the_archive_title_prefix', '__return_empty_string');

@@ -13,11 +13,6 @@ if (!class_exists('QT_AdminBar')) :
     {
         function __construct()
         {
-            // do nothing
-        }
-
-        public function init(): void
-        {
             add_action('admin_bar_menu', [$this, 'admin_bar_menu'], 999);
         }
 
@@ -132,7 +127,4 @@ if (!class_exists('QT_AdminBar')) :
             $wp_admin_bar->add_node($args);
         }
     }
-
-    $qt_adminbar = new QT_AdminBar();
-    $qt_adminbar->init();
 endif;
